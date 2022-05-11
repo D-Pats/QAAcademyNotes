@@ -1,0 +1,42 @@
+Course Summary
+	
+	Everything in Python is declared by assignment
+	
+	Python supports Dynamic typing
+	
+	Variables in Python are declared by assigning to them
+	
+	A variable cannot be used before it is assigned to
+	
+	The Python convention for vaiable names is all_lower_case_with_underscores
+	
+	Python supports three numeric types
+		integers
+		floating point numbers
+		complex numbers
+	
+	Python supports four tpes of sequences
+		strings
+		bytes
+		lists
+		tuples
+	
+	Python suports two mapping types
+		dictionaries
+		sets
+		
+	Dictionaries are mapped sets of values. Dictionary keys must be hashable
+	
+	Sets are similar to dictionaries but contain only keys. A set is a unique collection of values. There are two types - the normal set is dynamic (mutable), and a frozenset is fixed (immutable)
+	
+	In Python, modules must be imported before their contents may be accessed. Variables, Functions, and classes must be declared beefore they can be used
+	
+	There are 3 main IO methods in Python. Print, open, and input
+	
+	The conditional statement in Python is IF
+	
+	There are two kinds of loops in Print.
+		The WHILE loop is used for reading data, typically from a database or other data source, or when waiting for user input to end a loop
+		The FOR loop is used to iterate through a sequence of data
+	
+	Builtin functions can be applied to many different data types, but not all functions can be applied to all data types

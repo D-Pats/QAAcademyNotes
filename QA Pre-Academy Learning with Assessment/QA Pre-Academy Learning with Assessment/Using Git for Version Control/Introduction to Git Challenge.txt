@@ -1,0 +1,84 @@
+get git URL
+
+git remote add origin <git url>
+#adds remote repository origin
+
+git push origin master
+#pushes origin to master
+
+git checkout -b new_branch1
+#create new branch to correct spelling of hello world in server.js file 
+
+cat server.js
+
+echo "'use strict';
+
+const express = require('express');
+
+// Constants
+const PORT = 8001;
+const HOST = '0.0.0.0';
+
+// App
+const app = express();
+app.get('/', (req, res) => {
+  res.send('Hello, World');
+});
+
+app.listen(PORT, HOST);
+console.log();" > server.js
+#correct file spelling of hello world
+
+git config user.name "Devin"
+git config user.email "Devinpatel97@gmail.com"
+
+git add sever.js
+#add server.js changes to staging
+
+git commit -m "corrected spelling in server.js file"
+#commited changes with message
+
+git checkout master
+#selects master branch
+
+git merge new_branch1
+#merges branch into master
+
+git push origin master
+#pushes changes from master to remote repository origin
+
+git checkout -b new_branch2
+#create new branch to change port in server.js file
+
+echo "'use strict';
+
+const express = require('express');
+
+// Constants
+const PORT = 8000;
+const HOST = '0.0.0.0';
+
+// App
+const app = express();
+app.get('/', (req, res) => {
+  res.send('Hello, World');
+});
+
+app.listen(PORT, HOST);
+console.log();" > server.js
+#Changes port from 8001 to 8000
+
+git add sever.js
+#add server.js changes to staging
+
+git commit -m "changed port in server.js file"
+#commited changes with message
+
+git checkout master
+#selects master branch
+
+git merge new_branch2
+#merges branch into master
+
+git push origin master
+#pushes changes from master to remote repository origin

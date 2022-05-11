@@ -1,0 +1,90 @@
+JDK File Structure
+	The Java SE Development Kit (JDK) provides development environment
+		Tools and API's to build applications in Java
+	
+	bin
+		Executables
+	
+	conf
+		Configuration files intended to be edited by developers/users
+	
+	include
+		C-language header files (used by JNI)
+	
+	jmods
+		Compiled module definitions
+	
+	legal
+		Copyright and license files
+	
+	lib
+		Implementation of details of runtime (not intended for ecternal use)
+	
+
+Packages, JARs, Libraries, and Modules
+	Java packages are namespaces for classes
+		Packages are also the bases for the folder structure containing those classes
+	
+	Java Class Libraries (JCL) provide a set of publicly accessible resources
+		Often packaged into archive files or modules
+	
+	Java Archives are a standardised packaging format
+		Aggregates class files and resources into a single file
+	
+	Java Modules are a newer standardised packaging format that are more powerful than JAR files
+		Can indicate what packages they export as well as their dependencies
+	
+
+Setting up the Windows Environment
+	JAVA_HOME environment variable
+		Points to the installation directory of the JDK
+	
+	PATH environment variable
+		Should include JAVA_HOME \bin
+	
+	CLASSPATH setting
+		Indicates the locations of class files that might be loaded during execution
+			These are classes that are not part of the Java Platform
+			Classes that are packaged in modules are handled differently
+		
+
+The Development Process
+	Files with the .java extension contain source code
+		File name is case sensitive and must match class name
+	
+	Source code is compiled into byte code
+		Compiler reads .java file(s) and, if there are no compilation errors, writes .class file(s)
+		The file name remains the same, only the extension changes
+			PROMPT> javac <fileName>.java
+				Can place multiple classes into the same file but only one can be public
+				There can only be one package keyword and must be placed at the top of the file
+				Will result in having <fileName>.java and <fileName>.class
+	
+	The .class file is executable if it has an entry point (the main method)
+			PROMPT> java <fileName>
+
+
+Compiling Package Classes
+	Compiled class files are written to a folder path corresponding classes package
+		By default the folder structure starts from the current folder
+		Using the -d option changes the output directory
+			javac -d /output/dir <fileName>.java
+		
+	Rules for Java files and associated compiled classes
+		Each file may contain as many classes/interfaces you wish
+		Only one class may be public
+		If the source file contains a public class or public interface called X, the name of the file must be X.java
+		Each class or interface forms its own .class file
+
+
+Java Applications
+	A Java class that is runnable must have the following method
+		public static void main(String[] args){}
+	
+	To execute from the command line
+		PROMPT> java MyMainClass
+	
+	Java can programmatically access system resources through the appropriate API
+		void System.setIn(InputStream in);
+		void System.setOut(PrintStream out);
+		Properties System.getProperties();

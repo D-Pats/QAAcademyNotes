@@ -1,0 +1,11 @@
+Challenge_one
+    a = string.isalpha()
+    b = string.endswith("!")
+    c = string.replace(" ", "-")
+    details = (a,b,c)
+
+Challenge_two
+    the_list = the_list.append(item)
+
+Challenge_three
+    dictionary = {'list_length':len(the_list),'unique_items':len(set(the_list))}

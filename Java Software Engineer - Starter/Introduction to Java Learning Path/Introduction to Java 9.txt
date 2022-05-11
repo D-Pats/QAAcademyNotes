@@ -1,0 +1,178 @@
+Defining Java
+	Java is a platform not just a language
+
+	The Java language is part of the Java Platform
+		API to the platform is accessed using Java
+	
+	Java Platform can run on
+		Many operating systems (OS)
+		Cars
+		Cards
+		Rings
+		PDAs
+	
+	When running on any OS, you need a Virtual Machine
+
+
+Java Provides Several Platforms
+	Java Standard Edition (Java SE)
+		Used on desktop computers and high end small devices
+		Contains some APIs that are essential to enterprise applications (e.g., JDBC and RMI)
+	
+	Java Enterprise Edition (Java EE / Jakarta EE)
+		Used to build large scale multi-tier enterprise applications
+		Built on top of Java SE
+		Contains enterprise-specific APIs such as CDI and JAX-RS
+	
+	Java Micro Edition (Java ME)
+		Used on embedded systems
+		Includes subset of Java SE
+		Sub-divided into profiles
+	
+
+Java SE
+	The Java Platform, Standard Edition is at the core of Java technology
+	
+	Support for many areas of functionality
+		Essentials
+			Objects, strings, threads, numbers, input and output, data structures, system properties, date and time, and so on
+			
+		Networking
+			URLs, TCP (Transmission Control Protocol), UDP (User Datagram Protocol), sockets, and IP (Internet Protocol) addresses
+		
+		Internationalization
+			Help for writing programs that can be localized for users worldwide
+		
+	Security
+		Both low level and high level, including electronic signatures, key management, access control, and certificates
+		
+	Software components
+		JavaBeans can plug into existing component architectures
+	
+	Objext serialization
+		Allows lightweight persistence and communitcation via RMI
+		
+	Java Database Connectivity (JDBC)
+		Uniform access to a wide range of relational databases
+	
+	APIs for 2D/3D graphics, accessibility, servers, collaboration, telephony, speech, and more...
+
+
+Java SE Development Kit (JDK)
+	The JDK is a set of software and software tools, supplied by Oracle, that includes all the basic components needed to build Java applications and components
+	
+	The major components includes
+		The JavaCore API (Application Programming interface)
+		javac - 	Java compiler
+		java - 		Java bytecode interpreter (Java Virtual Machine)
+		javadoc - 	Generates documentation from source code
+		jar - 		Create and extract Java Archives
+		javap - 	Basic command line debugger
+	
+	
+Executing Programs
+	Java source code is contained in Java classes
+	Java classes are compiled into byte code
+	Byte code is run by the Java Virtual Machine (JVM)
+		JVM converts byte code to the underlying operating system's native code at runtime
+	
+
+Responsibilities of the JVM
+	Loading and use of classes
+		Class resolution, preparation, and initialization
+			Loading and verifying the byte code
+		Locating the entry point (main method) and starting execution at that point
+	
+	Garbage collection
+		Reclaiming memory that is not being used anymore
+	
+	Security
+		Protects against un-initialized memory, illegal type conversions, and the illegal stack operations
+	
+	Interfacing to native (platform-specific) code
+
+
+Java is Dynamic: The Runtime Process
+	Java Bytecode (HelloWorld.Class)
+		Includes symbolic reference information from the complier
+	
+	Java Class Loader (JVM)
+		Puts bytecode in memory
+	
+	Java Verifier (JVM)
+		Confirms tha tbytecodes are valid and follow security rules
+		
+	Java Interpreter (JVM)
+		Translates bytecode into native code of host machine, and performs final name resolution (linking)
+	
+
+Garbage collection
+	Background thread in JVM
+	
+	Searches for unreachable objects
+	
+	When unreachable objects are founf
+		The object's finalize method may be called
+		The object is re-examined to see if it is still unreferenced
+		If still unreferenced, the object memory is marked for reclamation
+	
+	The garbage collector cannot be triggered explicitly
+		...
+		System.gc();
+		...
+		This is only a request for a garbage collection, not a command
+		
+
+Documentation and Code Reuse
+	Object-oriented programming languages have been caround since the 1950s
+		There was always the promise of code reuse but never really got there
+	
+	In order to reuse code, it must be documented in a familiar and easy to use manner
+		Must be easy to develop and maintain as well
+	
+	Java has provided Javadocs to support such documentation
+
+
+Javadoc Enables Usable Documentation
+	Javadoc tool comes with the JDK utilities
+	
+	Tool compiles a hierarchical set of comments by extracting them from the source code itself
+	
+	Tool then generates an HTML-based representation of those comments
+	
+	Since the delivery of the documentation is in HTML, it is universally accessible
+	
+	Since the organisation and presentation of the documentation is consistent, stakeholders develop a high comfort level with it
+
+
+Documentation at Method Level
+	Javadoc supports the documentation of methods
+		Provides a description of what the method does
+		Describes the parameters and their types
+		Describes the return type of the method
+		Describes any exceptions that might occur
+	
+
+Documentation at Class Level
+	Javadoc also contains information of the class
+		Javadoc of Java SE classes often contains code examples
+
+
+Documentation at the Package Level
+	Classes are placed in packages
+		Logical groups of classes
+
+
+Documentation at the Module Level
+	Packages can be grouped into modules
+		Grouping 'technology' related packages
+	
+	Modules were added in Java 9
+
+
+Javadoc Search Box
+	Javadoc comes standard with a search option
+		Allows searches on names of modules, packages, types, and members
+
+
+

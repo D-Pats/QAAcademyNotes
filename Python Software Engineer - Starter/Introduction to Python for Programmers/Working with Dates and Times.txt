@@ -1,0 +1,39 @@
+Modules for dates and times
+	Standard library
+		datetime
+		time
+		calendar
+	included with Anaconda
+		dateutil
+	other
+		arrow
+
+Datetime module
+	provides four classes
+		date
+		Time
+		datetime
+		timedelta
+	
+	from datetime import datetime, date, timedelta
+	
+	datetime.now()
+	now.day
+	now.month
+	now.year
+	now.hour
+	now.minute
+	now.second
+	date.today
+	
+	variable = datetime(2022, 4, 15)
+
+	strftime()
+		all classes in datetime except timedelta implement strftime() for creating a custom time format
+		usage similar to legacy string formattingl the "directives", or placeholders start with a % sign
+	strptime()
+		the %f directive accepts from 1 to 6 digits and 0 pads on the right
+		the %p directive only affects the output hour field inf the %l durective is used to parse the hour
+		the range is really 0 - 61; this accounts for leap seconds and the (very rare) double leap seconds
+		the %U and %W are only used in calculations when the day of the week and the year are specified
+			if utcoffset() returns timedetla(hours=-3, minutes=-30), %z is replaced with the strgin '-0330'

@@ -1,0 +1,21 @@
+Output list of branches
+git branch
+	* next to branch = current checked out branch
+	
+
+Git logs
+git log --oneline
+	shows easy-to-read format
+	In parenthesis is a list containing one or more branch to show which branches the commit is associated with
+	To the right of a branch name is the message passed when commited
+git log --oneline --graph
+	shows more detailed version of git log and includes graphical representation of the course of branches
+
+
+Create new branch
+git checkout -b <new branch name>
+
+
+Merge branch
+git checkout <name of branch accepting merge request>
+git merge <name of branch to merge>

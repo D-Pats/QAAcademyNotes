@@ -1,0 +1,53 @@
+Stash changes
+git stash
+	This will stash any changes
+git stash list
+	This will show all stashed changes
+git stash pop
+	This will restore stashed changes
+
+
+See each line of a file as a row
+git blame <file name>
+	This will show from left to right
+		Commit ID
+		Name of committer
+		Timestamp of the change
+		Content of the line
+
+
+Get the difference between current state and last committer
+git diff
+	Outputs per-file log of any tracked changes since last commit
+
+
+One use of checkout is to restore modified files
+git checkout -- <file name>
+git checkout --help
+	List of checkout options
+
+
+Switch branches
+git branch <branch name>
+git checkout <branch name>
+git checkout -b <branch name>
+	This command can be used to bth create a new branch and switch to it
+
+
+Remove everything from a directory
+rm -rf ./*
+
+	
+Remove last commit
+git reset --hard HEAD~1
+
+
+Show log info but only for most recent commit
+git show
+git show <commit ID>
+	This shows commit info for only the specified commit version
+
+
+Tag a commit (with a version number)
+git tag <number to tag with>
+	Tags current commit

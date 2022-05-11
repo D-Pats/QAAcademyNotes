@@ -1,0 +1,126 @@
+Instance Methods
+	A method is similar to a function or subroutine
+		Methods can provide access to an object's behavior or data
+		EXAMPLE
+			access-modifier returnType methodName ( arguments ) {
+				local variable declarations
+				method code
+				more local variable declarations
+				more method code
+				return returnType;
+			}
+	
+	The key components of a method are
+		A modifier such as public or private
+		The return type may be any class, interface, primitive type, or void
+		The method's name 
+		Input parameters
+		The method's body
+	
+
+Passing Parameters Into Methods
+	A method can have zero or more parameters
+		The method name and parameter types make up its signature
+		EXAMPLE
+			public boid setName(String name) {
+				this.name = name;
+			)
+		
+		The this keyword
+			clarifies specifies the use of the instance variable
+		
+		When the method is called
+			Each parameter is a local variable of the method
+		
+		The void keyword is used to indicate the return type for a method that returns nothing
+		EXAMPLE
+			public String getName() {
+				return this.name;
+			}
+		
+
+Returning a Value From a Method
+	If a return type other than void is specified, the method must return a value of that type
+	EXAMPLE
+		public String getName() {
+			if (name != null)
+				return name
+			return "Unknown name";
+		}
+	
+	If a return type of void is specified, the method will return at the final brace without an explicit return statement
+	
+	You can return from a method at any point by explicitly calling return
+	EXAMPLE
+		public void setName(String name) {
+			if(name == null) return;
+			this.name = name;
+		}
+
+
+Overloaded Methods
+	Two or more methods within a class with same name
+		Parameter types must be different
+		EXAMPLE
+			void setSalary(int newSalary) { }
+			void setSalary(String newSalary) { }
+		
+		Method signature must be unique
+			Defined by method name and number/type of parameter(s)
+			Return type and exceptions are not part of signature
+			EXAMPLE
+				string getName() { }
+				char[] getName(int maxLength) { }
+			
+		Can make code easier to understand and maintain
+		
+		Overloading is not the same as overriding
+			Overloaded methods may be overridden in subclass
+			Overridden methods may be overloaded in subclass
+		
+
+Constructors
+	A constructor is a special method that is called automatically when an object is created
+		Has the same name as the class
+		Has no return type
+	
+	Steps in the construction of an object
+		Create an instance of the object
+		Initialise all the variables to their default values
+		Invoke any explicit initialisations
+		Execute the code in the constructor
+
+
+Defining a Constructor
+	Each class may have zero or more constructors
+		If a class has no constructor, Java provides a default constructor which does nothing
+		EXAMPLE
+			public class Employee {
+				private String name;
+				
+				public Employee() { // no argument constructor
+					name = new String("Kimberly");
+				}
+				
+				public Employee(String name) {
+					this.name = name;
+				}
+			}
+
+
+Optimising Constructors
+	One constructor can invoke another to complete its task
+		Invocation must be the first line in the constructor
+		EXAMPLE
+			public class Employee{
+				private String name;
+				private int age;
+				
+				public Employee(String name) {
+					this(name, 0);
+				}
+				public Employee(String name, int age){
+					this.name = name;
+					this.age = age;
+				}
+			}

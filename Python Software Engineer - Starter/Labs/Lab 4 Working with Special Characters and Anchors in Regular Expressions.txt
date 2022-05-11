@@ -1,0 +1,115 @@
+Working with Special Characters and Anchors in Regular Expressions
+	import re 															#Importing Python's regular expression library
+
+	pattern = r'ab'														#Pattern to find in string (Starts with r to make the string a "raw  string" so no need for escape characters)
+	text = 'abc acb'													#String to find pattern in
+	matches = re.findall(pattern, text) 								#re.findall(pattern,text) to get the matches
+	print(f"Pattern: {pattern}\nText: {text}\nMatches: {matches}\n")	#Print the results using f strings
+
+		pattern = r'sta+r'
+			matches left hand characters of the + one or more times
+			Text: staaar
+			Matches: ['staaar']
+		
+		
+		pattern = r'sta*r'
+			matches left hand characters of the * zero or more times
+			Text: str
+			Matches: ['str']
+			
+
+		pattern = r'st.r'
+			matches any character but only one character in place of the .
+				in this example there is no match as there are 2 characters between t and r
+			Text: staar
+			Matches: []
+		
+		
+		pattern = r'str.+r'
+			matches any characters in place of the .  because of the + value
+			Text: staajr
+			Matches: ['staajr']
+		
+
+		pattern = r'str.*r'
+			matches the left hand character zero or more times because of the * value
+				you see a full match here because . matches everything between the two characters anyway
+			Text: staajr
+			Matches: ['staajr']
+		
+
+		pattern = r'sta{3}r'
+			matches the text that contains the chracter {x} times
+			Text: str star staar staaar staaaar
+			Matches: ['staaar']
+		
+		
+		pattern = r'sta{2,3}r'
+			matches using a minimum and maximum repetitions for the left hand character
+				{0,} will match left hand character from zero or more times
+				{0,1} will match left hand character from zero or one time - this has a short hand symbol which is '?'
+			Text: str star staar staaar staaaar
+			Matches: ['staar', 'staaar']
+			
+		
+		pattern = r'a\d+'
+			matches all groups of characters
+				+ and * are "greedy" which means they match as much of the text as possible
+			Text: a123b a1234b a12345b
+			Matches: ['a123', 'a1234', 'a12345']
+			
+		
+		pattern = r'a\d+?'
+			matches as few characters as possible in the text (in this case digits)
+				? makes the + and * "non-greedy"
+			Text: a123b a1234b a12345b
+			Matches: ['a1', 'a1', 'a1']
+		
+		
+		pattern = r'one.'
+			regular expression that matches all three words in the text
+		Text: one1 one2 one3
+		Matches: ['one1', 'one2', 'one3']
+	
+		
+		pattern = r'\Aone.'
+			\A is an anchor, this matches the beginning of a string
+			Text: one1 one2 one3
+			Matches: ['one1']
+		
+		
+		pattern = r'one.\Z'
+			\Z is an anchor, this matches the end of a string
+				can also use the caret (^) symbol and the dollar symbol ($) to match the beginning and end of a string
+			Text: one1 one2 one3
+			Matches: ['one1']
+		
+		
+		pattern = r'^one.'
+			matches first in each line due to negating right hand characters with ^ (if using \A it will only apply to the first line)
+				the text has \n breaking it into two lines
+					as a result the re.findall method has to now pass the re.MULTILINE flag
+						matches = re.findall(pattern, text, re.MULTILINE)
+			Text: one1 one2 one3
+			one4 one5 one6
+			Matches: ['one1', 'one4']
+		
+		
+		pattern = r'.*://.*'
+			matches all text in this case
+			Text: http://example.com
+			Matches: ['http://example.com']
+		
+		
+		pattern = r'http://(.*)'
+			matches just the domain part of the text
+				used a capture group to specify the part of the text you want to be the resulting match
+					capture group is defined by the paraneheses and the part of the pattern expected to be the domain name is eclosed by them
+		Text: http://example.com
+		Matches: ['example.com']
+	
+	
+		pattern = r'(.*)://(.*)'
+			matches the protocol and domain names seperately as before and after ://
+		Text: http://example.com
+		Matches: [('http', 'example.com')]

@@ -1,0 +1,189 @@
+What is Eclipse
+	Eclipse is an Integrated Development Environment (IDE) written in Java
+		Every year, ther has been a major release of Eclipse
+	
+	Eclipse is tightly coupled to Java since it is written in Java and is primarily focused on Java development
+	
+	Starting with Java 9, there is a faster cadence for Java releases
+		This has led to a faster release cadence for Eclipse
+			Feature releases every 6 months
+			Update releases every quarter
+			Long-term support releases every 3 years
+	
+
+Workspace and Workbench
+	Eclipse provides two main conceptual levels for application development
+		Workspace
+			physical location of projects, packages, files, etc.
+		
+		Workbench
+			perspectives, editors, and views
+		
+	The Workbench provides conceptually organised tools to work with the actual resources in your Workspace
+	
+
+File and Workspace Locations
+	You can organise your files as you would like
+		Might consider placing development resources together in path that is close to root
+			EXAMPLES
+			C:\Development\Tools
+			C:\Development\Applications
+	
+	Ensure path to workspaces have no spaces
+		EXAMPLE
+			C:\Development\Workspaces
+		
+	Often organise workspaces by major projects
+		Ensure clean, well-seperated development environments
+
+
+Workspace Management
+	Can switch workspaces from within Eclipse
+		(File -> Switch Workspace)
+			
+	Workspace synchronise with file system reliably
+	
+
+Workbench: A Closer Look
+	Package Explorer View
+	Java Editor
+	Task List View
+	Outline View
+	Problem View
+
+
+Workbench Details
+	The Eclipse Workbench provides three main visual tools to facilitate development
+		Perpectives
+			A group of views and editors appropriate for a specific task such as debugging a Java application
+		
+		Editors
+			A component that developers can use to create and modify files
+		
+		Views
+			A component that provides information (metadata) about a selected resource
+		
+
+Views
+	Each Perpective provides certain Views
+	
+	Each view shows something of interest to that perspective
+	
+	Multiple views can be arranged t be visible at the same time in the Workbench Window
+	
+	Common Views often used
+		Package Explorer
+		Outline
+		Properties
+		Problems
+		Tasks
+		Bookmarks
+
+
+Navigator View
+	Shows how different resources are structured
+	
+	There are three kinds of resources
+		Files
+		Folders
+		Projects
+	
+
+Outline View
+	An overview of the key elements that make up the resource that is being edited
+	
+	Allows quick and easy navigation through your resource using a tree model for organising related elements
+
+
+Property View
+	When you click on a resource in the navigator view and then click on the properties tab on the bottom of the screen, you can view the properties of that resource
+
+
+Task List View
+	The Task List View contains a list of task items
+		You can manually add tasks yourself
+			EXAMPLE
+				You can add a task which reminds you that you have to implement a Java method
+			
+		You can set up several filters to show only the taks you really want to see
+	
+
+Problems View
+	The Problems view contains a list of problems
+		Tool determined issues (errors)
+		Automatically added to the Problems View
+		Double-clicking on an entry will take you to the location of the problem
+		Right clicking on the icon (left side) will provide you with option for Quick Fix
+
+
+Compiler Errors
+	Coding (Compiler) errors will be shown while coding
+
+
+Editors
+	Double-clicking on a resource opens the associated editor
+	
+	XML, Text, Source Code Editors and others
+
+
+Perspectives
+	Perpectives are a way to look at different facets of a project
+	
+	The Workbench window can have several perspectives opened but only one of them is visible at a time
+	
+	Perspectives Match to Roles or Tasks
+		Java developer - Java Perspective
+		Debugging - Debug Perspective
+		Collaboration - Team Synchronising Perspective
+		XML - XML Perspective
+		
+
+Customising Perspectives
+	Views can be moved and added to perspective
+		Double-click on the title bar to maximise the view
+		Moving views to other panes or stacking them behind other views
+		You can add a view with Window -> Show View
+		
+	Current perspective can be customised
+		Either a saved perspective or a delivered one
+		Window -> Customise Perspective...
+			Adjust tool bar and menu visibilities, and command group and shortcut availabilities
+		
+	Perspectives can be reset to factory defaults
+
+
+Projects
+	The top level construct for organising all resources
+		Contains files as well as folders
+	
+	Different kinds of projects have different structures
+		Java project versus JEE project
+	
+	Plug-ins will often add new types of projects
+		EXAMPLE
+			JBoss Tools (plug-in) adds Hibernate, Seam
+	
+	To configure a project's properties, switch to the Project Explorer View, right click on the project's name and select the properties item
+	
+
+Java Project
+	Contains Java files and JavaBeans
+	
+	Defines the Java Build Path
+		Build path used to compile source files
+			Other projects may be included
+			JAR files internal or external to a project may be included
+		
+	Facilitates package and class creation and organisation
+	
+	Provides a source code editor with syntax highlighting
+	
+	Compile and debug on a project-by-project bases
+	
+
+Java Editor: Code Assist
+	When working on a class in the Java Editor, Eclipse can assist your coding in two ways
+		If you pause in the middle of writing a class, method name, etc., Eclipse will offer suggestions
+		You can request assistance from Eclipse by pressing the keys Ctrl + Space bar
+	
+	

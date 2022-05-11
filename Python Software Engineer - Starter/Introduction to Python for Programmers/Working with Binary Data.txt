@@ -1,0 +1,73 @@
+Binary (raw, or non-delimited) data
+	Open file in binary mode
+		use read() to return a bytes object not unicode string of bytes
+		use .decode() function to convert bytes object to string
+		write() to write raw data to a file
+		seek() to position next read()
+		tell() to determing the position in the file
+	
+	Specify number of bytes to read
+	
+	Read entire file when no size is given
+	
+	Returns bytes object
+	
+
+Bytes vs Text data
+	Networks use binary data
+	
+	Convert to standard if mixing platforms
+	
+	Need to know layout of data
+
+	When you read data from a network application, such as getting the HTML source of a web page, it is retrieved as binary data, even though it is "text". It is typically encoded as ASCII or UTF-8. This is represented by a bytes object, which is an array of bytes
+	
+	To convert a bytes object to a string, call the decode() method. When going the other direction, as in writing some text out o a network application, you will need to convert from a Python string, which is an in-memory representation, to a string of bytes. To do this, call the string's encode() method.
+	
+
+Using Struct
+	Struct class from struct module
+	
+	Translates between Python to native/standard formats
+	
+	If you need to process a raw binary file
+	
+	The struct module provides the Struct class. You can instantiate a Struct with a format string representing the binary data layout. From the instance, you can call unpack() to decodea  binary stream, or pack() to encode it
+	
+	The size property is the number of bytes needed for the data
+	
+	The format string describes the data layout using format codes. Each code is a letter representing a data type, and can be preceded with a size or repeat count (depending on data type), and a prefix which specifies the byte order and alignment
+	
+	"Native" byte order or alignment refers to the same byte order or alignment used by the C compiler on the current platform. "Standard" refers to a standard set of sizes for typical numerical objexts, such as shorts, ints, longs, floats and doubles. The default is native
+
+
+Struct format codes
+	Search up
+
+
+Things to Keep in Mind
+	The '?' conversion code corresponds to the _Bool type defined by C99. If this type is not available, it is simulated using a char. In standard mode, it is always represented by one byte
+	
+	The 'q' and 'Q' conversion codes are available in native mode only if the platform C complier supports C long long , or, on Windows, __int64. They are always available in standard modes
+	
+	When attempting to pack a non-integer using any of the integer conversion codes, if the non0integer has a index() method then that method is called to convert the argument to an integer before packing
+	
+	The 'n' and 'N' conversion codes are only available for the native size (selected as teh default or with the '@' byte order character). For the standard size, you can use whichever of the other integer formats fits your application
+	
+	For the 'f' and 'd' conversion codes, the packed representation uses the IEEE 754 binary32 (for 'f') or binary64 (for 'd') format, regardless of the floating-point format used by the platform
+	
+	The 'P' format character is only available for the native byte ordering (selected as the default or with the '@' byte order character). The byte order character '=' chooses to use little- or big-endian ordering based on the host system. The struct module does not interpret this as native ordering, so the 'P' format is not available
+
+
+Bitwise operations
+	Operators
+		& and
+		| or
+		~ complement
+		^ xor (exclusive or)
+		<< left shift
+		>> right shift
+	
+	integers only
+	
+	bin() displays in binary

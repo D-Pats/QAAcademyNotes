@@ -1,0 +1,209 @@
+Def
+	def <name>(paramaters seperated by ,):
+	
+Print
+	print()
+
+
+Strings
+	str()
+	text in '',"","""multiple lines""",escape character \
+	\n to go to next line
+
+
+Booleans
+	True = 1
+	False = 0
+	True and False can be added together or added to integers
+
+
+Floats
+	float()
+	numbers with decimal points
+
+
+Integers
+	int()
+	whole numbers
+	
+
+Lists
+	variable = [values seperated by ,]
+	mutable which means values can be changed
+	can contain data of different types
+	get value in list with [position number]
+		first item in list is 0
+		reverse order starting with last item in list starting at -1 (-2 is left of this)
+	slice a list with :
+	variable.append(value) to add to end of list
+	variable.insert(position,value) to add value into specific position
+	len(variable) gives us the number of values in the list
+	replace with slice variable[position(included):position(not included)] = [values seperated by , or even no value]
+	del(variable[position(not included)])
+	
+	multidimensional list
+		variable3 = [variable1,variable2]
+		variable3 = [variable1,variable2]
+		I.E
+			a = [4]
+			b = [1,2,3]
+			c = [a,b]
+				c = [[4],[1,2,3]]
+				c[0] = [4]
+				c[1] = [1,2,3]
+			c.append(c)
+				c = [[4],[1,2,3], [...]]
+					[...] denotes a self-reference
+				c[2] = [[4],[1,2,3], [...]]
+				c[2][1] = [1,2,3]
+				c[2][1][1] = 2
+	List can have multiple occurances of the same value
+	
+
+Sets
+	variable = set()
+	variable = {}
+	used for unique values
+	does not support indexing
+	variable = {1,"string", 2.3, 1, 1, True}
+		variable = {1, 2.3, 'string'}
+			order changed
+			only unique items kept or first of unique
+			Boolean values keep their numerical value and will not be unique with their numerical value
+	value in variable
+		returns Boolean
+	value in variable[position]
+		returns Boolean
+
+
+Dictionaries
+	associates values together
+	must be unique values and will be key value pairs
+	keys can be Strings or Numbers
+		data is immutable (can't be changed)
+	dictionary is mutable
+	variable = {}
+	variable = {value1:value2, value3:value4}
+	variable[value1] = value5
+		variable = {value1:value5, value3:value4}
+	variable[value6] = value7
+		variable = {value1:value5, value3:value4, value:6:value7}
+	list(variable) = [value1, value3, value6]
+	del(variable[value6])
+		variable = {value1:value5, value3:value4}
+	value in variable
+		returns Boolean
+
+
+Tuples
+	immutable
+	variable1 = value1, value2, value3
+		variable1 = (value1, value2, value3)
+		variable1[0] = value1
+	variable2 = value4, variable1
+		variable2 =  (value4, (value1, value2, value3))
+	variable3 = ()
+		variable3 = ()
+	variable4 = 'hello'
+		just a variable that is a string
+	variable5 = 'hello',
+	len(variable1) = 3
+	len(variable2) = 2
+	len(variable3) = 0
+	len(variable4) = 5
+	len(variable5) = 1
+
+return
+exit the function and return the value back to the caller
+
+pass by value or pass by reference
+	object references are passed by value
+
+print(f"text '{x}' = {variable(x)}"
+	count = variable(x)
+
+variable = ("%s.%s.%s" % (x,y,z))
+	print("string + %s" % (y))
+		string y
+
+variable.count
+	Count occurrences of letters and words
+len(variable)
+	Get length of string
+max(variable)
+	Get max of string - the highest char in the string
+min(variable)
+	Get min of string - the lowest char in the string
+https://docs.python.org/3/library/stdtypes.html#string-methods
+https://docs.python.org/3/library/functions.html
+
+variable.find
+	Find word/letter in string
+	variable.find(x,y) # Find the index of the first x starting at index y
+variable.index
+	Find word/letter in string
+variable.endswith
+	Check string endswith another string
+variable.startswith
+	Check string startswith another string
+variable.isalnum
+	Is string alphanum
+variable.isalpha
+	Is string alpha
+variable.isdigit
+	Is string digit
+https://docs.python.org/3/library/stdtypes.html#string-methods
+
+variable.strip
+	Strip format string
+variable.lstrip
+	Strip format string from left
+variable.rstrip
+	Strip format string from right
+variable.upper
+	Upper case a string
+variable.lower
+	Lower case a string
+variable.swapcase
+	Swap the case of a string
+variable.title
+	Title case a string (Capitalise after periods)
+variable.center
+	Center strings
+variable.ljust
+	Adjust string from left
+variable.rjust
+	Adjust string from right
+https://docs.python.org/3/library/stdtypes.html#string-methods
+
+variable.split
+	Split word
+variable.partition
+	Partition word
+variable.join
+	Join on letter
+variable.replace
+	Replace word or letter in string
+https://docs.python.org/3/library/stdtypes.html#string-methods
+
+try:
+	code
+except:
+	code
+https://docs.python.org/3.3/tutorial/datastructures.html#tuples-and-sequences
+
+https://docs.python.org/3.3/tutorial/datastructures.html#more-on-lists
+
+variable.add
+	add value to a set
+variable.remove
+	remove value from a set
+https://docs.python.org/3.3/tutorial/datastructures.html#sets
+
+variable.items
+variable.pop(key,value)
+	remove key and value from dictionary and return corresponding value or if not found return value in parameter
+https://docs.python.org/3.3/tutorial/datastructures.html#dictionaries
+
+
+sum(list)

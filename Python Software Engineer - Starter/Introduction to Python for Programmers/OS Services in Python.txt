@@ -1,0 +1,288 @@
+The OS module
+	ctermid()
+		Return name of the controlling terminal
+	
+	device_encoding()
+		Return string describing the encoding of the device
+	
+	dup()
+		Return a duplicate of a file descriptor
+	
+	dup2()
+		Duplicate file descriptotr
+	
+	exec...()
+		Execute file, with different configurations of arguments, environment, etc.
+	
+	fchdir()
+		Change to directory of given file descriptor
+	
+	fchmod()
+		Change permissions of gile given by descriptor
+	
+	fchown()
+		Change owner/group id of the file given by file descriptor
+	
+	fdatasync()
+		Force write of file descriptor to disk
+		
+	fork()
+		Fork a child process
+	
+	forkpty()
+		Fork a new process with a new psueuedo-terminal
+	
+	fpathconf()
+		Return the configuration limit name for the file descriptor
+	
+	fstat()
+		Return stat result for an open file descriptor
+	
+	fstatvfs()
+		Return stat resultfor open file descriptor on vurtual file system
+	
+	fsync()
+		force write of file with file descriptor to disk
+	
+	ftruncate()
+		Truncate a file to a specified length
+	
+	getcwd()
+		Return unicode string representing current working directory
+	
+	getegit()
+		Return the current process's effectinve group id
+	
+	getenv()
+		Get specified environment variable or None/Default (returns string)
+	
+	getenvb()
+		Get specified environment variable or None/Default (returns bytes)
+	
+	geteuid()
+		Return the current process's effective user id
+	
+	getgid()
+		Return the current process's group id
+	
+	getgroups()
+		Return list of supplemental group IDs for the process
+	
+	getloadadv()
+		number of processes averaged oer 1, 5, and 15 minutes
+	
+	getlogin()
+		Return the actual login name
+	
+	getpgid()
+		Call the system call getpgid()
+	
+	getpgrp()
+		Return the current process group id
+	
+	getpid()
+		Return current the current process id
+	
+	getppid()
+		Return the parent's process id
+	
+	getresgid()
+		Return tuple of real, effective, saved group IDs
+	
+	getresuid()
+		Return tuple of real, effective, saved user IDs
+	
+	getsid()
+		Call the system call getsid()
+	
+	getuid()
+		Return the current process's user id
+	
+	initgroups()
+		Initialize the group access list with all groups of which the specified username is a member, plus the specified group id
+		
+	isatty()
+		Return True if file descriptor is an open descriptor
+	
+	kill()
+		Kill a process with a signal
+	
+	killpg()
+		Kill a proces group with a signal
+		
+	lchown()
+		Change owner/group of path (don't follwosymlinks)
+	
+	link()
+		Create a hard link to a file
+	
+	listdir()
+		Return list of all entries in the directory
+	
+	lseek()
+		Set the current position of a file descriptor
+	
+	lstat()
+		Like stat(path), but do not follow symbolic links
+	
+	major()
+		Extracts device major number from a raw device number
+	
+	makedev()
+		Composes a raw device number from major/minor device numbers
+	
+	makedirs()
+		Super-mkdir (like unix mkdir -p)
+		
+	minor()
+		Extracts device minor number from a raw device number
+	
+	mkdir()
+		Create a directory
+	
+	mkfifo()
+		Create a FIFO (a POSIX named pipe)
+	
+	mknod()
+		Create a filesystem node
+	
+	nice()
+		Decrease priority of process  by inc and return new priority
+	
+	open()
+		Open a file (for low level IO)
+	
+	openpty()
+		Open a pseudo-terminal
+	
+	pathconf()
+		Return a configuration limit name for file or directory path
+	
+	pipe()
+		Create a pipe
+	
+	putenv()
+		Change or add an environment variable
+	
+	read()
+		Read a file descriptor
+	
+	readlink()
+		Return string representation of symlink target
+		
+	setuid()
+		Set the current process's user id
+	
+	spawn...()
+		Execute file with arguments from args in a subprocess
+		
+	stat()
+		Perform a stat system call on the given path
+	
+	stat_float_times()
+		Determine whether os.[if]stat represents time stamps as float objects
+	
+	statvfs()
+		Perform a statvfs system call on the given pat
+	
+	strerror()
+		Translate an error code to a message strin
+	
+	symlink()
+		Create a symbolic link
+	
+	sysconf()
+		Return an integer-valued system configuration variable
+	
+	system()
+		Execute the command (a string) in a subshell
+	
+	tcgetpgrp()
+		Return the process group associated with the terminal given by an fd
+	
+	tcsetpgrp()
+		Set the process group associated with the terminal given by an fd
+	
+	times()
+		Return tuple of floats indicating process times
+	
+	ttyname()
+		Return the name of the terminal device
+	
+	umask()
+		Set the current numberic umask and return the previous umask
+	
+	uname()
+		Return a tuple identifying the current operating system
+	
+	ulink()
+		Remove a file (same as remove(path))
+	
+	unsetenv()
+		Delete an environment variable
+	
+	utime()
+		Set the access and modified time of file
+	
+	wait...()
+		Wait for completion of a child process
+	
+	walk()
+		Directory tree generator
+	
+	write()
+		Write a string to a file descriptor. Paths, directories, and file names
+		
+
+Paths, directories, and file names
+	
+	import os.path module
+
+	Common methods
+		os.path.abspath()
+		os.path.basename
+		os.path.dirname()
+		os.path.getmtime()
+		os.path.getsize()
+		os.path.isdir()
+		os.path.isfile()
+		os.path.join()
+		os.path.exists()
+		
+Walking directory trees
+	Use os.walk()
+		returns tuple for each directory
+		Tuple contains directory path, subdirectories, and files
+	
+	Make sure to use os.path.join to put together the names, don't do as a variable when looping through the iterator as this will overwrite pythons built in function
+	
+
+Environment variables
+	Shell or OS variables
+	Same for Windows and non-Windows
+	Syntax
+		value = os.environ[varname]
+		ivalue = os.environ.get(varname)
+		value = os.getenv(varname)
+		value = os.getenv(varname,default)
+		str2 = os.path.expandvars(str1)
+	
+	set environment variable
+		os.environ is a dictionary
+		os.environ.get(0 is safer than os.environ[]
+		osgetevn() is shortcut for os.environ.get()
+		expand variables in place; handy for translating shell scripts
+	
+Launching external programs
+	Just run "hostname"
+	Open command line "netstat -an" as a file-like object
+	Iterate over lines in output of "netstat -an"
+	Check to see if line contains "ESTAB"
+	
+	Different ways to launch programs
+		Just launch (use system())
+		Capture output (use popen())
+	
+	Import os module
+	
+	Use system() or popen() methods

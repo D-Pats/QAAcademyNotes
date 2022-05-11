@@ -1,0 +1,145 @@
+Strings
+	String is a class in Java
+	They can be instantiated like any other class type
+		String myString = new String("this is my string");
+	
+	Common literals are often created in the constant pool for efficient reuse
+		String myString = "this is my string";
+		
+	The compiler will generate appropriate code to support string concatenation statements
+		String myString = "the first half" + " the second half";
+	
+	String class instances are immutable
+		Value cannot be modified
+		Any concatenation operation creates a new String object
+		
+
+String Methods
+	equals
+		a character by character comparison
+	
+	length
+		returns the length of the string
+	
+	equalsIgnoreCase
+		ignores case during the comparison
+	
+	charAt
+		get the character at an index
+	
+	indexOf
+		see if the sub string exists within the string
+	
+	lastIndexOf
+		the last occurrence of the sub string
+		
+	startsWith
+		does the start match the sub string
+	
+	endsWith
+		does the end match with the sub string
+	
+	toUpperCase
+		return the string's value in upper case
+	
+	toLowerCase
+		return the string's value in lower case
+	
+	trim
+		returns a copy of string with leading and trailing whitespace removed
+	
+	String str1 = new String("Hello");
+	String str2 = new String("Hi");
+	if ( str1.equals(str2) ) return true;
+
+
+String Equality
+	String is a good example of the difference between -- and the equals() method
+		The == operator tests to see if two references refer to the same object
+		The equals() method compares the content of two objects for equality
+			Each class usually has its own implementation
+		
+	String string1 = new String("Toms River, NJ");
+	String string2 = string1;
+	if (string1 == string2) System.out.println("1==2"); // true
+	if (string1.equals(string2)) System.out.println("1eq2"); // true
+	
+	String string3 = new String("Toms River, NJ");
+	if (string1 == string3) System.out.println("1==3") // false
+	if (string1.equals(string3) System.out.println("1eq3") // true
+
+
+StringBuffer
+	The StringBuffer class is a mutable String
+		Can be used to build up a string value
+			Converting it to a String when done
+	
+		int employeeID = 0;
+		StringBuffer buffer = new StringBuffer();
+		buffer.append("Employee");
+		//insert newline
+		buffer.append("\n");
+		//append method returns reference to current instances
+		buffer.append(" id: ").append(employeeID);
+		String stringValue = buffer.toString();
+		System.out.println(stringValue);
+		
+	StringBuffer has several useful text manipulation methods
+		buffer.insert(8, "->");
+		buffer.replace(10, 12, "Employee ID");
+		
+
+String, StringBuffer, and StringBuilder
+	String operations are relatively costly, especially when performing concatenations
+		Each concatenation creates a new String object to represent the newly concatenated string
+		A series of concatenations will cause a large number of objects to be created
+	
+	StringBuffer uses a single object to support the growing string
+		Much greater efficiencies are achieved if you are modifying character strings at all
+	
+	StringBuilder increases these efficiencies even more
+		Same operations as StringBuffer but they are unsynchronised
+		Greatly reduced overhead since there is no thread synchronisation
+	
+	StringBuilder should be viewed as the default
+		Unless thread synchronisation is needed
+	
+
+java.util.StringJoiner
+	Allows construction of a sequence of characters
+		Seperated bu a delimiter
+		Optional defining prefix and suffix
+			StringJoiner joiner = new String(",","{","}");
+			joiner.add("a").add("b");
+			System.out.println(joiner.toString()); // output: {a,b}
+	
+	add(CharSequence newElement)
+		Add characters
+	
+	length()
+		Length of String representation
+	
+	merge(StringJoiner other)
+		Add content (without seperators) of the other StringJoiner
+	
+	setEmptyValue(CharSequence emptyValue)
+		Set value of StringJoiner as long as no values are added
+
+
+Compact Strings
+	On average 25% of application data is Strings
+		Each String used to be represented by char[]
+	
+	A char consumes two bytes
+		In order to represent all Unicode code points
+		
+	Majority of characters used are part of ISO-8859-1
+		Can be represented by single byte
+		
+	Java 9 changed internal representation of String
+		From char[] to byte[]
+		Flag indicates encoding
+			ISO-8859-1/Latin-1 (one byte per character)
+			UTF-16 (two bytes per character)
+	
+	No changes have been made to public API

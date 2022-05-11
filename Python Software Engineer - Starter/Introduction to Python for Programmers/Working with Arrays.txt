@@ -1,0 +1,86 @@
+Array types
+	String
+	Bytes
+	List
+	Tuple
+	
+	Array common properties
+		share syntax for indexing/slicing
+		share common methods and functions
+		all can be iterated over with a FOR loop
+
+
+Selecting index
+	variable[index number]
+	
+
+Lists
+	list1 = list()
+	list2 = ['variable1', 'variable2', 'variable3']
+	list3 = []
+	list4 = 'variable1', 'variable2', 'variable3'.split()
+
+
+Tuple
+	Variables cannot be changed once created
+	
+	birth_date = 1998, 09, 27
+	server_info = 'linux', 'RHEL', 5.3, 'Name'
+	latlon = 35.99, -72.390
+
+
+When to use lists and tuples
+	List
+		collection of similar objects
+		position is not important
+	
+	Tuple
+		collection of related but dissimilar objects
+		position of elements is important
+		
+		trailing comma to specify a one element tuple
+		empty parenthese to specify an empty tuple
+
+
+Slicing
+	To get more than one element
+	[START:STOP:STEP]
+	
+
+end=' '
+	by default print() ends with new line
+	end='' changes new line to whatever is in ' ' which in this case is a blank space
+	
+
+Enumerate
+	enumerate()
+		number items beginning with 0 (or specified value)
+		returns an enumerate object that provides a virtual list of tuples
+		I.E:
+			for t in enumerate(s):
+				print(t[0], t[0])
+			
+			for i, item in enumerate(s):
+				print(i, item)
+			
+			for i, item in enumerate(s, 1):
+				print(i, item)
+		
+		Del deletes an entirestring
+		In returns True if the specified object is an element of the sequence
+		Not in returns True if the specified object is NOT an element of the sequence
+		+ adds one sequence to another
+		* multiplies a sequence
+	
+
+Range
+	range()
+		provides a (virtual) list of numbers
+		slice-like parameters
+		returns a range object
+		good when you need to execute code a fixed number of times
+		
+	syntax
+		range(STOP)
+		range(START, STOP)
+		range(START, STOP, STEP)

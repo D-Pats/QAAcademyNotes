@@ -1,0 +1,62 @@
+Everything in python is declared by assignment
+
+Python supports Dynamic typing
+
+Variables in Python are declared by assigning to them
+
+A variable cannot beused before it is asigned to
+
+The Python convention for variable names is all_lower_case_words_with_underscores
+
+Python supports three numeric types:
+	integers
+	floating point numbers
+	complex numbers
+
+Python supports four types of sequences:
+	strings
+	bytes
+	lists
+	tuples
+
+Python supports two mapping types:
+	dictionaries
+	sets
+
+Dictionaries are mapped sets of values. Dictionary keys must be hashable
+
+Sets are similar to dictionaries but contain only keys. A set is a unique collection of values. There are two types
+	the normal set is dynamic (mutable)
+	A frozenset is fixed (immutable)
+
+In Python, modules must be imported before their contents may be accessed. Variables, Functions, and classes must be declared before they can be used
+
+There are 3 main IO methods in Python
+	print
+	open
+	input
+
+The condition statement in Python is IF
+
+There are two kinds of loops in Python
+	The WHILE loop is used for reading data, typically from a database or other data source, or when waiting for user to input to end a loop
+	The FOR loop is used to iterate through a sequence of data
+
+Builtin functions can be applied to many different data types, but not all functions can be applied to all data types
+
+The OS module enables you to use operating system dependent functionality from within Python
+
+The os.path module provides many functions for working with file and directory names and paths
+
+The os.walk method provides a way to easily walk a directory tree. For each directory, it returns a tuple with three values
+	The first element is the full (absolute) path to the directory
+	The second element is a list of the directory's subdirectories (relative names)
+	The third element is a list of the non-directory entries in the subdirectory (also relative names)
+
+os.environ lists a dictionary of the current environment
+
+You can launch an external command using the os module functions os.system() and os.popen()
+
+os.system() launches any external copmmand, as though you had typed it at a command prompt
+
+popen() opens a command, returning a file-like object. You can read the output of the command with any of the methods used for a file

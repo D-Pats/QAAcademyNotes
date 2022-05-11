@@ -1,0 +1,217 @@
+View current Directory (present working directory)
+pwd
+
+
+Manual of command
+man <command name>
+
+
+List contents of directory
+ls
+
+Create file in current directory (primary purpose of touch is to update time stamp of file)
+touch <file name>
+
+
+Check file size
+ls --size
+ls -s
+
+
+Create hidden file
+touch .<file name>
+
+
+List hidden files
+ls --all
+ls -a
+
+
+. is shorthand for current directory
+.. is shorthand for parent directory
+
+
+More info about all files (-l is long format when used with ls)
+ls -l --all
+ls -l -a
+
+Move directory (change directory)
+cd /
+
+
+Return to previous directory (user home directory)
+cd
+cd ~
+
+
+Navigate to parent directory of directory you are in
+cd ..
+
+
+Navigate back to previous directory you were in
+cd -
+
+
+Navigate through multiple directory levels at once
+cd <file path seperated by />
+
+
+Create a file containing a line of text (echo outputs whatever argument you give) (> <file name> redirects the argument to where you tell it)
+echo <"text"> > <file name>
+
+
+Display the contents of the file in the terminal (concatenate)
+cat <file name>
+
+
+--------
+EXAMPLE:
+To add ten lines to the text file, enter the following command:
+
+for i in {1..10}
+do
+   echo "$i. Lorem ipsum dolor sit amet, consectetur adipiscing elit." >> text-file
+done
+---------
+
+
+To view the last X lines of the file
+tail --lines=X <file name>
+tail -n X
+
+
+Create a copy of a file
+cp <file name> <new file name>
+
+
+Prompt before overwriting file (press y when prompted to confirm)
+cp --interactive <file name> <new file name>
+cp -i <file name> <new file name>
+
+
+No prompt before overwriting file
+cp --no-clobber <file name> <new file name>
+cp -n <file name> <new file name>
+
+
+Create directory (make directory)
+mkdir <directory name>
+
+
+Create copy of directory
+cp --recursive <directory name> <new directory name>
+
+
+Rename a file (move)
+mv <file name> <new file name>
+
+
+Move file into a directory
+mv <file name> <directory name>
+
+
+Remove a single file (remove)
+rm <file name>
+
+
+Remove directory (remove directory)
+rmdir <directory name>
+
+
+Empty a directory (remove) (all)
+rm <directory name>/*
+
+
+Check permissions on a file
+ls -l <file name>
+	displayed alphabetically
+	first character = '-' means file.
+	first character = 'd' means directory.
+	3 groups of characters shows permissions for: User(owner of file) > Group(owner of the file) > Other(other users and groups)
+	r = read
+	w = write
+	x = execute
+	- = permission denied
+stat -c '%a' <file name>
+	displayed in octal format
+	3 numbers shows permissions for: User(owner of file) > Group(owner of the file) > Other(other users and groups)
+	r = 4
+	w = 2
+	x = 1
+	Each group shows total of octal (i.e read and write = 6)
+	
+
+Change permissions of a file (change mode)
+chmod <new octal permission number> <file name>
+chmod <u/g/o/a> <+/-> <r/w/x> <file name>
+	User > Group > Other > All
+
+Execute file
+./<file name>
+
+
+Remove write permission to group (change mode)
+chmod g-w <file name>
+
+
+Add write permission to group (change mode)
+chmod g+w <file name>
+
+
+Change owner of file (superuser) (change owner)
+sudo chown <new owner> <file name>
+
+
+Change user and group of file
+sudo chown <new owner user>:<new owner group> <file name>
+
+
+Show system memory (free space)
+free
+	in bytes
+free --human
+	in G(gigabytes) or M(megabytes)
+
+
+Check info about processes running
+top
+	listed in order of cpu usage (descending)
+	load averages at top shown over last 1 minute > 5 minutes > 15 minutes and calculated by CPU Usage and system threads awaiting use of CPU
+	to list by memory press 'm'
+	exit top by pressing 'q'
+
+
+Start a process in the background and sleep for X time
+<process> -c <'sleep X in seconds'> &
+	bash starts new Bash shell and executes sleep command for 600 seconds (10 minutes)
+	& tells the Bash to run as a background job
+---------
+EXAMPLE:
+bash -c 'sleep 600' &
+---------
+
+
+List running processes for your user (process)
+ps
+	shows a snapshot of the running processes
+		PID: Process ID (unique ID given when it starts)
+		TTY: Terminal that started the command (system may have multiple users and different terminals)
+		TIME: Amount of CPU time being used by the process
+		CMD: Name of the command
+
+
+Stop a process
+kill <PID>
+	kill -l lists different types of kill processes
+
+
+Check disk usage (disk free)
+df
+df --human-readable
+df -h
+
+
+Check (estimate) disk usage for a directory
+du --human-readable
+du -h
+du -h <file directory>

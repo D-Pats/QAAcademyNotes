@@ -1,0 +1,206 @@
+Using Regular Expressions Effectively in the Real World
+	import re 															#Importing Python's regular expression library
+
+	pattern = r'ab'														#Pattern to find in string (Starts with r to make the string a "raw  string" so no need for escape characters)
+	text = 'abc acb'													#String to find pattern in
+	matches = re.findall(pattern, text) 								#re.findall(pattern,text) to get the matches
+	print(f"Pattern: {pattern}\nText: {text}\nMatches: {matches}\n")	#Print the results using f strings
+
+		pattern = r'\d(?=c).'
+			Using the "positive look-ahead" feature
+				looks ahead at the next right-hand expression (checks if the preceding expression is followed by another expression)
+			Text: a1 b2 3c 4d
+			Matches: ['3c']
+			
+				The expression 3c as it is looking for a digit followed by a c character
+					if the . isn't at the end of the expression it would just match 3
+				
+				Other types of assertions
+					Negative look-ahead
+						(!?expression)expression
+							operates on the right-hand expression, but the expression is negated
+					
+					Positive look-behind
+						(?<=expression)
+							operates on the left-hand expression
+					
+					Negative look-behind
+						(?<!expression)
+							operates on the left-hand expression, but the expression is negated
+							
+		
+		pattern = r'^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z])(?=.*[!@#$]).{10,}$'
+			example of testing a password for minimum complexity using multiple positive look-ahead expressions
+			Text: 
+			apple
+			orange1
+			banana2$
+			Pomegranate3!
+			Pear4#
+			Matches: ['Pomegranate3!']
+			
+				Regular expressions often used to test password complexity
+				Example above tests that each line of text meets the following conditions
+					Contains alpha-numeric characters
+					Contains at least one digit
+					Contains at least one of these symbol characters !@#$
+					Is at least 10 characters long
+				
+					Despite appearing complex it can be broken down into 3 parts
+						The caret and dollar symbol that match the start and end of a line
+						There are five positive look-ahead assertions
+						There's an expression matchin ten or more characters (.{10,})
+					
+					The look-ahead expressions are applied to the expression that matches ten or more characters
+					
+					Often used by a website when creating an account and entering a password. Javascript will show whether the complexity is met in realtime
+					
+					This check could also be done as a series of if statements however regular expression reduces the overall lines of code.
+					
+			
+		pattern = r'<\w+>(.*?)</\w+>'
+			The regular expression here is using a capture group to match text inside the b and i HTML tags
+				works well for this example however  it is brittle and will break if the structure of HTML changes
+			Text: 
+			<html>
+				<body>
+					<b>Text to be matched</b>
+					<i>Text to be matched</i>
+				</body>
+			</html>
+			Matches: ['Text to be matched', 'Text to be matched']
+			
+			pattern = r'<\w+>(.*?)</\w+>'
+				Text: 
+				<html>
+					<body>
+						<b attribute="value">Text to be matched</b>
+						<i><i>Text to be matched</i></i>
+					</body>
+				</html>
+				Matches: ['<i>Text to be matched']
+				
+					The text in the tags no longer correctly matches. 
+						The b HTML tag has an attribute which means the tag doesn't match the word character class (\w) anymore
+						The i HTML tag is now nested in another i tag on the same line so it captures the <i>
+					
+					When searching or extracting text elements from a structured data format, you should prefer using a parser designed for the format
+						Most scripting languages (Python, JavaScript, Ruby) have libraries built into the language that can parse popular textual data such as HTML, XML, JSON, and YAML
+						There are also easily obtainable libraries for most compiled or statistically typed languages (C, C++, Java, C#)
+					
+					Advantages of using data structure specific parser
+						Often, a parser is more performant than a complex regular expression
+						Using a parser is likely to reult in easier to understand code
+						The parser is more likley to handle unusual edge cases correctly
+						Sometimes, a parser is able to handle malformed input in a graceful way
+						If the data structure format changes over time, the parser is likely to be updated too
+					
+			As a general rule, if the text you want to operate on contains nested structure such as arrays, lists, maps, or tags, using a dedicated parser should be the preffered approach
+
+		
+		pattern = r'\d{2}[-/]\d{2}[-/]\d{4}'
+			Simple expression for matching a date in the format day/month/year.
+				will also match if a dash is used instead of a forwardslash
+				uses the digit character class with a numeric quantifier to match the digits, and a custom character class ([-/]) to match the dash or forwardslash
+			Text: 
+			1-1-1900
+			1900-01-01
+			01-01-1900
+			01/01/1900
+			Matches: ['01-01-1900', '01/01/1900']
+				
+				Using this regular expression to extract dates from a report or log file is a good use-case.
+					This regular expression is not validating the matched dat, it would match a date with an invalid day or month such as 31/31/2000.
+					It's possible to improve the expression such that it doesn't allow an invalid day or month.
+					To correctly validate a date requires handling different months having different numbers of days, leap years, and other edge cases with how dates can change.
+						This level of complexity will be hard to understand, debug, and maintain
+					
+				If you are running the expression on a server log (or other computer-generated source), you may be able to assume the dates are valid. If the source data is unknown or untrusted, relying on an expression is unwise and should perform extra validation
+
+		
+		pattern = r'[a-zA-Z0-9.+-_]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,63}'
+			Simple expression to match an email address
+			Text: 
+			example@example
+			@example.com
+			example@example.com
+			example+example@example.com
+			Matches: ['example@example.com', 'example+example@example.com']
+			
+				Bad use-case for a regular expression
+					The specification of a valid email address is surprisingly complicated
+					A regular expression offers little protection against typos
+					Validating an address with a regular expression does not tell you that the address is in use and can receive mail that will be read by somebody
+				
+				Some websites use regular expression to validate email addresses as it's entered
+				Other websites may ask to enter their address twice, this is much more likely to prevent a typo
+				Most websites will send an email to address immediately after sign up to confirm the address is correct
+					The confirmation email is doing most of the validation work and is most important
+				
+				Using a complex spcification compliant regular expression is not an effecient use of time and effort when considering the costs of developing, debugging, and maintaining it
+			
+				Other scenarios, such as extracting email addresses from log or CSV files, are suitable for use of regular expression. Here a simpler expression may be preferred, especially if you are developing the expression from nothing
+			
+		pattern = r'^[\d\.]+'
+			The text variable contains some example log file entries
+				The pattern contains a character class that will match numbers and period symbols one or more times
+				The caret symbol denotes the match should start from the beginning of a line
+			Text: 
+			82.50.208.243 - block1248 [21/Sep/2000:05:36:47 +0000] "GET /interactive HTTP/2.0" 401 5998
+			222.197.76.186 - - [21/Sep/2000:05:36:47 +0000] "HEAD /target/target HTTP/1.0" 201 21411
+			4.50.89.124 - - [21/Sep/2000:08:00:54 +0000] "PUT /bleeding-edge HTTP/2.0" 501 29142
+			116.203.184.117 - kirlin5184 [21/Sep/2000:08:00:54 +0000] "PATCH /user-centric HTTP/2.0" 100 14003
+			Matches: ['82.50.208.243', '222.197.76.186', '4.50.89.124', '116.203.184.117']
+			
+				The period is escaped, normall a period would match any character and not the literal period character.
+					This pattern will match IP addresses at the beginning of each log entry
+		
+				You will see the IP addresses matched individually
+				
+				Extracting data from log files is a good use-case for regular expressions, especially if the need is ad-hoc and infrequent.
+				Alternatives include
+					writing a log file parser
+					normalising logs and querying them in a database
+				The alternatives may not be an efficient use of time and effort if they aren't re-used
+		
+		
+		pattern = r'(?P<IP>.*) [a-zA-Z0-9.\-]+ [a-zA-Z0-9.\-]+ \[.* .*?\] \".* .* HTTP\/.*\" .* .*'
+			Pattern matches all parts of a log entry. Only IP addresses are returned because it's surrounded by parentheses, denoting a capture group
+			Text: 
+			82.50.208.243 - block1248 [21/Sep/2000:05:36:47 +0000] "GET /interactive HTTP/2.0" 401 5998
+			222.197.76.186 - - [21/Sep/2000:05:36:47 +0000] "HEAD /target/target HTTP/1.0" 201 21411
+			4.50.89.124 - - [21/Sep/2000:08:00:54 +0000] "PUT /bleeding-edge HTTP/2.0" 501 29142
+			116.203.184.117 - kirlin5184 [21/Sep/2000:08:00:54 +0000] "PATCH /user-centric HTTP/2.0" 100 14003
+			Matches: ['82.50.208.243', '222.197.76.186', '4.50.89.124', '116.203.184.117']
+				
+				The expression is uding a feature called "named capture groups"
+					The format of a named capture group is (?P<name>group)
+						where name is any alphanumeric string beginning with a letter
+						where group is any regular expression
+					Names capture groups help to make longer and more complex expressions easier to understand
+				
+				The similarity in the syntax between lookarounds and name capture groups is notable.
+					Both have a '(?)'
+						lookaround will have another character after the '?'
+					lookaround is used to qualify a character class and requires a character class to operate on in order to return a match
+					Capture groups specify a subset of the matching text to be returned
+				
+			
+		pattern = r'(?P<IP>.*) [a-zA-Z0-9.\-]+ [a-zA-Z0-9.\-]+ \[.* (?P<tz>.*?)\] \".* .* HTTP\/.*\" .* .*'
+			Another names capture group has been added called tz
+			Text: 
+			82.50.208.243 - block1248 [21/Sep/2000:05:36:47 +0000] "GET /interactive HTTP/2.0" 401 5998
+			222.197.76.186 - - [21/Sep/2000:05:36:47 +0000] "HEAD /target/target HTTP/1.0" 201 21411
+			4.50.89.124 - - [21/Sep/2000:08:00:54 +0000] "PUT /bleeding-edge HTTP/2.0" 501 29142
+			116.203.184.117 - kirlin5184 [21/Sep/2000:08:00:54 +0000] "PATCH /user-centric HTTP/2.0" 100 14003
+			Matches: [('82.50.208.243', '+0000'), ('222.197.76.186', '+0000'), ('4.50.89.124', '+0000'), ('116.203.184.117', '+0000')]
+		
+		
+		pattern = r'.* [a-zA-Z0-9.\-]+ [a-zA-Z0-9.\-]+ \[.* .*?\] \".* (?P<path>.*) HTTP\/.*\" .* .*'
+			Matches just the path and nothing else
+			Text: 
+			82.50.208.243 - block1248 [21/Sep/2000:05:36:47 +0000] "GET /interactive HTTP/2.0" 401 5998
+			222.197.76.186 - - [21/Sep/2000:05:36:47 +0000] "HEAD /target/target HTTP/1.0" 201 21411
+			4.50.89.124 - - [21/Sep/2000:08:00:54 +0000] "PUT /bleeding-edge HTTP/2.0" 501 29142
+			116.203.184.117 - kirlin5184 [21/Sep/2000:08:00:54 +0000] "PATCH /user-centric HTTP/2.0" 100 14003
+			Matches: ['/interactive', '/target/target', '/bleeding-edge', '/user-centric']

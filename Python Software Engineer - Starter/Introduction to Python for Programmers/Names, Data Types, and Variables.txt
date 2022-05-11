@@ -1,0 +1,167 @@
+Data Types
+	bool
+		True or False
+		True = 1 
+		False = 0
+	
+	int
+		integer
+		whole number
+		unlimited precision
+	
+	float
+		floating point
+		number with decimal points
+	
+	complex
+		real and imaginary part
+		floating point numbers
+	
+	
+Operations
+	x + y
+		sum of x and y
+	
+	x - y
+		difference of x and y
+	
+	x * y
+		product of x and y
+	
+	x / y
+		quotient of x and y
+	
+	x // y
+		floored quotient of x and y
+		
+	x % y
+		remainder of x / y
+	
+	-x
+		x negated
+	
+	+x
+		x unchanged
+	
+	abs(x)
+		absolute value or magnitude of x
+	
+	int(x)
+		x converted to integer
+	
+	float(x)
+		x converted to floating point
+	
+	complex(re, im)
+		a complex number with real part re, imaginary part im, im defaults to 0
+	
+	c.conjugated()
+		conjugate of the complex number c
+	
+	divmod(x,y)	
+		the pair (x // y, x % y)
+	
+	pow(x,y)
+		x to the power of y
+	
+	x ** y
+		x to the power of y
+		
+
+Sequence Types
+	Strings
+		array of text (array of unicocde characters)
+		s = 'text'
+		
+	Bytes
+		araay of bytes
+		b = b'text'
+	
+	Lists
+		sequences of values
+		my_list = []
+		sequence[start:limit:stride]
+	
+	Tuples
+		readonly sequences of values (used for records)
+		my_tuple = 'Mary', 'Poppins', 'London'
+	
+
+Slicing
+	sequence[START:STOP]		START to STOP -1
+	sequence[START:]			START to end
+	sequence[:STOP]				beginning to STOP -1
+	sequence[START:STOP:STEP]	START to STOP -1 counting by STEP
+	sequence[:]					all elements
+	sequence[::]				all elements
+	sequence[::STEP]			all elements counting by STEP
+		
+		starting value is inclusive
+		ending value is exclusive
+
+
+Mapping Types
+	Dictionaries
+		mapped sets of values
+		immutable keyword
+		d = {}
+	Sets
+		similar to dictionaries but contain only keys
+		s = set()
+		f = frozenset()
+		unique collection of values
+		normal set
+			dynamic (mutable)
+		frozen set
+			fixed (immutable)
+
+
+Script Format
+	imports at the top
+	variables, functions, and classes must be declared before use
+	main function goes at the top
+	main function called at the bottom
+
+
+Files and console I/O
+	print()
+		output to screen
+	open()
+		read a file, open it
+		read line by line use for loop
+		read entire file file.read()
+		read specified number of bytes file.read(n)
+		navigate within a file
+			file.seek(offset, whence)
+			file.tell()
+	input()
+		get input from user
+			provides prompt to user and returns a string
+
+
+Conditionals
+	if:
+	elif:
+	else:
+	
+	limit
+	
+	False
+		False
+		Empty collections (empty strings, empty list, empty dictionary, empty set, etc.)
+	
+	shortcut for if else
+		value1 if condition else value2
+	
+
+Loops
+	while
+		while waits for condition
+	for
+		for iterates over a sequence (iterable)
+		
+
+Builtins
+	72 builtin functions (as of Python 3.2)
+	not called from an object or package
+	can work on many different data types

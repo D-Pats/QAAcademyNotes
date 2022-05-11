@@ -1,0 +1,81 @@
+Branching
+	Intro
+		Branching lets ud define workflows
+		Allows us to deliver code in the best possible state
+		Minimises the risk of bugs and errors
+	
+		With version control systems like Git we can create as many different branches as we want, allowing us to isolate development and testing from code that is known to work
+
+	
+	Feature-Branch Model
+		The develop or dev branch is at the same point or ahead of the master or main branch
+		
+		Need to push branches to remote to appear in the remote
+		
+		Create a branch
+			git branch <new branch name>
+			
+			git checkout -b <new branch name>
+				this creates branch and checksout to the branch
+			
+		
+		Create branch on remote
+			Checkout branch to push
+				git push -u <remote name> <branch name>
+			
+		
+		Show branches
+			git branch
+				the * next to a branch means you are on this branch
+				
+		
+		Switch branch
+			git branch <branch name>
+		
+		
+		Delete a branch
+			Can't delete a branch you are currently in (checked out)
+			
+			git branch -d <branch name>
+			
+			Delete on remote
+				git push --delete origin <branch name>
+				
+	
+	Merging
+		Intro
+			What is merging?
+				Merging joins the HISTORY of branches together
+				Any changes in one branch are reflected in another
+			
+			Example
+				
+				
+				feature-1  	 E---F---G
+							/
+				main 	A---B---C---D
+				
+			
+			You merge INTO the branch you have currently checked out
+				git checkout main
+				git merge feature-1
+				
+				feature-1  	 E---F---G
+							/          \
+				main 	A---B---C---D---H
+			
+	
+	Merging Conflicts
+		When merging you can encounter conflicts
+		These happen when:
+			more than one person has edited the same line in a file
+			if a  line that was in use has been removed
+			if a file that is in use has been deleted
+		
+		The conflict ONLY affects the person doing the merge
+		
+		If a merge conflict occurs...Git will:
+			Pause the merge
+			show the files that are conflicting
+			ask the developer to resolve the conflict
+			then complete the merge

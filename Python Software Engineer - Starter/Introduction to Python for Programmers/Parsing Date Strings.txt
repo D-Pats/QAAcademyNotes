@@ -1,0 +1,95 @@
+Parsing date/time strings
+	time.strptime()	
+		returns tuple
+	
+	datetime.datetime.strptime	
+		returns datetimte
+		
+	use same directives as strftime()
+
+
+Parsing dates the easier way
+	use dateutil.parser
+		understands many different formats
+		no need for directives
+	
+	dateutil.parser.parse()
+		doesn't need a template
+
+
+Converting timestamps
+	datetime.fromtimestamp()
+		to get datetime object
+	
+	time.localtime()
+		to get time tuple
+	
+	time.time()
+		returns current time as timestamp
+
+
+Time zones
+	not many built intime zones
+	
+	datetime.datetime has UTC-oriented functions
+		utcnow()
+		utctimetuple()
+		utcfromtimestamp()
+		
+	use dateutil module (not part of standard library)
+
+
+Generating calendars
+	use calendar module
+	output can be text or HTML
+	create TextCalendar or HTMLCalendar object
+	formatmonth(), formatyear(), generate formatted calendars
+
+
+Calendar methods
+	isleap(year)
+		True if leap year, False otherwise
+	
+	leapdays(year1, year2)
+		Number of leap years between year1 (inclusive) and year2 (exclusive)
+	
+	weekday(year,month,day)
+		Weekday (0 is Monday) for given date
+	
+	weekheader(width)
+		String of abbreveiated weekday names; width is width of one weekday (longer widths give more characters, up to 3 -'M', 'Mo', 'Mon', etc.)
+	
+	monthrange(year,month)
+		Weekday of first day of month and number of days in month,as a tuple
+	
+	monthcalendar(year,month)
+		A two-dimensional list representing a month's calenar. Each row represents a week; days outside of the month are represented by 0s
+	
+	prmonth(year,month)
+		Prints calendar for specified month (prints return value of calendar.month())
+	
+	month(year,month)
+		Return a multi-line string representing one month
+	
+	prcal(year)
+		Prints calendar for specified year (prints return value of calendar.year())
+	
+	calendar(year)
+		Return a multi-line string representing one year
+	
+	timegm(tuple)
+		Converts timetuple tuple to a Unix timestamp (this is the opposite of time.gmtime())
+	
+
+Calendar data
+	day_name
+		Full names of days of the week ('Monday', 'Tuesday', etc.)
+	
+	day_abbr
+		Abbreviations of days of the week ('Mon', 'Tue', etc.)
+
+	month_name
+		Full names of months (index 0 is empty string) ('', 'January', 'February', etc.)
+	
+	month_abbr
+		Abbreviations of days of the week ('', 'Jan', 'Feb', etc.)

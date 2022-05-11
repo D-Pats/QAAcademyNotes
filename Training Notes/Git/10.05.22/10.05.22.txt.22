@@ -1,0 +1,285 @@
+Source Control with Git (Version Control)
+
+	Overview
+		Practice of managing codebases
+			Done by tracking changes
+		
+		Central place to store code and view changes
+		
+		Streamline work between developers and teams
+		
+		Gives us control over out codebase
+			Can approve or deny changes
+		
+		View a history of changes
+			a record of every change made
+			able to revert unwanted changes
+
+
+	Source Control Management (SCM)
+		Allows us to store our code in a central repository
+		
+		Allows us to track changes over time
+		
+		Create 'Branches' of our code base
+			This is to isolate development
+		
+		Merge changes between branches
+		
+		Integration into CI (continuous integration) CD (continuous deployment)
+		
+	
+	Repositories (Repos)
+		The central place we store our code
+		
+		Allows us to have consistent versioning
+		
+		There are both local and remote repos
+	
+	
+	Branching
+		Diagrams below
+		
+		Dia 1
+		Feature code goes 4 versions ahead
+			Feature code gets merged and the Main branch catches up
+		
+		At the point the feature branch splits off it is the same as the main branch
+		
+		
+		   Feature 1 x----x----x----x----x
+		Main x---x---x-------------------x
+		
+		
+		
+		Dia 2
+			Can cause confilcts when merging
+			
+		   Feature 1 x----x----x----x		
+		Main x---x---x----x----x
+					 Feature 2 x----x----x----x
+					 
+	
+	Code tracking
+		Lets devs see changes to code
+		
+		Streamline the process of development
+		
+		Changes are documented
+			Needs author
+				who made changes
+			Gets timestamped
+				when changes were made
+			Comment
+				what changes are made
+				
+				
+Basics
+	Staging
+	Committing
+	Pushing
+	
+		Visual representation
+			Staging
+				Putting a letter in an envelope
+			
+			Committing
+				Closing and seal the envelope
+			
+			Pushing
+				Putting the letter in the postbox and sending it off - can't do anything with it now
+		
+	
+	Creating a repo
+		Go to GitHub
+		
+		+ button in top left
+		
+		New Repository
+		
+		Create Repostesitory
+		
+		In Quick Setup
+			Select SSH
+			Copy Link
+	
+	
+	Cloning
+		Cloning downloads a copy of a remote repo to our local machine
+		
+		Cloning automatically configures the local repo to match the remote
+		
+		git clone <repo link on github>
+			This will then show in the folder your bash is open from
+		
+	
+	Initialising a local repo
+		We can initialise a directory as a git repo 
+		
+		To start using version control
+			git init <folder name/new repo name>
+				This will show (main) to show it is initialised as a repo
+
+	
+	Set an upstream
+		When you create a repo (not cloning)
+			Need to set an upstream branch
+		
+		Upstream branch will track local changes on the remote
+		
+		Check if we have any remote repos
+			git remote -v 
+		
+		git remote add origin <repo link on github>
+			This links the local repo to the remote repo
+				do git remote -v to confirm it is there
+		
+	
+	Staging Changes
+		If you have made a change to a local repo
+			Must be staged to prep it for history
+		
+		Commands to stage files
+			git add <file name>
+				adds file to staging
+			
+			git add <file name> <file name> etc.
+				adds multiple files to staging
+			
+			git add --all
+				adds all files in current directory
+			
+			git add .
+				adds all files in directory and subdirectories
+			
+			git add *
+				adds all files in directory and subdirectories
+					can be used to specify files 
+						i.e. git add *.txt
+							This will add all .txt file types
+							
+			
+	Local Repo Status
+		Knowing the status of your local repo proivides info on which commands you need to run
+	
+	
+	Committing
+		How we 'save' with git
+		
+		Needs meaningful message
+		
+		These can be 'reverted' later
+		
+		git commit -m "<message>"
+	
+	
+	Pushing
+		Push to apply local changes to our remote repo
+		
+		This sends the history
+		
+		use command 'git push'
+			set upstream first time with git push -u <remote repo> <name of main branch>
+				this associates main branch of local with main branch of origin
+				
+	
+	Ignoring Files
+		Sometimes when working there are files you don't want to add to a repo
+			Example reasons
+				Contains Passwords or keys
+				Contains compiled binary
+				
+			create a .gitignore file
+				use touch .gitignore
+					add filenames or filepaths that you want to ignore into the .gitignore file
+					to push this use git add .gitignore
+						when doing git status you will not see the ignored files in the changes not staged for commit
+					
+				Add .gitignore to the .gitignore file to hide it completely
+				
+	
+	Forking
+		Creating a copy of someone else's repo under your account
+		
+		This lets us mess with an existing codebase without breaking the project
+		
+		Lets us build functionality we can contribute later
+	
+	
+	Suggesting a change
+		Fork the repo
+		Create a new issue (future) branch
+		Fix the bug
+		Submit a pull request
+	
+	
+	Your Idea
+		You can fork a start-point from another repo
+		
+		Be aware of licensing issues if doing this (not all code is free for public use)
+		
+Forking tutorial
+	Forking a Repo
+		Go the the github site
+			Click Fork icon
+			
+		Copy SSH Key
+		
+		Open Bash in location you want to clone to
+		
+		Clone Repo
+			git clone <SSH URL>
+				git remote -v will show the fork url
+				
+	
+	Updating Forked repo from original
+		Go to original code repo
+		
+		Copy SSH keys
+		
+		Open Bash in your fork's local repo
+		
+		Add the original as the upstream
+			git remote add upstream <SSH URL>
+				check the upstreams are added with git remote -v
+			
+		Pull changes from the original
+			git fetch upstream
+		
+		Merge the upstream
+			git merge upstream/<branch name>
+				in our case it will be git merge upstream/main
+			
+		Push changes to our fork
+			git push -u origin main
+
+
+Reverting
+	What is reverting
+		This is how we undo changes to a repo
+	
+	
+	Review the HISTORY of the repo
+		git log
+			this shows you a history of ALL commits on the current branch
+				show the infro in a more concise format use:
+					git log --oneline
+		
+		we can also add additonal flags for showing the history of ALL branches
+			--branches=*
+				* means all or your can csv the branch names
+			
+			git log <branch name>
+				shows history of that branch
+				
+	
+	Reverting with REVERT
+		using the command:
+			git revert HEAD
+			we will create a NEW commit which reverts the latest commit
+			Your history will still contain the change but revert will undo it
+		
+	
+	Reverting with RESET
+		This works different to revert as it will DELETE the history back to the commit you specified
+			it reset --hard <SHA1 of where you want to reset to>

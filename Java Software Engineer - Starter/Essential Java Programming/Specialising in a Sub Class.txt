@@ -1,0 +1,30 @@
+Extending a Class
+	A class may extend the definition of another class
+		Methods and instance data of the superclass are available to the subclass (based on superclass method/field visibility)
+		New instance data can be added
+		New methods can be added
+	
+	Subclassing is expressed using the extends keyword
+		public class Person {
+			private String name;
+			public void speak() {
+				System.out.println("Hello my name is @+ name);
+			}
+			...
+		}
+		
+		public class Employee extends Person{
+			private int employeeId;
+			public void work() {
+				System.out.println("Employee ID: "+ employeeId);
+			}
+			...
+		}
+
+
+Overriding a method in a subclass
+	Subclass can override methods of the superclass
+		Same name, return type, and calling parameters
+		Different behaviour
+		Best practice is to always use the @Override annotation
+			this is not required but it helps the compiler (and programmers) detect errors

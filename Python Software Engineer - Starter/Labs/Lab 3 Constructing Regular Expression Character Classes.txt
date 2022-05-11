@@ -1,0 +1,93 @@
+Constructing Regular Expression Character Classes
+	import re 															#Importing Python's regular expression library
+
+	pattern = r'ab'														#Pattern to find in string (Starts with r to make the string a "raw  string" so no need for escape characters)
+	text = 'abc acb'													#String to find pattern in
+	matches = re.findall(pattern, text) 								#re.findall(pattern,text) to get the matches
+	print(f"Pattern: {pattern}\nText: {text}\nMatches: {matches}\n")	#Print the results using f strings
+
+		pattern = r'\d'
+			matches a single digit
+				finds a single digit between words
+			Text: Firstword 1 Secondword 02 Thirdword
+			Matches: ['1', '0', '2']
+
+
+		pattern = r'\D'
+			matches any non-digit, opposite of \d
+			Text: 'Firstword 1 Secondword 02 Thirdword'
+			Matches: ['F', 'i', 'r', 's', 't', 'w', 'o', 'r', 'd', ' ', ' ', 'S', 'e', 'c', 'o', 'n', 'd', 'w', 'o', 'r', 'd', ' ', ' ', 'T', 'h', 'i', 'r', 'd', 'w', 'o', 'r', 'd']
+
+
+		pattern = r'\w'
+			matches word characters
+				finds all characters that can be used as part of a word (so no spaces)
+			Text: Firstword 1 Secondword 02 Thirdword
+			Matches: ['F', 'i', 'r', 's', 't', 'w', 'o', 'r', 'd', '1', 'S', 'e', 'c', 'o', 'n', 'd', 'w', 'o', 'r', 'd', '0', '2', 'T', 'h', 'i', 'r', 'd', 'w', 'o', 'r', 'd']
+			
+
+		pattern = r'\W'
+			matches opposite of \w
+			Text: Firstword 1 Secondword 02 Thirdword
+			Matches: [' ', ' ', ' ', ' ']
+
+
+		pattern = r'\s'
+			matches just whitespace characters
+			Text: Firstword 1 Secondword 02 Thirdword
+			Matches: [' ', ' ', ' ', ' ']
+
+
+	Match sequences of strings using Quantifiers (Special Characters)
+		
+		pattern = r'\w+'
+			matches one or more word characters
+				matches the words in the text, ignoring the spaces between the words
+				+ groups them together
+			Text: Firstword 1 Secondword 02 Thirdword
+			Matches: ['Firstword', '1', 'Secondword', '02', 'Thirdword']
+			
+		
+		pattern = r'[4-6]'
+			matches a range of characters that you specify in [] and seprate start and end with -
+				start and end characters are inclusive
+			Text: 123456789
+			Matches: ['4', '5', '6']
+		
+		
+		pattern = r'[d-f]+'
+			matches a range of characters that you specify in [] and seprate start and end with -
+				start and end characters are inclusive
+				+ groups them together
+			Text: abcdefghi
+			Matches: ['def']
+		
+		
+		pattern = r'[a-z0-9]+'
+			matches groups (because of the +) of characters seperated by '!' and '?' 
+				spereated by any non a-z or 0-9 characters as specified within []
+				will only match lower case
+			Text: WORD!1234?wordandletters
+			Matches: ['1234', 'wordandletters']
+			
+		
+		pattern = r'[a-zA-Z0-9]+'
+			matches groups (because of the +) of characters seperated by '!' and '?' 
+				sperated by any non a-z, A-Z, or 0-9 characters as specified within []
+			Text: WORD!1234?wordandletters
+			Matches: ['WORD', '1234', 'wordandletters']
+			
+		
+		pattern = r'[^aeuio]+'
+			matches groups (because of the +) that include consonants and spaces but not vowels
+				caret symbol (^) is used to negate proceeding right-hand characters)
+			Text: The quick brown fox jumps over the lazy dog.
+			Matches: ['Th', ' q', 'ck br', 'wn f', 'x j', 'mps ', 'v', 'r th', ' l', 'zy d', 'g.']
+		
+		
+		pattern = r'[^aeuio^\s]+'
+				matches groups (because of the +) that include consonants and spaces but not vowels
+				caret symbol (^) is used to negate proceeding right-hand characters)
+				\s removes white spaces
+			Text: The quick brown fox jumps over the lazy dog.
+			Matches: ['Th', 'q', 'ck', 'br', 'wn', 'f', 'x', 'j', 'mps', 'v', 'r', 'th', 'l', 'zy', 'd', 'g.']

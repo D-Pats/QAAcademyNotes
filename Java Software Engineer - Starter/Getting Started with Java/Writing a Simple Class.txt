@@ -1,0 +1,283 @@
+Classes in Java
+	All code in Java is implemented within a class
+	
+	Objects are defined by classes
+	
+	A class is composed of fields and methods
+	
+	Multiple object instances (or just objects) can be created, or instantiated, for a class
+		Each object instance of a class has its own copy of the set of fields
+		Objects of a class share methods
+	
+	Object oriented programming is very different from procedural programming
+		Class defines shared behavior
+		Object instance provides unique state
+		Data can be hidden within the object
+	
+
+What is a Class?
+	A class is a template for creating objects
+	
+	It is composed of
+		Data
+		Methods
+	EXAMPLE
+		Class Employee{
+			
+			int salary;
+			
+			int getSalary() { // gets the salary
+				return salary;
+			}
+			
+			void setSalary(int new Salary) { // sets the salary
+				salary = newSalary;
+			}
+		}
+
+
+Defining the Class (with examples)
+	A class is defined using the class keyword
+		class Employee {}
+	
+	Instance variables are declared in the class block, outside of the methods
+		String name;
+		int Salary;
+	
+	Methods are defined within the class block
+		void setSalary(int newSalary) {
+			salary = newSalary;
+		}
+	
+	A class may have one or more constructors
+		initialisation methods with the same name as class name
+			class Employee {
+				Employee() {
+					name = new String("Kimberly");
+				}
+			}
+
+
+Access Modifiers
+		Access Modifiers define visibility of class, field, or method
+			Determines whether member can be used by other class
+		
+		A class can be defined as public or package-private
+			Using public makes class visible to other classes
+				public class Employee {}
+			Using package-private (no modifier) limits visibility to current package
+				class Employee {}
+		
+		Fields and methods can also be defined as private or protected
+			Using protected makes member visible to subclass
+			Any private member is only visible to owning class
+				private String name;
+				private int salary;
+				public void setSalary(int newSalary) {
+					salary = newSalary;
+				}
+
+		Fields are most often defined as private
+			Encapsulating state of object
+
+
+Class Instance Variables
+	Instance variables (or just fields)
+		Hold the object's 
+		Can be used by all of the methods of that object instance
+		May be accessible by external objects
+	
+	Every field is declared to be a specific type
+		A primitive type, such as an int or a char
+		An object type, a reference to another object instance
+	
+	Instance variables are automatically set to their default value when declared if not initialised explicitly
+	
+	The null keyword
+		An explicit reference type value
+		A reference of any type can be set to null
+		Not the same as an uninitialised reference
+		
+
+A Class Can Define Data Structures
+	EXAMPLE
+		public class Employee {
+			private int age = 0;						// instance variable
+			private String firstName = "unknown"; 		// instance variable
+			private String lastName;					// instance variable
+			//getters and setters
+		}
+			
+			
+				Employee me = new Employee();
+				me.setAge(35);
+				me.setFirstName("Fred")
+				me.setLastName("Flinstone")
+				
+					outputs
+					Employee
+					firstName = "Fred"
+					lastName = "Flinstone"
+					age = 35
+					
+				
+				Employee you = new Employee();
+					
+					outputs
+					Employee
+					firstName = "unknown"
+					lastName = null
+					age = 0
+
+
+Primitives in Java
+	Java defines eight primitive types
+		Types are predefined and reserved keywords
+		Simple and singular values stored on the stack
+		
+	Type		Size		Min				Max
+	byte		8-bit		-128			+127
+	char		16-bit		Unicode 0		Unicode 2^16 -1
+	boolean		1-bit		true or false	
+	short		16-bit		-32768			32767
+	int			32-bit		-2^31			2^31 -1
+	long		64-bit		-2^63			2^64 -1
+	float		32-bit		32-bit IEEE 754
+	double		64-bit		64-bit IEEE 754
+	
+	
+Primitives vs. Object References
+	A primitive field type holds a value
+		Fields not set explicitly will be given a default value
+		EXAMPLE
+			private int age = 13;
+			private int salary; // =0;
+	
+	An object reference field type can only hold a reference to an object
+		EXAMPLE
+			private Person student; // Person is an object type
+		
+	Comparing to C/C++
+		C/C++ has both pointers and structs
+		Java has only  strongly typed pointers - object references
+		Java objects are instantiated similarly to dynamic memory allocation in C/C++
+		EXAMPLE
+			student = new Person("Kimberly"); //continued from above
+			private Person teacher = new Person("Robert"); //all at once
+
+
+Creating Objects
+	Objects are normally created (or instantiated) by useing the new operator
+		The class name on the right matches the field's reference type on the left
+		The new object instance is initialised with a value of "Kimberly"
+		EXAMPLE
+			private Person student;
+			student = new Person("Kimberly");
+		
+	This Person instance will remain in memory until student no longer references it
+		EXAMPLE	
+			student = new Person("Jim");
+		
+	Or even
+		EXAMPLE
+			student = null; //no instance is referenced
+		
+
+The main Method
+	Any class may have a method with the following structure
+		public static void main(String[] args) {
+			System.out.println("Hello World");
+		}
+		
+			The method void returns no value
+			The name of the method (in this case "main")
+			The arguments for the main method (in the brackets)
+		
+	A class that has this method may be invoked from the command prompt, or shell. using the Java interpreter
+		The interpreter will invoke the main method
+			PROMPT> java MyClass
+			
+	Class would be referred to as Java application or a driver
+		Most classes do not have a main method
+
+
+Using the Dot Operator
+	To access an object's method or variable, you can use the dot operator
+		Syntax: instance.variableName or instance.methodName()
+		The data type is the type of the variable or of the return type
+		
+	Invoking a method that is in an object
+		private String personsName = student.getName();
+	
+	Accessing a field that is in an object
+		student.age = 21;
+			note:	Convention and best practive would use setters and getters to access a field in another object
+	
+	Dot operations may be chained
+		if ( student.getName().equals("Kimberly") ){ }
+			notes:	Chaining dot operations can make debugging challenging since several access operations may take place in a single statement
+					The visibility of methods or fields referenced must support access from the calling code
+
+
+Writing Output
+	A Java program can write messages to the console
+		System.out - points to standard output
+		System.err - points to standard error output
+		EXAMPLES
+			System.out.println("Got to this line in my code!");
+			System.err.println("An error occurred!");
+
+
+Java Keywords
+	Can not be used for variables, methods, class names, etc.
+	
+		abstract
+		assert
+		boolean
+		break
+		byte
+		case
+		catch
+		char
+		class
+		const
+		continue
+		default
+		do
+		double
+		else
+		enum
+		extends
+		final
+		finally
+		float
+		for
+		goto
+		if
+		implements
+		import
+		instanceof
+		int
+		interface
+		long
+		native
+		new
+		package
+		private
+		protected
+		public
+		return
+		short
+		static
+		strictfp
+		switch
+		synchronized
+		this
+		throw
+		throws
+		transient
+		try
+		void
+		volatile
+
+

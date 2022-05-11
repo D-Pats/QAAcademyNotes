@@ -1,0 +1,153 @@
+Key Contacts & Team
+	Technical questions
+		ask tutor who is teaching that specific contact
+	
+	General contacts (non tech)
+		AcademyQAC@qa.com (Academy Ops Team)
+		subject heading should be 22MayEnable2
+			Usually up to 24 hours
+	
+
+Hours of Training (rough finishing times, could be as early as 16:15)
+	Monday
+		10:00-16:45
+	Tuesday-Friday
+		9:00-16:45
+	Friday
+		3:00-3:30 finishes tech training
+		Time after that may be non tech requests
+	
+	All training will be held in MS Teams apart from Week 6 which will be in-person
+		Weeks 6 is in London
+	
+	Attendance for all days is recorded
+
+
+Communication
+	Teams and Email
+		Prolonged Absence may result in a ophone call
+	
+	Teams Instant Messaging IS monitored
+
+
+Code of conduct
+	If you are unable to attend training due to sickness, you must contact the Academy Opeations by email prior to 8:45 (cc in trainer)
+	
+	Due to the volume of material covered in the Academy we are unable to autorise absences
+		If you are absent for more than 3 days you will be dismissed from the programme, unless there are extenuating circumstances
+	
+	Unable to book holiday during your first 2 months post-training to allow time to secure and deploy to a placement
+		Should you commence employment in April or May you will be eligible to carry over your holiday entitlement to the next holiday year
+			June to May holidays
+		
+	If you don't tell us why you aren't available for training we will take it as you are no longer interested in our roles
+	Every working day in the academy is mandatory so please treat it as such (even when working on projects)
+
+	Always email to let them know anything.
+
+
+Remote conduct
+	Work alongside other trainees and staff to create an inclusive, positive, vibrant and supportive working environment for all.
+	
+	Respect and support your co-workers - beliefs, practices and needs.
+	
+	Assume camera-on as default for all meetings
+
+	Embrace all tasks set by the Ops team
+	
+	Communicate via the email.
+
+
+Participate
+	Hands-on learning opportunities
+	One-to-ones
+	Q&A's
+	
+	The volume of content you will be learning means there are also many points where we turn to more traditional delivery styles
+
+
+Additional Material
+	Recorded lectures
+	Notes
+	Signposted to additional, non-QA learning materials
+	
+	You should expect to find some elements of the course difficult, reequiring revision and homework to make sure the knowledge sticks
+
+	Do communicate if you are struggling, we will do everything we can to help
+	
+
+Digital Hygiene
+	Webcam on should be default for meetings unless being recorded
+	Be aware of browser tabs
+	Be formal with IMs
+
+
+Security (Both in the academy and on site)
+	Do not invite members of the public to your training 
+	QA will never ask for your pasword
+	Do not share QA content outside of the Academy
+	Do not plagiarise others work and try to pass it on as your own
+	
+		These are all grounds for dismissal
+
+
+Resource & Ops
+	Embrace ALL tasks sent by our team ASAP
+	includes
+		Documents and onboarding pass
+
+
+Expectations from Trainee
+	World class training
+		with skilled and ecperienced trainers
+		Supportive Ops team
+	
+	Supporting Materioals
+		Significant QA material including bespoke learning platform
+		
+	Salary
+		Salary from Week 6
+			Bursary until then
+	
+	BCS Membership
+	
+	Support
+	
+
+Recent changes
+	No exit fee
+		want us to stay because we want to not because of cost obligations
+	Notice period is 3 months to allow time for replacements
+	
+
+Progress reporting
+	Every 2 weeks we will be sending out a report to each person
+	Includes feedback from trainers on soft skills, attitude and tech skills
+	From this, strengths and weaknesses will be highlighted, and using this we  can set you goals
+	We will also feedback on your attendance if there have been any slips
+
+
+Dress code
+	Virtual
+		Casual
+	In Person
+		Day 1 Business(suit)
+		After day 1 it's business casual/smart casual
+
+
+Speculative application
+	To ensure, that on being successful by Week 5 we can emoploy you
+	https://qa-career.talent-soft.com/my-account/log-in.aspx?ReturnUrl=%2fmy-account%2fmy-CV-file.aspx
+		I have done this
+
+
+Week 1
+	Version Control
+		Git
+	
+	Agile Fundamentals
+	
+	Jira
+	
+
+Projects are at week 5, week 8, and week 12

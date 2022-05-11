@@ -1,0 +1,105 @@
+Datetime Fundamentals
+	Import datetime
+		from datetime import datetime, date, timedelta
+		
+
+	Get todays date
+		date.today()
+
+
+	Get a datetime reference to now
+		variable = datetime.now()
+			variable.day
+			variable.month
+			variable.year
+			variable.hour
+			variable.minute
+			variable.second
+		
+
+	Construct to dates and calculate the delta
+		d1 = datetime(yyyy, MM, dd)
+		d2 - datetime(yyyy, MM, dd)
+		d3 = d2 - d1
+
+
+	Construct an interval and add and subract to it to existing date
+		interval_variable = timedelta(10)
+			10 here is 10 days
+		d4 = d2 + interval
+		d5 = d2 - interval
+
+	Construct datetimes with time component
+		t1 = datetime(2007, 8, 24, 10, 4, 34)
+			(yyyy, MM, dd, hh, mm, ss)
+		t2 = datetime(2007, 8, 24, 22, 8, 1)
+		t3 = t2 - t1
+		
+
+Find Oldest File
+	Import OS and Datetime
+		import os
+		from datetime import datetime
+	
+	Test input args to the script
+		if len(sys.argv) > 1:
+			directory = sys.argv[1]
+		else:
+			print("Syntax: %s directory"% sys.argv[0])
+			sys.exit(1)
+				
+				This is using the import sys and some code in the test environment on the lab virtual environment
+			
+	Get files in specified directory and prepend the full path
+		entries = [os.path.join(directory, file) for file in os.listdir(directory)]
+	
+	Filter out non-files
+		files = [f for f in entries if os.path.isfile(f)]
+		
+	Transform list of filenames into list of (filename, unixtimestamp) tuples
+		files = [[f, os.stat(f)[-2]] for f in files]
+	
+	Sort files by timestamp
+		sorted_files = sorted(files, key=lambda e: e[1])
+	
+	Convert from Unix timestamp to python datetime object
+		filetime - datetime.fromtimestamp(sorted_files[0][1])
+	
+	Print as human-readable date (it defaults to this)
+		print(filetime, sorted_files[0][0])
+	
+
+Find Youngest President (example)
+	Import datetime module
+		import datetime
+	
+	Create a date creation helper function
+		def make_date(date_string):
+		    raw_year, raw_month, raw_day = date_string.split('-')
+		    year = int(raw_year)
+		    month = int(raw_month)
+		    day = int(raw_day)
+
+		    return datetime.date(year, month, day) 
+		   
+	Create an empty list
+		all_presidents = []
+		
+	Open data file and read each record
+		with open("./presidents.txt") as PRES:
+		    for rec in PRES:
+				_, last_name, first_name, birthday, _, _, _, inauguration_day, *_ = rec.split(":")
+ 
+				birth_date = make_date(birthday)
+				took_office_date = make_date(inauguration_day)
+
+				raw_age_at_inauguration = took_office_date - birth_date
+				age_at_inauguration = round(raw_age_at_inauguration.days / 365.25, 1)
+
+				full_name = '{} {}'.format(first_name, last_name)
+
+				all_presidents.append((age_at_inauguration, full_name))
+				 
+	Loop through sorted list and print out to console
+		for age, name in sorted(all_presidents):
+			print(name, age)

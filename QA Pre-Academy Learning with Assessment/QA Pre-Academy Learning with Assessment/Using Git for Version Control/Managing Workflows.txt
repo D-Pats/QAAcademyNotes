@@ -1,0 +1,39 @@
+Clone from another server in AWS
+origin_url=$(aws ec2 describe-instances --region <region> --filters "Name=tag:Name,Values=Origin" --query "Reservations[0].Instances[0].PublicDnsName" | sed 's/"\(.*\)"/git:\/\/\1\/lab.git/')
+git clone $origin_url example-git-repo
+	
+	first command finds a server in Lab's AWS name Origin which hosts an empty git repository and set Git DNS info to a variable
+	second command clones the variable to a directory called app
+--------
+EXAMPLE:
+origin_url=$(aws ec2 describe-instances --region us-west-2 --filters "Name=tag:Name,Values=Origin" --query "Reservations[0].Instances[0].PublicDnsName" | sed 's/"\(.*\)"/git:\/\/\1\/lab.git/')
+git clone $origin_url example-git-repo
+--------
+
+
+List remotes for newly-cloned repository
+cd <new repository name>
+git remote
+	git remote shows current list of remotes - repositories hosting the same codebase
+
+
+Push commit
+git push <repository> <branch>
+
+
+Amend a commit
+git add <file name>
+git commit --amend -m <"message">
+git log --oneline
+
+
+Restore a commit
+git restore -- <file name>
+
+
+Undo a commit entirely
+git reset --soft HEAD~1
+	HEAD~1 tells git to reset current branch to 1 commit before its current one
+	--soft tells git to perform a soft reset (any changes made between HEAD~1 and now are preserved)
+	--hard would discard all changes made between commits rather than keep them
+git log --oneline

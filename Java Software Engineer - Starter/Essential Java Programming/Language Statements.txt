@@ -1,0 +1,214 @@
+Operators
+	Assignment
+		x = 5;
+	
+	Arithmetic operators
+		+ add
+		- subtract
+		* multiply
+		/ divide
+	
+	Short hand increment/decrement operators
+		x += y;		short for x = x + y
+		x -= y;		short for x = x - y
+		x++, ++x;	short for x = x + 1
+		x--, --x 	short for x = x - 1
+		
+	there are more advanced operators such as bit operators
+
+
+Short hand increment/decrement operators
+	prefix operator
+		public void start(){
+			int x = 10;
+			printInteger(++x);
+			System.out.println(x); //Prints 11
+		}
+		public void printInteger(int value){
+			System.out.println(value); //Prints 11
+		}
+	
+	postfix operator
+		public void start(){
+			int x = 10;
+			printInteger(x++);
+			System.out.println(x); //Prints 11
+		}
+		public void printInteger(int value){
+			System.out.println(value); //Prints 10
+		}
+
+
+Comparison operators
+	All evaluate to a Java Boolean value of either true or false
+	==, !=, >=, <=, >, <
+	public void process(int value){
+		boolean greater = value > 15;
+		boolean equal = value == 12;
+	}
+	
+
+The if statement
+	The if-then statement
+		expression must be boolean, not int
+		
+		public void process(int value){
+			if(value > 21){
+				System.out.println("Greater")'
+			}
+		}
+	
+	The if-then-else statement and else-if statement
+		if (booleanExpression) {
+		} else{
+		}
+		
+		if(value > 21 {
+		}else if(value > 11){
+		}else{
+		}
+		
+		When conditional operation is single statement curly brackets are options
+		if (value > 21) System.out.println("Greater");
+	
+
+Logical Operators
+	logical and
+		&&
+			// x must be 5 and y must be 10
+			if (x == 5 && y == 10)
+	
+	logical or
+		||
+			//either x must be 5 or y must be 10
+			// both would be okay
+			// only one is neccessary
+			if (x == 5 || y == 10) //then true
+	
+	Single character logical operators (& and |) result in both sides of the expression to be evaluated
+		int i = 5;
+		int j = 5;
+		if(i++ > 3 || j++ > ){
+			System.out.println("...")
+		}
+		System.out.println(i); //6
+		System.out.println(j); //5
+	
+		int i = 5;
+		int j = 5;
+		if(i++ > 3 | j++ > ){
+			System.out.println("...")
+		}
+		System.out.println(i); //6
+		System.out.println(j); //6
+	
+
+The ternary operator
+	The ternary (or conditions) operator can be used for value assignment
+		sytax
+			variable - testCondition ? valueIfTrue : valueIfFalse
+		examples
+			minVal = (a < b) ? a : b;
+			absValue = (a < 0) ? -a : a'
+			String name = column.wasEmpty() ? "n/a" : column.getValue();
+		
+
+Looping: The for Statement
+	Is used to perform a repetitive code blick while a condition is true
+	Allows for variable initialisation and increment/decrement
+		for(initial statement; condition; iteration expression){
+			//do something until condition is false
+		}
+	exmaple
+		for(int a = 0; a < 10; a++) {
+			System.out.println("a="+a);
+		}
+	
+	The variable defined in the for statement is part of the scope of the loop block
+	
+	Needs name of the variable used to hold the individual element reference and the collection variable
+		public void testEnhancedFor() {
+			string myStringArray[] = new String[5];
+			
+			myStringArray[0] = new String("String number one");
+			
+			myStringArray[1] = new String("String number one");
+			myStringArray[2] = new String("String number two");
+			myStringArray[3] = new String("String number three");
+			myStringArray[4] = new String("String number four");
+			
+			for (String element : myStringArray) {
+				System.out.println(element);
+			}
+		}
+
+
+Looping: The while Statement
+	The while control loop will execute a block of code 0 or more times
+		while(booleanExpression){}
+	
+	The test occurs before each pass through loop
+		while(buffer.containsMoreData()){
+			//do something
+		}
+		
+		while(i < 10){
+			...
+			i++;
+		}
+
+
+Continue and Break Statements
+	The continue statement begins the next iteration of the enclosing loop
+	The break statement exits the enclosing loop
+	There is no goto statement, although it is a reserved word
+		x = 0;
+		while (true) {
+			x++;
+			if  (x > 100)
+				break;
+			if (x == 20)
+				continue;
+			x *= 2; //skipped if x = 20
+		}
+		//we exit here when x > 100
+
+
+The switch Statement
+	Replaces complex if/else constructs
+	You can switch on
+		byte
+		short
+		char
+		int
+		Enum types
+		Strings
+			public void colourCode(int code){
+				switch(code){
+					Case 1:
+						System.out.println("colourCode = " + code);
+						break;
+					Case 2
+						System.out.println("colourCode = " + code);
+						break;
+					default:
+						System.out.println("colourCode = " + code);
+					}
+					System.out.println("break sent us here");
+				}
+					
+	Multiple values can be 'checked'
+		When break is ommitted
+			public void colour(String colour){
+				switch (colour){
+					case "black":
+					case "brown":
+						System.out.println("Dark");
+						break;
+					case "white":
+						System.out.println("Light");
+						break;
+				}
+			}
+		
+	The default statement is optional

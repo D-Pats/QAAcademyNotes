@@ -1,0 +1,51 @@
+Make file executable using Shebang ( #! /usr/bin/python3 )
+	cat <file_name>.py | head -n 1
+	
+		shebang tells the bash terminal to use python3 itility to execute the Python script within the reamainder of the file
+			before using shebang we need to update permissions of the file
+				sudo chmod +x <file_name>.py
+		
+	execute file
+		./<file_name>.py
+	
+	launch interactive Python 3 REPL
+		python3
+
+
+Launch External Command
+	os module
+		import os
+	
+	query hostname of machine
+		os.system("hostname")
+	
+	execute the netstat process on the current machine
+		with os.popen('netstat -an') as netstat_in:
+			for entry in netstat_in:
+				if 'ESTAB' in entry:
+					print(entry, end='')
+	
+	launch netstat tools
+		sudo apt-get install net-tools
+		netstat
+	
+	execute file to launch the netstat command
+		python3 <file_name>.py
+		
+	
+Directory Traversal
+	Declare the starting directory location relative to the location relative to the location relative the script itself
+		START_DIR = ".."
+		
+	Perform a directory traversal
+		def traversal():
+		for currdir,subdirs,files in os.walk(START_DIR):
+			for file in files:
+				if file.endswith('.py'):
+					fullpath = os.path.join(currdir,file)
+					fsize = os.path.getsize(fullpath)
+					print("{:8d} {:s}".format(fsize, fullpath))
+	
+	Only execute if the traversal function if this script is the launching script
+		if __name__ == '__main__':
+			traversal()
