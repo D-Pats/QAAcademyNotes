@@ -79,3 +79,36 @@ Branching
 			show the files that are conflicting
 			ask the developer to resolve the conflict
 			then complete the merge
+
+
+Creating a Pull Request
+	
+	From a Branch within a repository
+		Create a feature branch and push it to VCS
+			Clone a repository done with git clone <SSH Key>
+			Create and switch to new branch using git checkout -b <branch name>
+			Make changes to the feature branch and git add then git commit
+			Push the feature branch up using git push origin <branch name>
+			new branch should now be reflected in your VCS
+			
+		Create a Pull Request
+			Go to repo you're working with and click 'Compare and pull request'
+			You will need to choose which branch you want the changes to eventually be on and which branch the changes are currently on
+			Add a title and some comments
+			Configure any additional options
+			Click 'Create pull request'
+	
+	From a Forked Repo
+		Create a Pull Request
+			Ensure you have a forked repo, and have made some changes
+			Navigate to the repo you created the fork from
+			Click on New pull request
+			Amend your base and compare to relect to correct branches
+			Click on 'compare accross forks'
+			Confirm that the base fork is the repo you'd like to merge into
+				use the base drop-down menu to select the branch of the repo you'd like to merge into
+			Use the head fork drop-down to select your forked repo, then use the compare to select the branch you made your changes in
+			Insert title and description for your pull requestConfigure any other options
+			Click 'Create Pull Request'
+			
+			This can then be reviewed by the product owner and other collaborators and merged into the base branch
