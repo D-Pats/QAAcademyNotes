@@ -1,0 +1,157 @@
+Agile
+	Methodologies
+		Agile
+			Agile is software development methodology
+				The way we work in teams to produce software
+				Created to solve problems caused by the waterfall methodology
+
+
+		Waterfall
+			Top down approach to development
+			Every step relying on the previous step
+			Can create serious blockers
+				Water only flows downhill - if something blocks one step then everything after it stops too
+			Very rigid, does not lend itself well to fast-paced development
+				If a new feature is to be added then you would have to start again from where the feature needs to be added
+
+
+		The response
+			Flexible working methodology
+			Developers can pivot to work on relevant features
+			
+			4 core values
+				Working Software over Comprehensive Documentation
+					Still document but not simplified to prioritise actual programming
+				
+				Customer Collaboration over Contract Negotiation
+					Keep good working relationship with customer while not being micro-managed
+				
+				Responding to Change over Following a Plan
+					Open to adding or removing features as a customer needs
+				
+				Individuals and Interactions over Processes and Tools
+					Don't say no to a request but instead upskill to meet the needs or pivot to accomodate more people and requests
+					
+
+		Process Control
+			Agile promotes process control during projects
+				We work on experience and evidence over following an MVP
+			
+			Three rules to follow
+				Adaption
+				Transparency
+				Inspection
+
+
+Intro to Scrum
+	What is it?
+		Scrum gets its name from Rugby
+			quick/lightweight
+			easy/simple to understand
+	
+	
+	Sprints
+		A sprint is ANY length of time in which work is done
+			e.g a month long project may have 4 week-long sprints
+			
+			Tasks are assigned to a 'sprint backlog' during a spring
+			
+			Tasks are cleared from the backlog as they are completed
+			
+			All tasks from the project are added to a 'project backlog'
+				this is where we populate the 'sprint backlog' from
+				the product backlog contains ALL tasks needed to complete a project
+				a product owner is assigned and responsible for maintaining the product backlog
+				each of these tasks will have a description, a time weighting, a priority
+		
+			For sprint backlogs
+				all items are selected from the product backlog
+				these tasks should be completed by the end of the sprint
+				we use a KANBAN style when managing tasks (to do, in progress, done)
+				
+	
+	Meetings
+		There are four main kinds
+			Sprint planning meeting
+				Can take up most of the day
+				Decide what will be done and how to do them
+				
+			Daily standup
+				Quick 15 minute meeting in the morning (where people would be standing)
+				Each person says 
+					what they are doing today (their sprint goal)
+					what they did yesterday
+					what their blockers are
+				
+			Sprint review meeting
+				Quick chat of what they've done
+				Quick look at the remaining backlog
+				
+			Sprint retro
+				Talk about
+					What tools were used
+					Were people communicating and collaborating
+					What things went well and what things did not
+					How we can work better as a team
+	
+	
+	Product Backlog Items
+		There are many different kind of items that you can add to a product backlog
+			User Stories
+			Use Cases
+			Bugs, Errors, Fixes
+			Constraints
+			Tasks
+		
+	
+	User Story
+			A user story is expected behaviour of the product from a user perspective
+			Allows us to:
+				break down functionality based on requirements
+					As a ... I want ... so that ...
+					Given ... when ... and ... then ...
+					Example:
+						As a user I want o be able to login so that I can view my account
+						Given a user is on the login page when they enter their account credentials and hit the login button then they are directed to their account page
+						
+	
+	
+	Epics
+		Dia 1
+					Epic
+					/\
+				Story Story
+			    /\       /\
+			Task Task Task Task
+			
+			
+Risk Assessments
+	What is it?
+		It is a living document
+			it can be updated or changed constantly by multiple people
+		We use it to evaluate risk and mitigate any damage that could be caused to the product
+		It influences our design decisions
+	
+	
+	Control Measures
+		Actions taken to reduce the likelihood of a risk occuring
+			Mitigation
+				Doing something to reduce or prevent the risk
+			
+			Acceptance
+				Can't do anything about the risk and have to accept it
+			
+			Transfer
+				Assigning the risk to a third party e.g. insurance
+					Does not elimate risk but covers yourself if it occurs
+	
+	
+	Structure
+		Risk - Description of the scenario
+		Risk Statement - the evaluation of what will happen if the risk occurs
+		Response - what do we do if the risk occurs?
+		Objectives - the control measure(s) that we will take
+		Likelihood - how likely is the risk to occur
+		Impact - how bad is the risk if the risk occurs
+		Risk Level - A key system to easily identify priority for risk
+			Risk Assessment Matrix
