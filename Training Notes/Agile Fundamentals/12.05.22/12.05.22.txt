@@ -155,3 +155,40 @@ Risk Assessments
 		Impact - how bad is the risk if the risk occurs
 		Risk Level - A key system to easily identify priority for risk
 			Risk Assessment Matrix
+
+
+Estimations ---------------------Will be assessed in week 5 project----------------------
+	In Scrum we weight our user stories
+		We do this with story points
+		The reason we don't use a time estimate is because developers work at different paces and have different levels of skill
+	
+	One of the most widely used methods of assigning story points is playing planning poker
+	
+	
+	Planning Poker
+		It's a small game where the team will choose a user story to discuss
+		After the discussion each team member will select a card with a story point value and place it face down
+		Everyone will flip the cards at the same time
+		If the estimate is wildly different between team members, further discussion is needed until a consensus can be achieved
+		Team members can chang the value of the cards they place during or after a discussion
+		Once all the cards placed down have the same value, the next user story can be discussed
+		
+			https://www.scrumpoker-online.org/en/
+			
+
+Prioritisation using MoSCoW
+	What does MoSCow stand for
+		M ust have
+			Need to have
+		o
+		
+		S hould have
+			Not needed for the program to work but easy enough to implement and significantly help
+			Almost Must have	
+		
+		C ould have
+			Nice to have, like quality of life changes
+		o
+		
+		W on't have
+			Not implementable, too costly, can't be done
