@@ -1,0 +1,51 @@
+JIRA
+	Create an account
+		https://www.atlassian.com/try/cloud/signup?bundle=jira-software&edition=free
+		Email and password
+		
+		Create site url
+	
+	Setting up Project
+		Create project as Scrum board
+	
+	
+	Using Kanban Board
+		Adding to backlog
+			create issues in project to ad to backlog
+		
+		
+		Creating Epic
+			Go to Roadmap and create Epic
+			Can add Epics as parent of issues
+		
+		
+		Time estimates
+			Add story points to issues
+			Time tracking enabled in project settings > issue settings
+		
+		
+		Linking issues
+			Link issues with chainlink icon and set the linnk descrioption as one of the following:
+				is blocked by
+				blocks
+				is cloned by
+				clones
+				is duplicated by
+				duplicates
+				relates
+		
+		
+		Starting a sprint
+			Use the 'create sprint' button
+				This creates an empty sprint backlog
+				Move agreed upon items into sprint
+			
+		
+		Integrating Jira and GitHub
+			use discover apps and integrations for Jira
+			install the *staff pick* GitHub for Jira app
+			
+			Get started > sign into GitHub > Add an Organisation > Add repos
+			
+			When commiting use the format git commit -m "<issue-number> <comment text>"
+				This should add a comment to your issue automatically
