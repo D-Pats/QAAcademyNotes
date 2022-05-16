@@ -1,0 +1,214 @@
+Relational Databases
+	Relational Database Management Systems (RDBMS)
+	
+	A Database is an organised collection of data
+		Organised means there are specific columns and data types that
+			there are unorganised ones that are faster but less readable
+		
+		Consider a website like Amazon - it serves millions of customers and you can't store all that info in the code, it needs a database
+		
+		Each box of data when signing up for a site refers to a different column in the database
+			Example
+				First name, Last name, Email, Password
+			
+		the database hooks into the back-end code for data
+		
+	
+	Databases are made up of two distinct areas
+		The Data
+			the actual info used
+		
+		The Schema
+			The way the information is stored
+			
+	
+	Data
+		Data is stored into tables (known as entities), these are modelled on real-life objexts that we would store info one such as Customers, Products or Orders
+		
+		These tablescontain one or more records
+		
+	
+	Schema
+		A database schema defines the structure and relationship between data
+			Example
+			The customer table would most likely link in some way to the order table. We can model this realtionship through the schema
+			
+		
+	Queries
+		Queries are statements used to get specific data from the database
+	
+	
+	Database Types
+		Relational
+			Relational focuses on modelling a business structure, as well as implementing strong busienss rules and constraints on data and type of info captured
+			
+		Non-realtional
+			Focuses on read/write capacity and capability of data, emphasising speed in which we access data.
+	
+	
+	Database Objects
+		Databases transform data into information by adding context
+	
+		Database - a full data set, consisting of a collection of tables
+			All tables
+		
+		Table - an organised set of data objects
+			All Columns and Rows
+			
+		Field - a way to categorise stored data
+			Column
+		
+		Record - an instance of fields in a table
+			Row
+		
+	
+	Relationships
+		Relational databases run on relationships
+			This is a way of linking tables together
+		
+		Can link columns from one table to another using a foreign key
+
+
+Data Design
+	The design can be done through several concepts
+	
+		Numeric
+			Data used for calculations
+			
+		Textual
+			Data used for non-calculated values (postcodes, email addresses, etc.)
+		
+		Date/Time
+			Hand for rubber-stamping and organising data
+	
+	
+	Numeric Data
+		Used for calculations such as prices, quantity , etc.
+		
+		Common numeric types:
+			Type			Min storage value		Max storage value		Example
+			BIT				1						64						63
+			BOOLEAN			-128					127						0 or 1(f/t)
+			TINYINT			-128					127						47
+			SMALLINT		-32768					32767					31337
+			MEDIUMINT		-8388608				8388607					7145531
+			INT				-2147483748				2147483747				12
+			BIGINT			-9223372036854775808	922337203685477507		62547245237
+			DECIMAL			[lower than big int]	[higher than big int]	35D.30D
+			FLOAT/DOUBLE	[hardware dependent]	[hardware dependent]	BIT
+			
+			
+	Textual Data
+		Data which isn't used for caculations, but just info we wish to contain such as names, address, phone numbers, etc.
+		
+		Common Text-based data types
+			Type		Format				Style
+			CHAR		0-255 characters	Fixed
+			VARCHAR		0-65535 characters	Variable
+			
+		CHARs are fixed - if a field is of type CHAR(20), the length of that field will always be 20
+		VARCHARs are not fixed, which saves on memory and is easier to search for
+		
+		CHAR is faster than VARCHAR as it doesn't need to work out the length of the data
+	
+	
+	Date and Time Data
+		Good for storing information on timestamps such as order placed date/time, birthdays, etc.
+		
+		Common types
+			Type		Format							Example
+			DATE		YYYY-MM-DD						995-02-29
+			DATETIME	YYYY-MM-DD HH:MM:SS.SSSSS		2009-08-14 16:20:35.20342
+			TIMESTAMP	Seconds since epoch				2016-04-21 09:53:23.92381
+			TIME		HH:MM:SS.SSSSS					15:00:43.00001
+			YEAR		YYYY							1993
+			
+	
+	Constraints
+		Database constraints allow for further control over our data outside of data types
+		
+		Most comon data constraints include
+			UNIQUE
+				All values entered into this field must not be the same as others
+					Exmaple - Emails
+			
+			NOT NULL
+				A field has to be filled in, it cannot be left empty
+			
+			DEFAULT
+				This field will have a certain 'standard' value assigned as default
+			
+			PRIMARY KEY and FOREIGN KEY
+				A combination of unique and not null - tghe table can have a primary key to identify it
+	
+	
+	Primary Keys
+		A primary key is a field in a table that uniquely identifies a record in a table
+			Generally considered the most inportant piece of information in the table - as such it is nearly always given to ID's
+			
+		There can be only 1 Primary key but multiple Foreign keys
+	
+	
+	Foreign Keys
+		These allow us to link tables together and start creating a relational database
+		
+		A foreign key is a field in a table that refers to a primary key in a different table
+		
+		EXAMPLE to set up a foreign key:
+			CREATE TABLE orders (
+			  order_id INT PRIMARY KEY AUTO_INCREMENT,
+			  fk_customer_id INT NOT NULL,
+			  placed DATE NOT NULL,
+			  FOREIGN KEY (fk_customer_id) REFERENCES customers(customer_id)
+			  );
+			 
+		In the example 
+		the first line creates the field you want then the data type then what it is (primary key) and finaly auto_increment means it will go up by 1 itself to reduce human error
+		second line creates the next field
+		third line creates a third field
+		fourth line sets the fk_customer_id field to relate back to the customer_id primary key from another table
+		
+
+Data Definition Language (DDL)
+	DDL is one subset of the SQL Query types
+		Centres around defining the schema for the database, and writing queries to create, alter and delete parts of the schema
+	
+	
+	Creating a Database
+		SQL statement to create database:	
+			CREATE DATABASE some_database;
+			
+		Can use the optional IF NOT EXISTS command to ensure that your database will only be created if it does not already exist
+			CREATE DATABASE IF NOT EXISTS some_database;
+		
+		From here, if you wish to work with the database you would run the below
+			USE some_database;
+		
+	
+	Creating Tables
+		CREATE TABLE some_table(
+		
+		);
+		
+		refer to the example in foreign keys
+		
+	
+	Composite
+		When more than one field is the primary key
+	
+	
+	Alter Table
+		Add a field to a table
+			ALTER TABLE some_table
+			Add column_name data_type;
+		
+		
+		Delete a field from a table
+			ALTER TABLE table_name
+			DROP COLUMN column_name;
+		
+		
+	Schema deletion
+		DROP TABLE IF EXISTS table_that_should_not_be_dropped
+		
+		
