@@ -1,0 +1,199 @@
+Data Manipulation Language (DML)
+	Used to manipulate the content of the database
+		Most widely used subtype of MySQL
+	
+	The most well used CRUD operations 
+		
+	
+	CRUD
+		Create
+			INSERT INTO <tablename> WHERE <condition>
+			
+		Read
+			SELECT <condition> FROM <tablename WHERE <condition>
+			
+		Update
+			Update <tablename>
+			SET column1=value1, column2=value2
+			WHERE field=value;
+			
+		Delete
+			DELETE FROM <tablename> WHERE <condition>
+		
+	
+	Viewing records
+		SELECT
+		SELECT * FROM <tablename>
+		SELECT <field> FROM <tablename> WHERE <condition>
+		
+
+Data Query Language
+	DQL allows us to read and retrieve info about the database
+	
+	The SELECT statement is used to read data
+	SELECT <fields csv or *> FROM <table name>
+	
+	
+	SHOW DATABASES;
+		shows all databases
+		
+	
+	SHOW TABLES;
+		shows all tables in the database you are using
+	
+	
+	DESCRIBE <tablename>
+		shows the fields, type, if it is NULL, KEY, Default, Extras
+		
+	
+	Reading with SELECT 
+		SELECT
+		SELECT * FROM <tablename>
+		SELECT <field> FROM <tablename> WHERE <condition>
+			
+		
+		SELECT DISTINCT
+			SELECT DISTINCT field FROM table
+				this will only show one of each different field value
+		
+		
+		WHERE clause
+			SELECT * FROM <tablename> WHERE <condition>
+				condition could be 
+					field = value
+					field > value	field < value
+					field >= value	field <= value
+					field != value
+				
+		
+		BETWEEN clause
+			SELECT * FROM <tablename> WHERE <field> BETWEEN <value> AND <value>
+			
+			Can be done for any numberic value like price or even date
+					
+		
+		LIKE clause
+			SELECT * FROM <tablename> WHERE <field> LIKE <'%value'>
+				% means anything before
+				
+		
+		(NOT) IN
+			SELECT * FROM <tablename> WHERE <field> IN (<value>, <value>, <value>)
+				specifies multiple possible values for a column
+			
+		IS (NOT) NULL
+			SELECT * FROM <tablename> WHERE <field> IS NULL
+				specifies everything where the specified field is('nt) null
+	
+	
+	Aliasing
+		We can use the aliaing keyword AS to present our data differently - commonly used for renaming columns on which some kind of arithmetic has been done
+		
+		SELECT <field_name1> AS <new field name>, <field_name2> FROM <tablename>
+			does not change fields in data
+				this one is showing fieldname1 as the new field name and keeping field name 2 the same
+			EXAMPLE
+				SELECT title, quantity, price, quantity*price AS stock_value FROM products;
+		
+		SELECT concat(firstname, ' ', lastname) AS fullname FROM <tablename>
+	
+	Ordering data
+		ORDER BY allows us to sort our records upon retieval
+			by default shows the data in ascending order unless specified
+		
+		SELECT <field_name1>, <field_name2> FROM <tablename> ORDER BY <field name2> DESC
+			Here it is showing field name 1 and field name 2 ordering by field name 2 as descending (DESC)
+				Ascending is defualt but can be specified by ASC
+		
+	
+	Limiting data
+		LIMIT can be used alongside ORDER BY to see a specific snapshot of the data we want
+		LIMIT shows us just a few records instead of the entire set
+		
+		SELECT * FROM <tablename> LIMIT 1
+			This will only show one result
+		
+		SELECT * FROM <tablename> ORDER BY <field name> DESC LIMIT 5
+			This will show the 5 highest of field name results from the table
+		
+		
+Aggregate Functions
+	Aggregate function is a function where the values of multiple rows are grouped togetherto form a single summary value
+		COUNT
+		SUM
+		MIN/MAX/AVG
+	
+	COUNT
+		Count returns the number of records that matches a criteria
+		COUNT(<fieldname>) FROM <tablename>
+			EXAMPLE 
+			to find totale number of orders
+				SELECT COUNT(order_id) FROM orders;
+				
+	
+	SUM
+		Sum returns the calculated total from a numeric field
+		SUM(<fieldname>) FROM <tablename>
+		EXAMPLE
+		to find the number of items in the order line
+			SELECT SUM(quantity) FROM order_line
+	
+	
+	MIN
+		Min returns the smallest value in a field
+		SELECT MIN(<fieldname>) FROM <tablename>
+		
+	
+	MAX
+		Max returns the largest value in a field
+		SELECT MAX(<fieldname>) FROM <tablename>
+	
+	
+	AVG
+		Average returns the average value in a field
+		SELECT AVG(<fieldname>) FROM <tablename>
+		
+	
+	GROUP BY
+		GROUP BY command is often used with aggregate functions to bring together sections of data based on common values within a field
+		EXAMPLE
+		to find the most expensive order made by each customer we can do
+			SELECT customer_id, MAX(total) AS max_total FROM orders GROUP BY customer_id
+	
+	
+Joins
+	Joins are used to combine different tables together based on common data values
+		The most common usage is with keys
+		matching a PRIMARY KEY in one table to a FOREIGN KEY in another table, not a strict requirement; you can match any two fields
+	
+		Inner joins are default (You can put INNER JOIN or just JOIN)
+	
+	
+	Inner Joins
+		JOIN
+			Join will only work if it is part of a select statement
+			SYNTAX
+				SELECT *
+				FROM <tablename1>
+				JOIN <tablename2> ON <tablename1>.<fieldname>=<tablename2>.<fieldname>
+			
+			EXAMPLE
+				SELECT * FROM customers
+				JOIN orders ON customers.customer_id = orders.fk_customer_id;
+			
+			You can abbreviate the table name like so below (the abbreviation also applies to anything instead of * e.g. SELECT c.first_name FROM customers c)
+				SELECT * FROM customers c
+				JOIN orders o ON c.customer_id = o.fk_customer_id;
+	
+	
+	Outer Joins
+		Two types
+			LEFT OUTER JOIN
+			RIGHT OUTER JOIN
+			
+			Left outer join is anything left of the JOIN command
+			Right outer join is anything right of the JOIN command
+		
+		Outer joins includes the records for which no corresponding match is found in the other table
+			
+		
