@@ -134,9 +134,26 @@ Entity-Relationship Diagrams
 		Roles are written in natural language to explain the nature of a relationship
 		refer to diagram named Roles Matrix in saved in Training Notes\Databases Introduction\18.05.22
 	
+	
 	Cardinality
+		Relationships are modelled using cardinality, this shows how each relationship affects the other.
+		
+		Relationships are either mandatory or optional
+			Mandatory relationship
+				requires at least one
+			
+			Optional relationship
+				does not require any (could be 0) - for instance, a customer might not have made any orders
 	
-	
+		
+		Relationships also refer to quantity:
+			a mandatory relationship will be one-to-one, one and only one, or one-to-many
+			
+			an optional relationship will be zero or one or zero-to-many
+		
+		There are also non-specific one and many relationships.
+		
+		
 	Notation
 		refer to diagram named ERD Notation in saved in Training Notes\Databases Introduction\18.05.22
 		
