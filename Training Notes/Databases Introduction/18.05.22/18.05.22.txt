@@ -1,0 +1,153 @@
+Nested Queries
+	Overview
+		A type of MySQL command that allows you to query info that has been returned from another query
+		
+		this involves excapulation or 'wrapping' a SELECT statement within another one
+		
+		EXAMPLE
+			SELECT customer_id, forename, city
+			FROM customers
+			WHERE customer_id=(
+				SELECT customer_id
+				FROM orders
+				WHERE order_id=1
+			);
+			
+				This will show the customer_id, forename, and city fields from the customer table WHERE
+				The customer_id in the orders table has the order_id of 1
+		
+	
+	Views
+		It is common practice to use a view within a database to 'save' the results of a query
+		
+		A view acts very similarly to a table, with a key difference. A table is dynamic, a view is a snapshot.
+			If you update the table the view is created from the view will not change alongside the table. It stays the same.
+		
+		EXAMPLE: 
+			CREATE VIEW result_of_encapsulated_query
+			AS
+				SELECT customer_id
+				FROM orders
+				WHERE order_id=1
+			;
+			
+			You can do a select from the view to get results
+			
+
+Data Normalisation
+	Normalisation is the process of modelling the way a database might look by designing its schema
+	
+	Normal Forms
+		First Normal Form (1NF)
+		Second Normal Form (2NF)
+		Third Normal Form (3NF)
+		
+			Each form iterates over the other - a 2NF table will always also conform to 1NF, 3NF will always confirm to 2NF and 1NF
+			
+		
+		First Normal Form
+			Each column should only contain a single value
+			Values stored in a column should all be of the same type
+			All columns in a table should have unique names
+			The data should not be stored in any particular order
+		
+		
+		Second Normal Form
+			2NF asserts that tables should not contain partial dependencies
+				Should not have duplicate from another table, must only have the FK not FK and another field from FK table
+			
+		
+		Third Normal Form
+			3NF requires that out tables do not have any transitive dependencies.
+				A transitive dependency is a non-key dependency - if one column depends on another and neither areprimary keys then it is transitive
+				
+	
+Entity-Relationship Diagrams
+	Overview
+		ERD is a type of abstract data model
+		When using context of a database, and ERD allows you to map out the relationships between your tables
+	
+	
+	Concept
+		Generally used at the beginning of a project when designing the structure of the tables involved
+		
+		They allow you to clearly see how every piece of data you store in your database will relate to every other piece of data
+		
+		Common questions which arise
+			What data will the database be storing
+			Who will be accessing the system
+			What will the data be used for
+		
+		
+		ERDs can be made irrespective of whether you
+			already have data to model
+			don't have any data to begin with at all
+		
+	
+	Design
+		Chen
+			A conceptual model named after the creator of ERD
+		
+		UML
+			A logical model using Unified Modelling Language standard - also commonly used for class diagrams
+	
+	
+		Typical components
+			entity types
+				in a relational database this would be our tables
+			
+			relationships
+				the way that each entity links to each other (represented by our primary and foreign keys)
+			
+			attributes
+				the way that an entity can be described (e.g. columns in our table)
+			
+	
+	Entity Types & Entities
+		
+		Entities 
+			are objects which can store information - such as a customer, an order, or a product
+		
+		Entity Types
+			are classes of objects, and a re plural - such as customers, orders, or products - these are our tables
+		
+	
+	Attributes
+		An attribute is a property of an entity or something that can be used to describe an entity
+	
+		Ways to represent attributes
+			Simple
+				an attribute which cannot be split down, such as a forename
+			
+			Composite
+				an attribute which can be split down, such as a name a forename, middle names, and surname
+			
+			Derived
+				an attribute which is determinded by another attribute, such as an age which is determined by a date of birth
+				
+			Attributes can be single-value or multi-value
+				home phone number and work phone number fields would both be single-value
+				a phone number field which is captured twice would be multi-value
+		
+	
+	Roles
+		Roles are written in natural language to explain the nature of a relationship
+		refer to diagram named Roles Matrix in saved in Training Notes\Databases Introduction\18.05.22
+	
+	Cardinality
+	
+	
+	Notation
+		refer to diagram named ERD Notation in saved in Training Notes\Databases Introduction\18.05.22
+		
+	
+	Many-to-many relationships with MySQL
+		Man to many relationships when multiple fields in one table are associated with multiple fields in another table
+			For example, a student can enrol in multiple classes and a class can include multiple student
+		
+		MySQL does not support direct many-to-many relationships between tables
+			You will need to create a third table called a "middleman", "child table", or "join table"
+			
+			It is possible to split a many-to-many relationship into two one-to-many relationships
+	
+	
