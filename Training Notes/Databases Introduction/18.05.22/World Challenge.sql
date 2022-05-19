@@ -58,11 +58,11 @@ WHERE co.name = 'japan' ORDER BY co.population DESC LIMIT 5;
 UPDATE country
 SET headofstate = 'Elizabeth II'
 WHERE headofstate = 'elisabeth ii';
-select name, `code` FROM country WHERE headofstate = 'elizabeth ii';
+SELECT `name`, `code` FROM country WHERE headofstate = 'elizabeth ii';
 
 -- Question 13
 -- List the top ten countries with the smallest population-to-area ratio. Discard any countries with a ratio of 0.
-SELECT `name` FROM country WHERE population AND surfacearea IS NOT NULL ORDER BY population/surfacearea LIMIT 10;
+SELECT `name`, population/surfacearea AS population_density FROM country WHERE population AND surfacearea IS NOT NULL ORDER BY population/surfacearea LIMIT 10;
 
 -- Question 14
 -- List every unique world language.

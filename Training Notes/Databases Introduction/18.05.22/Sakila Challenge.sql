@@ -36,7 +36,7 @@ SELECT * FROM film ORDER BY length LIMIT 10;
 
 -- Question 9
 -- Find the movies with the longest runtime, without using LIMIT.
-SELECT * FROM film ORDER BY length DESC;
+SELECT * FROM film WHERE length = (SELECT MAX(length) FROM film);
 
 -- Question 10
 -- Find all movies that have deleted scenes.
@@ -48,7 +48,7 @@ SELECT last_name from actor GROUP BY last_name HAVING COUNT(last_name) <= 1 ORDE
 
 -- Question 12
 -- Using HAVING, list the last names that appear more than once, from highest to lowest frequency.
-SELECT last_name from actor GROUP BY last_name HAVING COUNT(last_name) > 1 ORDER BY last_name DESC;
+SELECT last_name from actor GROUP BY last_name HAVING COUNT(last_name) > 1 ORDER BY COUNT(last_name) DESC;
 
 -- Question 13
 -- Which actor has appeared in the most films?
@@ -63,6 +63,11 @@ SELECT f.title, r.return_date FROM film f
 JOIN inventory i ON i.film_id = f.film_id
 JOIN rental r ON i.inventory_id = r.inventory_id
 WHERE title = 'Academy Dinosaur' ORDER BY r.return_date DESC LIMIT 1;
+-- Jordans answer
+SELECT f.title, r.rental_date, f.rental_duration, DATE_ADD(r.rental_date, INTERVAL f.rental_duration DAY) AS real_return_date, r.return_date FROM film f
+JOIN inventory i ON i.film_id = f.film_id
+JOIN rental r ON i.inventory_id = r.inventory_id
+WHERE title = 'Academy Dinosaur' AND r.return_date IS NULL;
 
 -- Question 15
 -- What is the average runtime of all films?
