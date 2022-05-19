@@ -1,0 +1,221 @@
+DevOps
+	The term DevOps is best described as a cultural approach to software development project structure with a particular philosophy designed to achieve the following:
+		Increased collaboration
+		Reduction in silos
+		Shared repsonsibility
+		Autonomous teams
+		Increase in quality
+		Valuing feedback
+		Increase automation
+	
+	Old way
+		software companies used to have 4 teams (development, quality assurance, security, and operations)
+		this can create conflicts, poor communication, and blame culture
+		the isolated teams (mentioned above) are silos
+			
+			As a result this structure regularly has slower releases, wasted time, and blame cultures
+			
+	
+	New way (DevOps)
+		DevOps is based off of the agile project management approach that promtes:
+			Individuals and interactions over processes and tools
+			Working software over comprehensive documentation
+			Customer collaboration over contract negotiation
+			Responding to change over following a plan
+			
+		Agile focuses on bridging the gap between developers and customers
+		DevOps is focused on bridging the hap between developers and operations teams
+		
+		Teams are formed based on their goals: individuals with different roles work together based on a shared project
+		
+		There are two key elements to DevOps that ensure that the methodology works
+			Automation
+			Measurement
+		
+	
+	Automation
+		DevOps encourages autoamtion in as many areas of the production pipeline as possible.
+			As a rule of thumb: if a machine could do it, a machine should do it
+			
+		Working manually allows the potential for human error and slower/development times, as people are not best suited to performing repetitive tasks as we tend to get bored and distracted
+		Machines never get bored or tired. Automation provides consistency, predictability, scalability, and quality for this reason
+		
+		Continuous Integration (CI)
+			When code is committed to a repository, it is automatically built and subjected to acceptance tests.
+			Test failures result in the code being prevented from integrating with the repository. Developers are immediately notified of a test failure so they can fix issues as quickly as possible.
+		
+		Continuous Deployment/Delivery (CD)
+			As new code passes acceptance tests, it is automatically integrated into a deployment environment.
+			Being able to choose a version to deploy with one push a button requires a fair amount of automation.
+		
+		Infrastructure as Code (IaC)
+			To deploy and redeploy production environments (i.e. where your application lives at each stage in the production pipeline) quickly and easily, IaC is used to specify the configuration of a computer environment with easy-to-write/read config files.
+			Having environment infrastructure declared in code allows for infrastructure to be created or modified using version control.
+			IaC allows for simple replication of environments so they stay consistent across the pipeline. This is important for testing environments where you want to replicate the deployment environment as closely as possible.
+			
+	
+	Measurement
+		Measurement is central to ensuring that a production pipleline is orking efficiently. Can't know if something is working better without measuring it.
+		
+		Production pipelines are only as quick as their biggest constraint
+			AKA code can only be as fast as the slowest test
+			
+		Frequency of deployments
+			DevOps pipelines encourage frequent, smaller updates to software, so charting the frequency of deployments is a good indicator of the effectiveness of a pipeline.
+			Upon adoption of the DevOps methodology, deployment frequency should tend upwards until it reaches a natural plateau, though fluctuation is normal.
+		
+		Mean time to recovery (MTTR)
+			This refers to the average time it takes to solve problems that impact the end-user. Common problems include outages, security issues, and severe bugs.
+			This is a more worthwhile metric than charting the frequency of failures as DevOps is less interested in minimising problems than the speed at which they are solved. Failure is inevitable, what matters is how well we respond to it.
+		
+		Mean time to discovery (MTTD)
+			This refers to how quickly problems are discovered. The faster problems are identified, the faster they can be fixed. This metric is measured from the point of integration into production to the point the problem is identified. Naturally, faster MTTDs are more desirable.
+			This metric should also indicate whether discovery is made by the customer or the automated systems, with the latter being more desirable.
+		
+		System availability
+			In almost all cases, we want our systems to be available at all times to customers. Knowing the availability of our systems allows us to pinpoint which parts of our infrastructure need attention.
+		
+		Service performance
+			Measuring this metric allows us to see whether our services are running within the desired thresholds.
+			Metrics may include response times per request, CPU load, or how long it takes for a website to load.
+			
+	
+	Continuous integration
+		Overview
+			Continuous Integration (CI) refers to the automated integration of code from many contributors into a single software project.
+			At the heart of the process is the version control system (VCS) and the CI server.
+				The VCS is designed to track changes to code over time as contributors add new features to the application. This system allows for cohesive collaboration and the ability to easily revert an application to a previous, stable state if new code breaks something.
+				The CI server handles all the automated building, testing, and deployment of code as it is pushed to the VCS.
+		
+		
+		What CI Does
+			CI allows developers to generate and implement new functionality with ease and speed through automation of the integration process. Building and testing of new code is handled through automation, allowing developers to focus their efforts on the creation of new features.
+			
+			Developers work on features independently and in parallel with each other, without having to worry about clashes within their teams. Tracking and merging code additions allows for smoother integration of new features without fear of irreparably damaging the source code.
+			
+			A continuous integration pipeline should:
+				Maintain a single source code repository for a project
+				Have a "master" branch that should always be ready to deploy
+				Keep all team members informed of every update to the source code
+				Automate build processes
+				Automate testing of new builds
+				Inform developers of test failures with detailed logs
+				Encourage smaller, frequent deployments of code
+		
+		
+		How it works
+			Development team > push code to Repo > goes to build stage > goes to testing > gets deployed
+				it can fail at build stage or the testing stage and a log file will be created and sent to the developers who will need to fix this
+				
+		
+		Code Generation
+			backlog > Tasks assigned to developers > work is pushed to code repo > code is merged over time into a master branch
+			
+		
+		Code Repository
+			Code repo is where all code is stored, managed by using the VCS. Checks for compatibility issues between new and existing code.
+			
+		
+		Building and Testing
+			Once the push is made, the VCS will trigger the CI server, this will perform acceptance tests to check it works correctly
+			If any tests fail, developers are informed with detailed reports .
+				Reports should contain information such as logs, error messages, build labels, build times, etc.
+	
+	
+	Benefits
+		Scaling
+			CI cuts out a large chunk of overhead occupied by manual code building/testing, slow communication.
+			This frees up time and energy that could go towards scaling up the development team, code generation, code integration, and more.
+			Quicker releases
+		
+		
+		Feedback Loop
+			Frequent updates allow for far more opportunities for feedback.
+			Allows for more client/customer feedback, as development teams can now show off new product features and adjusting accordingly
+			Bug fixes can be fixed quicker
+			
+		
+		Communication
+			Enhances communication between the teams as all changes are easily trackable. People are therefore more aware of each other's progress
+			Stronger communication means people can avoid impeding each other's work
+			Greater awareness of progress also aids transparency of work across the organisation.
+	
+	
+	Challenges
+		Installation and adoption
+			The initial adoption and technical configuration is the greatest hurdle.
+			The installation of the new pipeline is likely to be a long and involved process that has the potential to waste time, effort, and money if not approached with enough planning
+			
+			Before instaling a CI pipeline there are considerations required about the existing engineering solution and how it will need to be built together
+			
+			A clear design approach with explicit and thoroughly thought out goals will facilitate a smoother adoption process with as little additional cost and effort required.
+		
+		
+		Learning Curve
+			CI pipelines make use of many different and relatively new techonologies that teams may not have any prior experience with, resulting in an initially high learning curve
+			
+			The main techologies required are version control systems, new hosting infrastructure, and container orchestration.
+			
+			Not only is the technology likely to be different, but the workflow may take seom time to get used to.
+				For some members of the team, they may find their main responsibilities (e.g. testing) to have been largely automated, ultimately requiring them to adopt and adjust to a new set of responsibilities
+				
+	
+	Tools
+		Source code Repo
+			Examples:
+				Git
+				Subversion
+				Cloudforce
+				Bitbucket
+				TFS
+		
+	
+		Build Server
+			Examples:
+				Jennkins
+				Travis
+				Bamboo
+				
+		
+		Configuration management
+			Configuration management is about configuring a server or an environment.
+			An example of this would be something like installing Git, Java etc.
+			More popular tools are: Puppet and Chef.
+			
+		
+		Virtual infrastructure
+			Google Cloud Platform, Amazon Web Services and Microsoft azure are examples of virtual infrastructure.
+			
+			Automation tools together with virtual infrastructure allow companies to do software development in the DevOps way removing the need to do it manually.
+			New code can be tested out by simply automatically sending it to the cloud infrastructure, it then gets deployed onto an environment that was automatically configured and lastly automated tests can be then executed.
+
+		
+		Test Automation
+			The main thing it's used for is to make sure within your pipeline that the new code is ready for deployment.
+			To make sure that you're doing continuous integration right, you would need to ensure that automated tests are executed without any human intervention, and that they will tell you whether your build is safe to deploy.
+			
+			Examples
+				Selenium
+		
+		
+		Pipeline Orchestration
+			The code goes from developer hands through multiple stages until it get's deployed to a production environment.
+			These multiple stages would check things like: whether the code compiles, tests pass, the environment it will get deployed to won't be broken because of it etc.
+			
+	
+	CD in the Enterprise
+		Overview
+			Two extensions of CI that are common are Continuous Delivery and Continuous Deployment.
+				two similar practices that extend CI's scope by automating the delivery of code to the end-user on a regular basis
+		
+		
+		Continuous Delivery
+			An extension of CI that delivers new features to customers on a regular bases.
+			Requires an automated process in place such that new releases only require approval via  aclick of a button to go live.
+			This encourages organistions to deploy their apps as early as possible in smaller batches
+
+			
+		Continuous Deployment
+			continuous delivery practice such that feature releases are entirely automated, requiring no human interaction for new application features to end up in the customer's hands
+			
+			continuous deployment workflows have the benefit of eliminating the idea of a release date, allowing developers to simply focus on creating new ideas without time constraints.
