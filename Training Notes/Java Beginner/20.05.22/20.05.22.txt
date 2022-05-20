@@ -1,0 +1,115 @@
+Data Types
+	int
+		number
+	
+	float
+		number with decimal
+		
+	char
+		single letter
+	
+	boolean
+		true or false
+	
+	String
+		text
+	
+	
+	Primitive data types
+		These are the smallest forms of data Java can handle
+		These all start with a lower case letter
+			Non primitive start with an upper case letter
+		
+			boolean
+			byte
+			char
+			short
+			int
+			long
+			float
+			double
+			
+	
+	Return type
+		A class is a blueprint used to create an object
+			You will create a class then call the class with new parameters to create an object
+		
+	
+Cases
+	Common naming conventions
+		PascalCase / UpperCamelCase 
+			Where each new word has a capital letter to start.
+		
+		camelCase / lowerCamelCase 
+			The same as PascalCase except the first word is always all lower case.
+		
+		snake_case 
+			All lower case seperated by underscores _
+		
+		UPPERCASE 
+			All uppercase.
+		
+		lowercase 
+			All lowercase.
+		
+	
+	General rules for all identifiers
+		The name must begin with a standard alphabetical character or an _
+		
+		subsequent characters may be entirely alphanumeric
+		
+		you cannot use reserved words for variables
+	
+		Classes
+			written in PascalCase
+	
+		Test classes
+			written in PascalCase
+	
+		Interfaces
+			written in PascalCase
+		
+		Methods
+			written in camelCase
+		
+		Variables
+			written in camelCase
+		
+		Packages
+			written in period.seperated.lowercase
+	
+	
+Hello World example
+	Create Java Project
+	Create Class
+	public class <classname> {
+		
+		public static void main(String[] args){
+			System.out.println("Hello World!");
+			//System.out.println() is the commmand to print something to the terminal
+			//command above is case sensitive
+			//need ; at the end to show it's the end of that line of code
+			//Strings must be in "double quotes"
+			
+			//sysout ctrl+space = autofill shortcut
+		}
+	}
+	
+	Creating a method
+	public <datatype> <name of method>() {
+		//method here
+	}
+	
+
+	Package naming convention
+		package domain.companyname.packagename;
+
+
+Java Class for object
+	Attibutes
+	Default constructor
+	Constructor
+	Getters and Setters
+		Can be auto generated based on the attributes
+	ToString
+	Methods

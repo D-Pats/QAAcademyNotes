@@ -1,0 +1,13 @@
+package qa.com.runner;
+
+public class Runner {
+	
+	public static void main(String[] args) {
+				System.out.println(customer1);
+	}
+	
+	Customer customer1 = new Customer("Devin", "Patel", 24);
+	
+	
+	
+}

@@ -1,0 +1,11 @@
+package qa.com.runner;
+
+public class Runner {
+	
+	public static void main(String[] args) {
+		System.out.println(runner("devin", "patel", 25));
+	}
+	
+	
+	
+}

@@ -1,0 +1,44 @@
+package com.testtwo.athletes;
+
+public class Athletes {
+	
+	//Attributes
+	private String name;
+	private String team;
+	private bool win;
+		
+	//Default Constructor
+	public Athletes() {
+		
+	}
+	
+	//Constructor
+	public Athletes(String name, String name, bool win) {
+		
+	}
+	
+	//Getters and Setters
+	
+	public getName() {
+		return name;
+	}
+	
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+	public getTeam() {
+		return team;
+	}
+	
+	public void setTeam(String team) {
+		this.team = team;
+	}
+
+	
+	//Methods
+	public String toString() {
+		return "Name: " + name + "\nTeam: " + team + "\nWin: " + win;
+	}
+	
+}
