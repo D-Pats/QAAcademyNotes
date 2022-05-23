@@ -5,6 +5,7 @@ import com.qa.caluclator.calculator2.*;
 import com.qa.caluclator.calculator3.*;
 import com.qa.caluclator.results.*;
 import com.qa.caluclator.calculatorRevisited.*;
+import com.qa.caluclator.results.*;
 
 public class Runner {
 
@@ -26,7 +27,8 @@ public class Runner {
 //		System.out.println(results4.percentOfTotal());
 //		CalculatorRevisited exercise4 = new CalculatorRevisited(2,1);
 //		System.out.println(exercise4.divideNumbers());
-		
+		ResultsRevisited test = new ResultsRevisited(90,89,90);
+		test.passFail();		
 
 	}
 

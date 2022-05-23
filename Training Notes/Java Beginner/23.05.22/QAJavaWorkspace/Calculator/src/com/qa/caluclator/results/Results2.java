@@ -2,11 +2,11 @@ package com.qa.caluclator.results;
 
 public class Results2 {
 	
-	private double physics;
-	private double chemistry;
-	private double biology;
-	private double total;
-	private double percentage;
+	public double physics;
+	public double chemistry;
+	public double biology;
+	public double total;
+	public double percentage;
 	
 	//Default Constructor
 	public Results2() {
@@ -30,6 +30,11 @@ public class Results2 {
 	
 	public double percentOfTotal() {
 		return percentage;
+	}
+	
+	public String passFail() {
+		Results2.marks();
+		
 	}
 	
 }
