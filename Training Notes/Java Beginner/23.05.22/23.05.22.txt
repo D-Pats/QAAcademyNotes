@@ -1,0 +1,96 @@
+Operators
+	Arithmetic
+		=
+			assign value
+			
+		+
+			Plus
+			
+		-
+			Minus
+		
+		/
+			Divide
+		
+		*
+			Multiply
+				
+		%
+			Modulus
+	
+	
+	Unary
+		+
+			Positive value
+		
+		-
+			Negative value
+		
+		++
+			Increment by 1
+		
+		--
+			Decrement by 1
+		
+		!
+			Not operator
+	
+	
+	Operator examples
+		Assign Value
+			int number = 7;
+			System.out.println(number);
+		
+		Plus
+			int num1 = 3;
+			int num2 = 4;
+			int result = num1 + num2;
+			System.out.println(result);
+		
+		Minus
+			int num1 = 5;
+			int num2 = 4;
+			int result = num1 - num2;
+			System.out.println(result);
+		
+		Divide
+			int num1 = 12;
+			int num2 = 3;
+			int result = num1 / num2;
+			System.out.println(result);
+			
+		Multiply
+			int num1 = 3;
+			int num2 = 4;
+			int result = num1 * num2;
+			System.out.println(result);
+			
+		Modulus
+			int num1 = 12;
+			int num2 = 5;
+			int result = num1 % num2;
+			System.out.println(result);
+			
+		Indicating a positive value
+			int num = 3;
+			num += num;
+			System.out.println(num);
+			
+		Indicating a negarive value
+			int num = 3;
+			num -= num;
+			System.out.println(num);
+		
+		Incrementing by 1
+			int num = 5;
+			num++;
+			System.out.println(num);
+			
+		Decrementing by 1
+			int num = 5;
+			num--;
+			System.out.println(num);
+		
+		Not Operator
+			boolean bool = true;
+			System.out.println(!bool);
