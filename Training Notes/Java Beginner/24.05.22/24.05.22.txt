@@ -1,0 +1,48 @@
+Arrays
+	Overview
+		Stores many values in a single variable
+		Arrays are designed to hold data collections, can be single or multi-dimensional, and work with indexes and elements
+		Each value in an array is referred to as an element and that element is indexed
+		The index is used as a point of reference ofr an element, the index starts at 0
+	
+	Creating an Array
+		Single-Dimensional Array
+			public int[] arrayName;
+				Above is an empty array
+			
+			public int[] arrayName = {25, 43, 23, 46, 30};
+				Above is an example of adding data into the array
+			
+			public int[] arrayName = new int[5];
+				This creates an empty array with the length of 5 indexes in the array.
+					no more than the specified length can be stored in this array
+					can assign into it with arrayName[index number] = value;
+		
+		Multi-Dimensional Array
+			public int[][] arrayName;
+				This creates an empty multi dimensional array
+			
+			public int[][] arrayName = {{25,30,21},{56,67,39},{8}};
+				This creates an array with data in it
+					the [][] indicates multi-dimensional and will only ever need 2 sets of square brackets no matter how many arrays in it
+				
+				public int [][] arrayName = new int[3][2];
+					Creates an empy array with a specified length
+						[3] shows it can have 3 arrays
+						[2] shows each array can have 2 values in them
+						
+		
+	Assigning Array Values
+		arrayName[index number] = value;
+			Single dimensional
+		
+		arrayName[index number of array][index number in array] = value'
+			Multi dimensional
+	
+	
+	Looping through Arrays
+
+
+ArrayList
+	Overview
+		

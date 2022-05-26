@@ -1,0 +1,82 @@
+Enhanced For Loops
+	Overview
+		Enhanced for loops are better suited for iterating through arrays and collections of data
+		It makes our code more readable and easier to maintain
+		Used for iterating through the entire set
+		
+
+	Syntax
+		for(<data type> <variable> : <array name>) {
+			//whatever you want to do here
+		}
+				
+		Example
+		
+		for(String str : stringArray) {
+			System.out.println(str);
+		}
+
+
+String Manipulation
+	Overview
+		Strings are used for storing text - a string is an array of chars
+			String is treated as an object, it is not considered a primitive data type
+		String objects are immutable
+	
+	
+	Creating Strings
+		String variableName = "example string";
+			This is a string literal
+	
+		or
+		
+		String variableName = new String("example string");
+			This is a string object
+		
+		
+		String literal uses less memory due to caching
+	
+	
+		can compare string with (string1 == string2);
+			returns boolean
+	
+		or 
+		
+		string1.eaquals(string2);
+			returns boolean
+		
+	
+	Creating a String through arrays
+		char[] helloArray = {"h","e","l","l","o"};
+		String helloString = new String(helloArray);
+
+
+	String Length
+		stringName.length();
+		
+	
+	Concatenating Strings
+		String myString = "my cat's name is ".concat(""Copycat");
+		
+		String myStr2 = "Hello, " + "World" + "!" ;
+		
+		String string1 = "Welcome ";
+        String string2 = "to ";
+        String string3 = "Java";
+        String string4 = "!";
+        System.out.println(string1 + string2 + string3 + string4);
+	
+	
+	Other String methods
+		.toLowerCase()
+		.toUpperCase()
+		.charAt(index)
+		.indexOf(char)
+		.startsWith(index)
+		.endswith(index)
+		.contains(string or char)
+		.substring(index1,index2)
+		.equals(variableName or string or char)
+		.equalsIgnoreCase(variableName or string or char)
+		.replace(stringToReplace, stringToReplaceWith)
+		
