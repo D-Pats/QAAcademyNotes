@@ -1,0 +1,270 @@
+Access Modifiers
+	Overview
+		Access modifiers specify which classes can access a given class and its fields, constructors, and methods
+		Four different types:
+			Private
+			Default
+			Protected
+			Public
+	
+		
+	Private
+		only code inside the same class can access the variable, or call the method
+	
+		Accessing Private Variables
+			use Getters and Setters
+			Example
+				    private float balance = 0.52F;
+
+					public float getBalance() {
+						return this.balance;
+					}
+
+					public void setBalance(float newBalance) {
+						this.balance = newBalance;
+					}
+	
+	
+		Private Constructors
+			If a constructor in a class is assigned the private access modifier, that means that the constructor cannot be called from anywhere outside the class. A private constructor can still get called from other constructors, or from static methods in the same class:
+				
+			Example	
+				public class BankAccount {
+
+					private float balance = 0;
+					private long accountNum;
+
+					private BankAccount(long newAccountNum) {
+						this.accountNum = newAccountNum;
+					}
+
+					public BankAccount(float newBalance, long newAccountNum) {
+						this(newAccountNum);
+						this.balance = newBalance;
+					}
+
+					public static BankAccount newBankAccount() {
+						return new BankAccount(80105101114115L);
+					}
+
+				}
+				The use of this calls a constructor with the provided input parameters - in this case, the private constructor. It has the same effect as calling new BankAccount(newAccountNum);
+	
+	
+	Default
+		Default access modifier is assigned if no othe access modifier is assigned
+		
+		code inside the class itself, as well as code inside classes in the same package as this class, can access the resource which the default access modifier is assigned to
+		
+	
+	Protected
+		 protected access modifier provides the same access as the default access modifier, with the addition that subclasses can access protected methods and variables of the superclass. This applies even if the subclass is not located in the same package as the superclass
+	
+	
+	Public
+		The public access modifier allows all other code in the program to access the resource, irrespective of location
+		
+	
+	Class Access Modifiers
+		It is important to keep in mind that the access modifier that is assigned at class level takes precedence over any access modifiers assigned to the variables, constructors, and methods within that class at a lower level of exclusivity
+		
+	
+Object-Oriented Programming
+	Overview
+		Adheres to four main principles
+			Inheritance
+			Abstraction
+			Encapsulation
+			Polymorphism
+
+
+Encapsulation
+	Overview
+		encapsulation states that data (variables) should be bundled together with the code that operates on that data (methods), rather than allowing direct access
+		
+		done by restricting access to the variables within a class, and only allowing access through the methods of their current class
+		
+		Achieve by:
+			make the class variables private
+			provide public accessors to these variables: getters and setters
+	
+
+Inheritance
+	Overview
+		inheritance is the concept of one object acquiring all the non-private properties of another object 
+			If the two objects are in separate packages, the default properties would also not be inherited
+		
+		It's possible to inherit both attributes and methods.
+
+		This is useful for when an object is based on another, but needs to have more specific properties applied to it
+		
+		Generally, this takes the form of a parent and child relationship, where the child object inherits all behaviours from the parent object
+		
+		In Java, these are referred to as the superclass (parent) and the subclass (child)
+		
+	
+	Syntax
+		public class <child class> extends <parent class>{}
+		
+	
+	Overriding
+		@override metthod name with different output
+		
+	
+	Hiding
+		Making a method static, hides the method. in a parent you can make a static so you can create the same method without overriding
+		
+		not ideal to use static too much
+	
+	
+Polymorphism
+	Overview
+		The ability for an object to take many forms, most common use is when a parent class reference is used to refer to a child class object
+		We can check if the a Java object is polymorphic by creating isinstanceof tests, if an object can pass more than one of these tests it is considered to be polymorphic
+		Since every class inherits from the object class they will always pass at least two since they will be an instance of their classs and the object class. Therefore all objects are considered to be polymorphic
+	
+	Example
+		If we have the following classes of Animal and Cow which inherits from Animal then Cow will be polymorphic 
+		because it passes three "is a" tests, those being:
+			Cow is a Cow
+			Cow is an Animal
+			Cow is an Object
+		
+	Instantiate an object:
+		<Class name> <new Object name you want> = new <Constructor for Class>
+		
+
+Abstraction
+	Overview
+		You should hide the implementation details between modules and only share essential functionality
+			In other words - don't show the implementation to every class or method
+		
+	
+	Abstraction in one form: abstract
+		the abstract keyword can be applied to both classes and methods
+			abstract classes - cannot be instantiated, so we cannot make objects from them but they can be inherited(extended)
+			abstract methods - can only exist in abstract classes, and contain no body - these need to be implemented in subclasses
+	
+	
+	Abstraction in another form: Interface and implementations
+		What if we wanted to extend functionality from more than one place?
+		
+		Java doesn't allow the use of multiple superclasses - only one is allowed
+		
+		We can still accomplish abstracttion with interface
+			they are completely abstract by design (no methods in an interface have bodies)
+			you can implement multiple interefaces
+			
+			Example interfaces
+				public interface Flyable {
+					public void spreadWings();
+					public void takeOff();
+				}
+				public interface Hatchable {
+					public void emergeFromEgg();
+					public void cheep();
+				}
+		
+				We have a Chicken class which we want to use to implement all the functionality from both Flyable and Hatchable, which we can easily do with the implements keyword:
+
+				public class Chicken implements Flyable, Hatchable {}
+				
+				Chicken can implement an unlimited number of interfaces without issue.
+
+				We can write our own implementation of the methods within each interface, too.
+				
+		
+		How to not implement every method from an interface?
+			Normally, when implementing an interface, all methods within it have to be implemented.
+
+			you can get around this problem in two ways:
+				just make the interfaces smaller - the most optimal interfaces have one method
+				implement interfaces that shouldn't be split into abstract classes
+				
+			EXAMPLE OF USE
+				Let's say we've got an interface called Y with only a few methods we want to implement in class X:
+
+				public interface Y {
+					public String methodA();
+					public int methodB();
+				}
+				public abstract class X implements Y {
+
+					@Override
+					public String methodA(){
+						return "A";
+					}
+					//public int methodB() is unimplemented because we don't want it here
+				}
+				
+				Making X an abstract class stops us from needed to implement methodB().
+				We can still extend X when we need to use all of Y's methods:
+
+				public class XX extends X {
+
+					@Override
+					public String methodA(){
+						return "A";
+					}
+
+					@Override
+					public int methodB(){
+						return 1355417;
+					}
+				}
+
+				By extending X into a non-abstract class, we can:
+
+				implement all the methods that X implements from Y
+				implement methodB() from Y			
+
+
+Interfaces
+	Overview
+		An interface is a completely abstract class that is used to group related methods with empty bodies
+		
+		Example
+			public interface Animal {
+			  void sound();
+			  void sleep();
+			}
+		
+		
+	Implementation
+		To access the interface methods, the interface must be 'implemented' by another class with the implements keyword
+		the body of the empty methods is provided by the class
+		
+		Example
+			public class Pig implements Animal {
+			  public void sound() {
+				System.out.println("The pig says: Oink");
+			  }
+
+			  public void sleep() {
+				System.out.println("Zzz");
+			  }
+			}
+
+			public class MainClass {
+			  public static void main(String[] args) {
+				Pig lilPig = new Pig();
+				lilPig.sound();
+				lilPig.sleep();
+			  }
+			}
+		
+		On implementation of an interface, you must @Override all of its methods.
+		Interfaces cannot be used to create objects, e.g. we could not instantiate an Animal object. For the same reason interfaces cannot contain a constructor
+		
+		Java does not support "multiple inheritance" - a subclass can only uinherit from one superclass
+		
+		multiple interfaces implementations are allowed which circumvents the problem
+		
+		Implementations are inherited by subclasses
+		
+	
+	Multiple Interfaces
+		
+		To implement multiple interfaces, seperate them with a comma
+			example
+				class Class1 implements Interface1, Interface2 {}
