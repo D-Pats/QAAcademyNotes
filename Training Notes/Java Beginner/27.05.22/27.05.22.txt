@@ -1,0 +1,99 @@
+Type Casting
+	Overview
+		Type casting is the act of changing a variable or other entity to another date type(int,float,double,etc.)
+	
+	
+	Widening
+		Smaller to larger
+			byte -> short -> char -> int -> long -> float -> double
+			
+		Example
+			public class MyClass {
+			  public static void main(String[] args) {
+				int myInt = 9;
+				double myDouble = myInt;
+			  }
+			}
+	
+	
+	Narrowing
+		Large to small
+			double -> float -> long -> int -> char -> short -> byte
+
+		Example
+			public class MyClass {
+			  public static void main(String[] args) {
+				double myDouble = 9.78;
+				int myInt = (int) myDouble;
+			  }
+			}
+			
+
+Final
+	Overview
+		The final keyword is used in different contexts
+		
+		Can be used in the context of a variable, a method, or a class
+		
+		When the final keyword is used with a variable, you can no longer change the value of that variable
+		
+		When the final keyword is applied to a class you will no longer be able to extend that class
+		
+	
+	Final Variable
+		We generally apply the final keyword to a variable when we have an attribute of a class that will have the same value across all instances of that class.
+		We can declare a variable and apply the final keyword to it in the following way:
+		
+		public class FinalKeyword {
+			
+			private final int num = 3;
+		
+		}
+		
+		public class FinalKeyword {
+			
+			public final void method() {
+			
+			}
+		}
+		
+		public final class FinalKeyword {
+		
+		}
+		
+
+Static
+	Overview
+		Static is a keyword that indicates that the member belongs to the type itself, rather than to an instance of an object
+	
+		This means that only one instance of the static member is created, and is then shared between each instance of the class
+	
+
+Scanner
+	Overview
+		Using the Scanner class in the java.util package we can get an input from the user
+	
+	The Scanner has different methods for user input and allows us to specify the type of variable we want to get.
+		List of some methods below: 
+			next()			Reads a String value from the user, but only the first word of the line
+			nextBoolean()	Reads a boolean value from the user
+			nextByte()		Reads a byte value from the user
+			nextDouble()	Reads a double value from the user
+			nextFloat()		Reads a float value from the user
+			nextInt()		Reads an int value from the user
+			nextLine()		Reads a String value from the user
+			nextLong()		Reads a long value from the user
+			nextShort()		Reads a short value from the user
+
+		Example
+			import java.util.Scanner;
+
+			public class InputWithScanner {
+
+				public static void main(String[] args) {
+					Scanner scan = new Scanner(System.in);
+					System.out.println("Enter your username");
+
+					String user = scan.nextLine();
+				}
+			}
