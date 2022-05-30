@@ -1,0 +1,43 @@
+Solid Principles
+	Overview
+		
+		
+Single Responsibility
+	Overview
+		S - Single responsibility
+			When talking about responsibilities we are talking about the reason for something to change
+				Each class should only have one responsibility or one role
+		
+			If we have two reasons we should split the functionality into two classes
+			
+	
+Open/Closed
+	Overview
+		O - Open/Closed
+			A class should be open for extension but closed for modification
+			
+			you want developers to extend and add to your functionality, without having to directly modify your classes.
+			
+			extend functionality while adhering to this is done by using inheritance and polymorphism
+		
+		Using interfaces
+	
+
+Liskov Substitution
+	Overview
+		L - Liskov Substitution
+			This states that functions which use pointers to parent classes must be able to use objects of child classes without knowing
+
+
+Interface Segregation
+	Overview
+		I - Interface Segregation
+			only import interfaces if all methods will be used otherwise break it up into smaller interfaces
+	
+
+Dependency Inversion
+	Overview
+		D - Dependency Inversion
+			High level modules should not depend on a low level module. Both should depend on interfaces (or abstractions)
+			Abstractions should not depend on details, details should depend on implementations
+			
