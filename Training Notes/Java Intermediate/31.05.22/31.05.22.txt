@@ -1,0 +1,30 @@
+HashSets
+	Overview
+		HashSets are a type of collection in Java
+		
+		A HashSet works by storing information through hashing
+		Every object stored inside a HashSet has its own unique hash code
+			this means duplicate values are not allowed
+		
+		The hash code is then used as the index for the value of the daa stored
+		
+		this means that every hashSet is backed by its own HashMap
+			the hash code is stored as the key
+			the actual object you're storing in the HashSet is used as the value
+	
+	
+	HashSets in action
+	
+		Instantiation
+			public class HashSetsExample {
+				public static void main(String[] args) {
+					Set<String> hashSet = new HashSet<>();
+				}
+			}
+			
+		
+		add()
+			hashSet.add("A");
+			hashSet.add("B");
+			system.out.println(hashSet);
+			
