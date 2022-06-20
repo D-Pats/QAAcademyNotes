@@ -2,6 +2,8 @@
 p.a{
     color: blue;
     font-size: 30px;
+    font-style: italic;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 /* b has no tag so it can be used with anything*/
 .b{
