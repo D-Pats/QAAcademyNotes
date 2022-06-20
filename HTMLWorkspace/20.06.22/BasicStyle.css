@@ -1,0 +1,8 @@
+/* a has only got a P tag association -> this means only Paragraphs  an use this class! */
+p.a{
+    color: blue;
+}
+/* b has no tag so it can be used with anything*/
+.b{
+    color: red;
+}

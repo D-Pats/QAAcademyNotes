@@ -1,0 +1,39 @@
+HTTP 80 or 8080
+HTTPs 443
+Linux (log in) SSH 22
+Windows (log in) RDP 3389
+
+Java is SERVER side
+	Any request should first travel over a network and go to a SERVER machine
+	Server computes your request and tranlates to a SOLUTION
+	SOLUTION travels back to the source
+
+Why Move away from Server side?
+	Resuability! images, buttons, text -> repeatedly used -> Pointless and waste of network to send same data back and forth
+
+
+HTML
+	When you create a HTML file, always open with a HTML tag
+		Close a tag as soon as you open it to avoid confusion
+			Open Tag
+				<html>
+			Close Tag
+				</html>
+
+
+	Example of a file with tags
+		<html>
+			<head>
+				<title>Sample Text - goes into the tab name</title>
+			</head>
+			<body>
+				<p> Sample Text for Para</p>
+				<button onclick='randomFunction();'> Sample text for button </button>
+				
+				<script>
+					function randomFunction() {
+						alert('Alert message');
+					}
+				</script>
+			</body>
+		</html>
