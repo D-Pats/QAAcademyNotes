@@ -1,6 +1,7 @@
 /* a has only got a P tag association -> this means only Paragraphs  an use this class! */
 p.a{
     color: blue;
+    font-size: 30px;
 }
 /* b has no tag so it can be used with anything*/
 .b{
@@ -14,3 +15,7 @@ p.a{
 body {
     background-color: lightseagreen;
   }
+
+p.d{
+    font-size: 50px;
+}
