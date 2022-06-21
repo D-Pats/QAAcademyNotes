@@ -1,0 +1,34 @@
+Error codes
+
+	400 - Client side error
+	404 - Server Side Error
+	500 - Server Side Error
+	502 - Internal
+	200 - OK
+	300 - redirection
+
+
+When creating a page, you can only have 1 form per page.
+
+You can use libraries instead of  your own css stylesheet
+	Examples like
+		getmdl.io
+		getbootstrap.com
+		metroui.org.ua
+		material.io
+
+href="" in tag to link to another page
+
+
+jquery syntax
+	$ (OBJECT_SELECTION).EVENT_NAME (a_function_for_event_tasks)
+		EXAMPLE
+			$(document).ready(function() {
+				$'#b_sing_in').click(function(e) { e.preventDefault();window.location.href = 'filepath.html';
+				})
+				})
+
+
+document.getElementById('textboxname').innerHTML
+    
+or document.getElementById('textboxname').value
