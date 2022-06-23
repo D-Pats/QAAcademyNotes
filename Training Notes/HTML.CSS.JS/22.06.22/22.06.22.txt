@@ -1,0 +1,18 @@
+XML and JSON
+	Extensive markup language
+	Javascript object notation
+
+
+JSON { marks: [{English:20, Math:30,Science: -5}]}
+	Partial data
+	NON transactional
+	
+	Use JSON for mobile apps or desktop apps (not browsers), we do not use files for data transfer
+
+XML
+
+
+
+After Lunch
+	the head tag should contain all declarations
+	

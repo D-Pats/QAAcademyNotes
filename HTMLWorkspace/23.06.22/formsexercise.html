@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Sign up form</h1>
+    <form method="post" action="/index.html" >
+        <fieldset>
+            <legend>Your basic info</legend>
+            <label for="fname">First name</label>
+            <input id="fname" type="text" autofocus="true">
+            <br/>
+            <label for="email_address">Email</label>
+            <input id="email_address" type="email">
+            <br/>
+            <label for="pword">Password</label>
+            <input id="pword" type="password" required >
+            <input type="radio" name="radio_gender" value="Male"/>Male
+            <input type="radio" name="radio_gender" value="Female"/>Female
+            <input type="submit" name="OKButton" value="Submit"/>
+        </fieldset>
+    </form>
+</body>
+</html>

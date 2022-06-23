@@ -1,0 +1,119 @@
+HTML
+	Intro
+		start with:
+			<html>
+				<head>
+				</head>
+				<body>
+				</body>
+			</html>
+			
+	DTD
+		<!doctype html>
+			This was required before the <html> tag
+			Browsers now assume this tag and is not now required
+			
+	
+	HTML defines the site
+	CSS visualises it
+	JavaScript manipulates the tree of content
+	
+	HEAD
+		tags include
+			<title>
+				defines title of document for the browser tab (favourites and search engines)
+			<style>
+				defines style info about the document (can also be done by css)
+			<link>
+				defines where external style sheets should be linked from
+			<meta>
+				specifies the page's character set, description, keywords, author, viewport, etc.
+			<script>
+				defines the client-side JavaScript (more commonly at the bottom of the <body> tag to load the page content quicker)
+			<base>
+				specifies base URL and taget for all relative URLs in a page
+		
+		Title and Meta are ALWAYS in the head tag, the others can be part of other tags like body too.
+	
+
+Entities
+	characters used for markup cannot be used for other things like mathematical computation, we use entities instead, they also have entity numbers
+	common ones:
+		< is &lt;
+			less than
+		> is &gt;
+			greater than
+		& is &amp;
+		" is &quot
+		' is &apos
+		non-breaking space is &nbsp;
+		£ is &pound
+		bullet points is &bullet;
+
+Tags
+	<h1> is a heading</h1>
+	<h6> smaller heading</h6>
+	<b>bold text (within another tag)</b>
+	<p>paragraph</p>
+
+
+Lists
+	Unordered list
+		<ul>
+			<li>list item 1</li>
+			<li>list item 2
+				<ul>
+					<li>sub item 1</li>
+					<li>sub item 2</li>
+				</ul>
+			</li>
+			<li>list item 3</li>
+		</ul>
+	
+	Ordered List
+			<ol>
+			<li>list item 1</li>
+			<li>list item 2
+				<ol>
+					<li>sub item 1</li>
+					<li>sub item 2</li>
+				</ol>
+			</li>
+			<li>list item 3</li>
+		</ol>
+		
+
+Tables
+	Dynamic tables
+		<table>
+
+			<thead>
+
+				<tr>
+
+					<th>Name</th>
+
+					<th>Age</th>
+
+					<th>Job Role</th>
+
+				</tr>
+
+			</thead>
+
+			<tbody>
+
+
+
+			</tbody>
+
+			</table>
+			
+
+input types
+	text
+	number
+		can also put min or max values for this (in the case of age you wouldn't want lower than 0)
+	email
+	tel
+	password

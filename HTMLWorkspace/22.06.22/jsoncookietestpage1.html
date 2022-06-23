@@ -1,0 +1,38 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+    <button id="b_next_page" onclick="sumFunc()"
+        class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+        Next Page
+    </button>
+    <script>
+        $(document).ready(
+
+            function () {
+
+                $('#b_next_page').click(function (e) {
+                    var data = {
+                        "name": "Pikachu",
+                        "age": 102,
+                        "money": "$1",
+                        "latitude": { "lat": 65.003, "lon": 33.11 },
+                        "isHungry": true
+                    }
+                    document.cookie = JSON.stringify(data);
+                    window.location.href = 'jsoncookietestpage2.html';
+
+                })
+            })
+    </script>
+</body>
+
+</html>

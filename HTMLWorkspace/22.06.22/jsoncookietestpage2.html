@@ -9,14 +9,10 @@
 </head>
 
 <body>
-    <p id="sum"></p>
+    <p id="data"></p>
     <script>
-        var mycookie = decodeURIComponent(document.cookie);
-        myvals = mycookie.split(';')
-        nums = myvals[0].split(':');
-        n1 = parseInt(nums[0].split('=')[1]);
-        n2 = parseInt(nums[1].split('=')[1]);
-        document.getElementById("sum").innerText = n1 + n2;
+        mycookie = decodeURIComponent(document.cookie);
+        document.getElementById("data").innerText = mycookie;
     </script>
 </body>
 
