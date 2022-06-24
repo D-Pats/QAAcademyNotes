@@ -117,3 +117,11 @@ input types
 	email
 	tel
 	password
+	
+
+FORM
+	<form method="post" action="script.js">
+	  Please enter your name:
+	  <input type="text" name="UserName"/>
+	  Pass
+	</form>

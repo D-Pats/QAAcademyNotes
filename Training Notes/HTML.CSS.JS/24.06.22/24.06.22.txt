@@ -1,0 +1,54 @@
+Fonts
+	font family: font1, font2, font3
+		This will go through the fonts until it finds one that the device has
+		good to end with sserif or sans-serif
+	
+	font-size:
+	font-weight:
+	font-style:
+	line-height:
+	vertical-align:
+
+
+JavaScript
+	Console.log()
+		prints a variable
+		example
+			let a = 1
+			console.log(a)
+				This will return "1"
+	
+	logs can be found in %temp%
+	
+	
+Variables
+	Using ES6 standard
+		we use  let and const to declare variables
+
+
+ASI
+	semi colon breaks up the code (lines don't matter - code is read until ; then runs)
+
+
+Strict mode
+	strict means follow our code exactly
+	loose mode is defrault and our browser will fix errors that it is set to do (such as auto closing tags)
+
+
+Iteration
+	similar to java but instad of "data type variable" it is "let variable"
+		example
+			for (int i = 0; i < 10; i++) {console.log(i)}
+				is now
+			for (let i = 0; i < 10; i++) {console.log(i)}
+
+
+Coditionals
+	if, else, else if
+		similar to java
+	
+
+OOP
+	has classes and constructors like in Java
+	
+
