@@ -1,0 +1,90 @@
+Spring
+	What is it?
+		A bunch of prebuilt solutions for common problems with enterprise applications
+		
+		A java framework and IoC container (Inversion of control)
+			
+			Persistence
+				Spring Data API
+				
+			Scalability
+				Spring Cloud
+			
+			Security
+				Spring Security
+				
+				
+					<----Query			<---Requests
+			Database			Back End			Front End
+					---->Data			--->Results
+					
+
+HTTP Requests
+
+
+	@RestController
+	public class <class name>
+
+	Mapping
+		@GetMapping("/filepath")
+
+
+Request/Response
+	requests have 
+		Headers
+			metadata (content type)
+		URL
+			Address
+		Body
+			data
+		Methods
+			GET POST etc.
+			
+	responses have
+		Headers
+		Body
+		Status codes
+		
+
+REST API
+	R
+	E
+		Representational
+	S
+		State
+	T
+		Transfer
+	A
+		Application
+	P
+		Pogramming
+	I
+		Interface
+		
+
+Request methods
+	CRUD
+		Create
+			POST
+		Read
+			Get
+		Update
+			PUT or PATCH
+				PUT replaces
+				PATCH updates
+		Delete
+			DELETE
+		
+
+Result Status Codes
+	1xx Info
+	2xx OK
+	3xx Redirect
+	4xx Client Error (Bad Request) (You messed up)
+	5xx Server Error (They messed up)
+	http.cat
+	
+
+REST CONTROLLER
+	Assumes you are working with REST APIS and JSON
+		Returning data as Java will be converted to JSON automatically.

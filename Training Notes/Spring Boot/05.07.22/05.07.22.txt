@@ -1,0 +1,11 @@
+Spring is an IOC container
+	IOC
+		Inversion of Control
+	
+	Normally we make objects, with IOC the framework does it for us -> Things made by SpringBoot are called Beans
+	Beans are stored in the Context
+		Context is basically a list of beans
+		
+	
+	Depenency Injection
+		

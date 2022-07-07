@@ -1,0 +1,21 @@
+eylem@argesusa.com
+linkedin.com/in/argesusa
+
+homework
+	an example where you can use a builder pattern
+		don't write the code, just an example
+		
+			build a keyboard
+				need keycaps
+				switches
+				case
+				cable
+				pcb
+			all assembled the same way
+		
+
+	Look at the factory and prototype patterns
+	
+	Builder pattern
+	
+	Singleton pattern

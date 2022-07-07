@@ -1,0 +1,13 @@
+Collections
+	
+	Arrays are not dynamically expanding or shrinking
+	Linked list are dynamically expanding and shrinking
+	
+	Built in classes (both need to be instantiated)
+		LinkedList<data type>
+		Iterator<data type>
+		
+Loggers
+	java.util.logging.logger
+		or
+	logj4 can be added into dependencies with maven repository

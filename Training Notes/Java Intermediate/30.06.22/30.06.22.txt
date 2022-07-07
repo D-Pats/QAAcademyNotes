@@ -1,0 +1,17 @@
+Generics
+
+
+Lambda Expressions
+	(arg1, arg2) -> {System.out.println("Two arguments " + arg1 + " and " + arg2);}
+	
+	Example
+		public static void main(String[] args) {
+			ArrayList<Integer> arrayList = new ArrayList<>();
+			arrayList.add(1);
+			arrayList.add(2);
+			arrayList.add(3);
+			arrayList.add(4);
+			
+			arrayList.forEach(n -> System.out.println(n));
+			arrayList.forEach(n -> {if (n % 2 == 0) System.out.println(n);});
+		}

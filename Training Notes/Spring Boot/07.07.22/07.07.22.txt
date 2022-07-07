@@ -1,0 +1,68 @@
+h2 needs to use single quotes for Strings.
+
+Do schema first then data
+	Schema will drop the tables so it will drop the data if you put data first
+	
+	
+JavaScript
+	Provide functionality to websites
+	Scripting language
+	Based on C
+		similar syntax to JavaScript
+	Loosely typed
+	Dynamically typed
+	Intereprate not compiled
+
+
+Variables
+	var v = 6;
+	let l = 12
+	const c = 27;
+		Const is final
+		
+		const me = {name: 'Devin'}
+			me.name = 'Patel'
+	
+	function functionName(a, b) {		
+		return a + b;
+	}
+
+	function functionNameBetter(a, b) {		
+		let sum = a + b;
+		return sum;
+	}
+	
+
+Primitive Types
+	String
+		text
+	boolean
+		true/false
+	number
+		digits
+	bigint
+		lot of numbers
+	symbol
+		unique id
+	null
+		nothing
+	undefined
+		less than nothing
+		
+
+ASI
+	Automatic semicolon insertion
+	
+	1 Two lines cannot run as one
+	2  After flow of control statements
+	3 End of File
+	
+Strict mode
+	Tells the browser you are using a modern standard
+	
+	"use strict";
+		at the top of the JS file
+	
+	
+	var variables are "hoisted" to the top of the function
+	
