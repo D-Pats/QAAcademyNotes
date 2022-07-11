@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Handling</title>
+</head>
+
+<body>
+    <button onclick="alert('yo')">CLICK ME</button>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <label for="myInput"></label><button id="addInput" onclick="writeInput()">Write</button>
+    <input type="text" name="" id="myInput">
+    <div id="output">
+
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <label for="milesInput">Miles: </label>
+    <input type="number" oninput="convertToKMs()" value="0" id="milesInput">
+    <br>
+    <label for="kmsInput">KM: </label>
+    <input type="number" oninput="convertToMiles()" value="0" id="kmsInput">
+
+
+    <script src="./index.js"></script>
+</body>
+
+</html>
