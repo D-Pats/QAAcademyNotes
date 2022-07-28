@@ -1,0 +1,96 @@
+Mongo DB
+	Overview
+		It's a document store (non-relational database)
+		
+	
+	Data Format
+		An entry in the database (document) represents a whole object
+		
+		Documents are stored as BSON - key value pairs
+		
+		{
+			"id" : ObjectID("dfasasfdas"),
+			"firstName" : "Devin",
+			"lastName" : "Patel"
+		}
+		{
+			"id" : ObjectID("dfasasfdas1"),
+			"firstName" : "Jordan",
+			"lastName" : "Benbelaid"
+		}
+	
+	
+	Why is it used?
+		Less restricitve as it doesn't follow a pre-set schema
+		scalable through sharding
+		
+	
+	When should it be used?
+		When your data has no fixed structure
+		When there is no strong relationships between different collections
+		
+
+Databases
+	Create
+		use db_name
+		
+		
+	Read
+		show dbs
+			to find the name of the currently selected db it can be accessed via the variable: db
+		
+		
+	Update https://www.mongodb.com/docs/database-tools/mongodump/#std-label-mongodump-example-copy-clone-database
+		Use mongodump and mongorestore - have to do this outside of mongo (exit mongo then do it)
+			Oneline
+				mongodump --archive --db=old_db | mongorestore --archive  --nsFrom='old_db.*' --nsTo='new_db.*'
+				
+			Two lines
+				mongodump --archive="backup_file" --db=old_db
+				mongorestore --archive="backup_file" --nsFrom='old_db.*' --nsTo='new_db.*'
+				
+				
+			Depricated way
+				No way to rename in MongoDB
+					copy the db, give it a new name then remove the old one
+						old_name.copyDatabase('old_name', 'new_name');
+						use old_name
+						old_name.dropDatabase();
+				
+				
+	Delete
+		Delete a database by using it then dropping
+			use db_name
+			db.dropDatabase();
+			
+
+Collections
+	Overview
+		A collection is a group of documents
+		Collections enforce no schema, they do not have to follow the same structure
+		Generally documents in a schema will be related but don't have to follow a set structure
+	
+	
+	Create
+		.createCollection()
+		db.createCollection('collection_name')
+		
+		it is also possible to insert a socument into a collection that does not exist yet and will then create the collection
+		
+		It's possible to pass in an options object as an optional second argument
+		This allows for the setting of a max memory amount or enforcing validation on documents to be added to the collection
+		
+	
+	Read
+		show collections
+			This will display all collections in the current database
+			
+	
+	Update
+		.renameCollection()
+		db.collection_name.renameCollection('new_name')
+		
+	
+	Delete
+		.drop()
+		db.collection_name.drop()

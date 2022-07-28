@@ -1,0 +1,90 @@
+Express 
+	Intro
+		Overview
+			Express.js is a minimalist frameword used to handle web functionality in Node.js applications
+				By itself Express does very little, it's main purpose is to implement middleware into a project
+				
+		
+		Installing Express
+			npm install express
+				or npm i express
+		
+		
+		Creating your first Express applications
+			First we need to import Express to a constant using require()
+				const express = require('express');
+				
+			Next, call the constant as a function
+				const app = express();
+			
+			Finally in order to communicate with the Express app we need to get the app to start listening to traffic on a port
+				app.listen(4494);
+					If you don't specifiy the port then it will choose a random unused oprt
+				
+			app.listen() returns a Server object which we can save
+				const server = app.listen();
+				
+			You can pass a callback to .listen() with this you can log useful info about the server
+				const server = app.listen(8080, () => {
+					console.log(`Server started successfully on port number ${server.address().port}`);
+				});
+				
+	
+	Handling Requests
+		Request methods
+			.get()
+				app.get('/read', (req, res) => console.log('fetch'));
+			.post()
+				app.post('/create', (req, res) => console.log('create'));
+			.put()
+				app.put('/replace', (req, res) => console.log('replace'));
+			.patch
+				app.patch('/update', (req, res) => console.log('update'));
+			.delete()
+				app.delete('/delete', (req, res) => console.log('delete'));
+				
+		
+		Req
+			the req variable is an object that represents the recieved request and can be used to view sent data and request metadata such as headers, cookies, etc.
+			
+		
+		URL parameters
+			Sending data using the URL, e.g delete/1 would normally indicate that an element with id 1 should be deleted
+			
+			To use URL parameters in Express they must first be declared in the path using a : and then access via the req.params objext
+				app.delete('/delete/:id', (req, res) => {
+					console.log(req.params.id);
+				});
+				
+		
+		Query parameters
+			Query parameters are appended to the end of a URL and take a very particular format
+			Query parameters always start with a ?
+			format of key=value
+			seperated by an &
+			
+			example
+				if we had this object:
+
+					{
+						"id": 1,
+						"name": "Barry",
+						"age": 44,
+						"job": "Receptionist"
+					}
+				
+				wanted to send a request to update the name and age we might send it to a path like this:
+
+					/update/1?name=barry&age=22
+			
+			In Express query parameters can be accessed from the req.query object
+				app.patch('/update/:id', (req, res) => {
+					const id = req.params.id;
+					console.log('id: ', id);
+					const name = req.query.name;
+					console.log('Name: ', name);
+					const age = req.query.age;
+					console.log('Age: ', age);
+				});
+				
+	

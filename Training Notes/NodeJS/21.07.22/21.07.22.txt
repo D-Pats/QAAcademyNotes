@@ -1,0 +1,16 @@
+REST applications with Node
+	Overview
+		A REST API (also referred to as RESTful API) follows the rules of REST architectural style. 
+			Client-server architecture
+			Statelessness
+			Cacheability
+			Layered system
+			Code on demand (optional)
+			Uniform interface
+		
+		In practice, REST APIs are HTTP endpoints exposing database entities as resources - such resources can be accessed and manipulated using REST verbs
+			GET
+			POST
+			PUT
+			DELETE
+		

@@ -1,0 +1,22 @@
+NodeJS
+	Overview
+		In Node each JS file is its own module. These modules are decrete collections of javascript that are kept separate in order to reduce coupling and increase cohesion
+		
+	
+	Exporting modules (module.exports)
+		now.js // some file name
+			const now = new Date()l
+			
+			module.exports.startDate = now;
+			
+	
+	Importing modules (require() function)
+		index.js //some file name
+			const { startDate } = require('./now.js');
+			
+			console.log(startDate);
+			
+		
+		Importing from node_modules is just as easy - simply omit the ./
+		
+		const chalk = require('chalk');

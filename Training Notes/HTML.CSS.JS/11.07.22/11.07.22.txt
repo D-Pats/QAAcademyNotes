@@ -1,0 +1,16 @@
+Handling Events
+	Events:
+		Loading
+		Click
+		Scroll
+		Typing
+		Mouseover
+		Submit
+	
+	Event handling is running JS when an event is triggered
+	
+
+Event Listeners
+	No HTML
+		
+		element.addEventListener

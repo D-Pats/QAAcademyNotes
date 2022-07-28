@@ -1,0 +1,50 @@
+Creating object in JS
+	const objectName = {key1:"string value", key2: 43}
+		return objectName.key1;
+			"string value"
+			
+		objectName.key1 = "something else"
+			return objectName.key1;
+			"something else"
+			
+
+Arrays
+	Indexed collection of data
+		Can put anything in the array (Strings, booleans, ints, objects, other arrays, etc.)
+	const arr = ["a", true, 12, objectName];
+	
+	push()
+		adds on the end
+		
+	pop()
+		removes last
+
+
+Enahanced for loop
+	for (let a in arr) {
+		console.log(a);
+	}
+		goes through keys
+		-------------------------------- more important below
+		for (let a of arr) {
+		console.log(a);
+	}
+		goes through values
+		
+
+JSON.stringify()
+	changes data to a string
+	
+JSON.parse()
+	changes a string to JavaScript
+	
+
+Lambda function for JS (FatArrow)
+
+	const multiple = (a, b) => a*b;
+	
+		same as
+	
+	function multiple(a, b) {
+		return a * b;
+	}

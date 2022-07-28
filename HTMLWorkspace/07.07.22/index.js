@@ -106,6 +106,23 @@
 // True
 // False
 
-//Exercise 2
+// Exercise 2
 // False
 // True
+
+// Exercise 3
+// function agetest(age) {
+//     if(age >= 18 && age <= 65) {
+//         console.log("Prime of life");
+//     } else if (age < 18) {
+//         console.log("Too young");
+//     }
+//      else {
+//         console.log("Too old");
+//     }
+// }
+
+// Exercise 4
+// function agetest2(age) {
+//     return age >= 50 ? "50 or over" : "Under 50";
+// }

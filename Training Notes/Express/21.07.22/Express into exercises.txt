@@ -1,0 +1,22 @@
+Exercise 1
+	npm init --force
+	
+	
+Exercise 2
+	npm i express
+	
+	
+Exercise 3
+	const express = require('express');
+	
+
+Exercise 4
+	const app = express();
+	
+
+Exercise 5
+	app.listen(8080);
+
+	// const server = app.listen(8080, () => {
+	//     console.log(`Server started successfully on port number ${server.address().port}`);
+	// });

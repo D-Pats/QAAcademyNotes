@@ -1,0 +1,229 @@
+Documents
+	Overview
+		Documents are how MongoDB stores data
+		Key:value pair format (similar to JSON)
+		Do not have to follow a strict schema unless one has been set when the collection was created
+		
+	
+	Create
+		insertOne()
+			db.collectionName.insertOne({
+				"firstName" : "Devin",
+				"lastName" : "Patel"
+				"age" : 25
+				"subjects" : [
+					"MongoDB",
+					"Java",
+					"SQL"
+				]
+			})
+			
+		Possible to insert more than one document at a time by passing a JSON array into the insertMany() function
+			db.collectionName.insertMany([
+				{
+					"firstName" : "Devin",
+					"lastName" : "Patel"
+					"age" : 25
+					"subjects" : [
+						"MongoDB",
+						"Java",
+						"SQL"
+					]
+				},
+				{
+					"firstName" : "Devin 2",
+					"lastName" : "Patel 2"
+					"age" : 225
+					"subjects" : [
+						"MongoDB",
+						"Java",
+						"SQL"
+					]
+				}
+			])
+			
+	
+	Read
+		Pull all documents with find()
+			db.collectionName.find()
+		
+		
+		Possible to only pull certain documents by passing a query object into the find() function
+		
+	
+	Projection
+		If you only want to find certain fields rather than the whole document then you can pass a projection object into the find() function
+			db.practice.find(
+				{},								this is a blank filter
+				{
+					"firstName" : true,
+					"lastName" : true
+				}
+			)
+			
+		the ID field will always be displayed unless specifically excluded
+			db.practice.find(
+				{},
+				{
+					"_id" : false,
+					"firstName" : true,
+					"lastName" : true
+				}
+			)
+		
+	
+	Queries
+		Possible to create very simple queries in Mongo by passing in partial objects.
+			Example, look for people with first name Devin
+				db.collectionName.find(
+					{
+						"firstName" : "Devin"
+					}
+				)
+	
+	
+	Equals
+		The $eq operator basically works in the same way as using no operator at all
+			i.e we could have written the previous example as
+				db.collectionName.find(
+					{
+						"firstName": { "$eq": "Devin" }
+					}
+				)
+				
+			More often used as not equals
+				db.collectionName.find(
+					{
+						"firstName": { "$ne": "Devin" }
+					}
+				)
+				
+			Greater Than/LessThan
+				$gt
+				$gte
+				$lt
+				$lte
+			
+			In/Nin (Including and Not Including)
+				db.collectionName.find(
+					{
+						"specialisation": { 
+										"$in": [
+											"Software Dev",
+											"DevOps"
+											] 
+										}
+					}
+				)
+				db.collectionName.find(
+					{
+						"specialisation": { 
+										"$nin": [
+											"Software Dev",
+											"DevOps"
+											] 
+										}
+					}
+				)
+	
+	
+	Update
+		To change existing documents you will need to use update query operators
+		Example using updateOne() to add a specialisation to Devin
+			db.collectionName.updateOne(
+				{
+				"firstName": "Devin",
+				"lastName" : "Patel"
+				},
+				{
+					"$set" : {
+						"specialisation" : "Software Development"
+						}
+				}
+			)
+			
+		the $set operator
+		In MongoDB the $ is used to signify system fields or operators - in this case it is used to differentiate between the set operator and just a field called set
+		It is possible to update multiple documents in a similar manner with updateMany()
+		difference between updateMany and updateOne is that updateOne stops looking after it finds documents that matches the filter, updateMany will search the whole collection for any matching documents.
+		
+		db.collectionName.updateMany(
+			{},
+			{
+				"$set": {
+					"reportsTo": "John Gordon"
+					}
+			}
+		)
+	
+		
+		Replace an existing document with a band-new one with replaceOne()
+			db.collectionName.replaceOne()
+		
+	
+	Arrays
+		Values can be added into arrays using the $push operator
+			db.collectionName.updateOne(
+				{
+					"firstName": "Devin",
+					"lastName": "Patel"
+				},
+				{
+					"$push": {
+						"subjects": "JavaScript"
+					}
+				}
+			)
+	
+		
+		Values can be removed using $pull
+			db.collectionName.updateOne(
+				{
+					"firstName": "Devin",
+					"lastName": "Patel"
+				},
+				{
+					"$pull": {
+						"subjects": {"$nin" : "Java"}
+					}
+				}
+			)
+			
+	
+	Delete
+		To delete one use deleteOne()
+			db.collectionName.deleteOne(
+				{
+					"firstName" : "Devin"
+				}
+			)
+			
+		
+		To delete multiple use deleteMany()
+			db.collectionName(
+				{
+					"specialisation" : "DevOps"
+				}
+			)
+	
+	
+	Embedded Documents
+		through JavaScript is is possible to put a document inside of another document
+			typically used to represent an entity that belongs to another entity, e.g. represent a person's job as a seperate entity embedded inside the person entity
+				{
+					"firstName": "Devin",
+					"surname": "Patel",
+					"age": 25,
+					"height": 178,
+					"hobbies":  [
+						"Gaming",
+						"Cycling",
+						"Guitar"
+					],
+					"job": {
+						"title": "Tech specialist",
+						"salary": 1000000000,
+						"startDate": new Date("2022-05-09"),
+						"manager": "ManagerName"
+					}
+				}

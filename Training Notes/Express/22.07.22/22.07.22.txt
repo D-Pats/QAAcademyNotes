@@ -1,0 +1,329 @@
+Error handling
+	Throwing an eror
+		const err = new Error('message')
+		
+		Before handling the error we need to pass it to error handling middleware
+			2 ways to do this
+				use next()
+					app.get('/error', (req, res, next) => {
+						const err = new Error('Useful error message');
+						next(err);
+					});
+				
+				throw new Error('')
+					app.get('/error', (req, res, next) => {
+						throw new Error('Useful error message');
+					});
+				
+	
+	Error Handling Middleware
+		app.get('/error', (req, res, next) => {
+			const err = new Error('Useful error message');
+			next(err);
+		});
+
+		const errorLogger = (err, req, res, next) => {
+			console.log(err.stack);
+			next(err);
+		}
+		app.use(errorLogger);
+
+		const sendError = (err, req, res) => {
+			res.status(500).send(err.message);
+		}
+		app.use(sendError);
+		
+			The error is passed into the next() in the GET method
+			error will get logged to the console and passed to the last function which terminates the operation by sending the error back as a response body
+			
+			your middleware must either call next() or re.send() or else no response will be sent
+		
+	
+Router
+	Importing Router
+		const router = require('express').Router();
+			router objects function like a mini application - has it's own middleware and routes but these are isolated to the router
+		
+	
+	Using Router
+		router.get(path, callback);
+
+		router.put(path, callback);
+
+		router.post(path, callback);
+
+		router.patch(path, callback);
+
+		router.delete(path, callback);
+	
+	
+	Project Structure
+		Typically routes will be separated into their own modules mased on their domain and kept in a routes forlder
+			.
+			├── index.js
+			├── package.json
+			├── package-lock.json
+			└── routes
+				├── items.js
+				└── customers.js
+				
+	
+	Exporting Routes
+		Using the example above
+			const router = require('express').Router();
+
+			router.get('/get', (req, res) => {
+				//
+			}
+
+			router.post('/create', (req, res) => {
+				//
+			}
+
+			router.put('/update', (req, res) => {
+				//
+			}
+
+			router.delete('/delete', (req, res) => {
+				//
+			}
+
+			module.exports = router;
+			
+		then import into index.js
+			const express = require('express');
+			const app = express();
+
+			const itemRoutes = require('./routes/items.js');
+
+			app.use(itemRoutes);
+	
+	
+	Base Path
+		When adding routes we can add a base path
+			const express = require('express');
+			const app = express();
+
+			const itemRoutes = require('./routes/items.js');
+
+			app.use('items', itemRoutes);
+		
+		This will make the routes:
+			/items/get
+			/items/create
+			/items/update
+			/items/delete
+		
+	
+	Nesting Middleware
+		Nest middleware so it only applies to a particular collection of routes
+			const express = require('express');
+
+			const app = express();
+
+			const itemRoutes = require('./routes/items');
+
+			const logger = (req, res, next) => {
+				console.log(new Date());
+				next();
+			}
+
+			app.use('items', logger, itemRoutes);
+		
+		This example the logger middleware will run before the itemRoutes, log the date and then pass on the request using next()
+		
+
+Mongoose
+	Mongoose is a MongoDB object modelling library written in JavaScript
+	Provides an API for MongoDB
+	
+	
+	Installation
+		npm install mongoose
+		
+		const mongoose = require('mongoose');
+		
+	
+	Connecting to MongoDB
+		mongoose.connect(uri, options)
+		
+		default connection
+			mongoose.connect('mongodb://localhost:27017/example', { useNewUrlParser: true });
+		
+		Multiple connections
+			const secondConnection = mongoose.createConnection(uri, options)
+			
+		Different connections can use different settings and can be connected to different databases
+			const conn2 = mongoose.createConnection('mongodb://localhost:27017/example2',{ useNewUrlParser: true });
+			
+		You can check if a connection was successful or not with the callback parameter or with promises
+			// Callback function
+			mongoose.connect(uri, opts,
+				function (err) {
+					if (err) {
+						/* handle errors */
+					} else {
+						/* connection ready */
+					}
+				});
+			 
+			// Or with promises (like try catch blocks)
+			mongoose.connect(uri, opts).then(() => { /* connection ready */ }, (err) => { /* handle errors */ });
+			
+	
+	Schemas
+		Standard types include
+			String
+			Date
+			Boolean
+			etc
+			
+		SchemaType Docs
+			const mongoose = require('mongoose');
+			const Schema = mongoose.Schema;
+			 
+			const productSchema = new Schema({
+				name: String,
+				price: String,
+				location: [{
+					aisle: Number,
+					shelf: Number
+				}],
+				dateAdded: {
+					type: Date,
+					default: Date.now
+				},
+				onSale: Boolean
+			});
+		
+		
+	Validation
+		Validation can be used to control what data is allowed in schema.
+		There are a number of built-in validators
+			All SchemaTypes have the requried validator
+			Numbers have min and max validators
+			Strings have enum, match, minlength, maxlength validators
+		Validation is declared when defining a Schema
+		
+			const productSchema = new Schema({
+				name: {
+					type: String,
+					required: true,
+					minlength: 2
+				},
+				price: String,
+				location: [{
+					aisle: {
+						type: Number, 
+						min: [1, 'minimum is 1'],
+						max: 20
+					},
+					shelf: Number
+				}], /* ... */
+			});
+			
+	
+	Models
+		Models are constructors compiled from Schema definitions
+		Models are responsible for creating and reading documents from the MongoDB database
+		Call mongoodse.model(name, schema) to compile the model
+		The name argument is the name of the collection the model is for
+		Mongoose automatically looks for the plural, lowercase version of this name
+			const productSchema = new Schema({/*...*/});
+	 
+			const product = mongoose.model('Product', productSchema);
+			
+		Mongoose will look for a collection called 'products'
+	
+	
+	Documents
+		A document represents a one to one mapping to a document as stored in MongoDB
+		
+		Model and Document are distinct classes in Mongoose
+		The model class is a subclass of the document class
+		A document is an instance of it's model
+		
+	
+	Subdocuments
+		A subdocument is embedded in another document
+		This is represented as a nested Schema in Mongoose
+			const childSchema = new Schema({/*...*/});
+ 
+			const parentSchema = new Schema({
+				children: [ childSchema ]
+			});
+		
+	
+	Queries
+		Mongoose provides a number of static helper functions for simple CRUD operations
+		the results can be accessed in the callback function
+			Model.deleteMany()
+			Model.deleteOne()
+			Model.find()
+			Model.findById()
+			Model.findByIdAndDelete()
+			Model.findByIdAndRemove()
+			Model.findByIdAndUpdate()
+			Model.findOne()
+			Model.findOneAndDelete()
+			Model.findOneAndRemove()
+			Model.findOneAndUpdate()
+			Model.replaceOne()
+			Model.updateMany()
+			Model.updateOne()
+		
+	
+	Create
+		new documents can be created by calling a model constructor
+			let newdoc = new MyModel({example: 'data'});
+		
+		Saving a document
+			newdoc.save().then(()=> console.log('done!'));
+			
+				const prod = new Product({
+					name: 'carrots',
+					price: 1.23,
+					location: {
+						aisle: 13,
+						shelf: 3
+					},
+					onSale: false
+				});
+
+				// Save returns a promise
+				prod.save().then(() => console.log('complete'));
+	
+	
+	Read
+		Using Model.find() will get an array of documents that matches the query
+			var Product = mongoose.model('Product', productSchema);
+
+			Product.find(                   // find all from product
+				{ 'onSale': true },         // where onSale = true
+				'name price',               // select name, price
+				(err, prods) => {           // callback when complete / error
+					if (err) {
+						console.error('An error occurred:', err);
+					} else {
+						console.log('Products on sale:');
+						prods.forEach((prod) => console.log(prod.name, prod.price));
+					}
+				}
+			);
+			
+		
+	Update
+		Calling save() will update the document
+			prod.onSale = true;
+
+			// await will wait for a promise.
+			await prod.save();
+			
+	
+	Delete
+		Model.deleteOne()
+			will delete first matching the info
+			
+		Model.deleteMany()
+			will delete all matching the info
+			

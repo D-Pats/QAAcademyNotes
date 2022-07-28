@@ -1,0 +1,211 @@
+React
+	Overview
+		Most popular front-end JavaScript library for building web applications, with the aim for creating reactiv user interfaces
+			Developed by facebook written entirely using JavaScript
+			
+			Competiters
+				Andular and Vue.js
+				
+	
+	Advantages
+		states and reusable components
+		
+		States keep track of what is hapening withing a certain component at any given time
+		Componentrs split entire web pages into different sections according to their functionality
+		
+	
+	Virtual DOM
+		Traditionally web pages would update everything at once (usually by refreshing the page)
+		React only updates the DOM when the state of a component changes
+		This speeds things update
+	
+	
+	React UI
+		Web page is the parent component, each component is a child
+		
+		Allows for far greater modularity when creating web pages
+		
+		React is written in JavaScript which might also contain
+			JSX - an extension to JS that defines what HTML the components contain
+			CSS - relevant styling for the HTML
+			
+		EXAMPLE
+			import { Component } from "react";
+
+			const Styles = styled.div`
+			  .p {
+				background-color: #222;
+				font-size: 15px;
+			  }
+			`;
+
+			class SomeComponent extends Component {
+			  render() {
+				return(
+				  <div>
+				  <h2>Henlo frens</h2>
+				  <p>It me</p>
+				  </div>  
+				);
+			  }
+			}
+
+			export default SomeComponent;
+			
+		Entire page is written in JS which defines the following two things:
+			Stles constant is supplying theCSS for the paragrah (p) element
+			return() function is supplying the JSX to the render() function, which converts to HTML
+	
+	
+	React Tooling
+		Requires two external tools to work
+			NPM, the repo which both reach and other JS libraries are stored in
+			NPX, the package executor for MPN whioch allows us to run a React project
+			
+		
+	Creating a basic React Application
+		Ensure that a recent version of Node.js is installed first
+			in command line run the following command
+			npx create-react-app <SOME_NAME_HERE>
+			
+			run it with 
+			npm start
+			
+	
+JSX
+	Overview
+		Powerful variant of JS used with React
+		
+	
+	Seperation of technologies
+		HTML
+		CSS
+		JavaScript
+	
+	
+	JSX Tags
+		near identical to HTML
+		Example
+			const element = <h1>This is an HTML element stored inside a JS constant</h1>
+			
+		Works for child elements tools
+		Example
+			const element = (
+				<div>
+					<h1>Hello there.</h1>
+					<h2>General Kenobi.<h2>
+				</div>
+			)
+			
+	
+	Embedding Expressions
+		SX allows you to embed JavaScript expressions, which can then be used to display JavaScript elements inside HTML.
+
+		For instance, the example below declares a variable and pings it across to the HTML inside JSX, which we then pass to React's render() function:
+
+		const name = "Nick Johnson"
+		const element = <h1>Hello, {name}</h1>
+
+		ReactDOM.render(
+			element,
+			document.getElementById('root')
+		);
+		The {curly braces} can contain any valid JavaScript expression, allowing us to embed more complex things into the HTML elements we define.
+
+		Here, we'll embed the result from calling a function in JavaScript into an <h1> element:
+		
+	
+	Embedding Function Results
+		const formatName = (someName) => {
+			return someName.forename + " " + someName.surname;
+		}
+
+		const somename = {
+			forename: "Nick",
+			surname: "Johnson"
+		};
+
+		const element = {
+			<h1>
+				Hello, {formatName(someName)}!
+			</h1>
+		};
+
+		ReactDOM.render(
+			element,
+			document.getElementById('root')
+		);
+	
+	
+	Embedding Inside Conditionals/Iterators
+		JSX expressions directly turn into JS function calls
+		JSX directly evaluates into JavaScript objects
+		This means you can use JSX pretty much anywhere inside a React application including for and if statements
+			const getGreeting = (someName) => {
+				if (someName){
+					return <h1>Hello, {formatName(someName)}!</h1>;
+				} else {
+					return <h1>Hello, whoever you are.</h1>;
+				}
+			}
+			
+	Embedding Inside Attributes
+		With JSX it's possible to embed expressions into attributes, including strings
+			const element = <div tabIndex="0"/>;
+			const element = <img src={someUser.avatarURL}/>
+			
+			------Note that if you're embedding an expression using {curly braces}, you can't use "quote marks" in conjunction with them:
+				const element = <img src="{doNotDoThis}"/>
+	
+	
+	The value of JSX
+		As well as being a hybrid of HTML and Javascript other features are included
+		
+	
+	Security
+		you can embed user input into it securely
+		
+		
+	Object Representation
+		the helper agent Babel compiles JSX to React.createElemetn() calls
+		the following two code snippets are identical
+			const element = (
+			  <h1 className="greeting">
+				Hello there.
+			  </h1>
+			);
+			
+			const element = React.createElement(
+			  'h1',
+			  { className: 'greeting' },
+			  'Hello there.'
+			);
+			
+
+Babel
+	What is Babel?
+		It is a JavaScript compiler
+			converts source code into output code
+			
+		Main things it can do
+			Transform syntax
+			Polyfill features that are missing in your target environment
+			Source code transformations
+			
+				Let's have a look at how Babel converts JavaScript code:
+
+
+				// Babel Input: ES2015+ arrow function
+				[1,2,3].map((n) => n+1);
+
+				// Babel Output: ES5 Equivalent
+				[1,2,3].map(function(n){
+					return n+1; 
+				});
+	
+	
+	Using npm import the preset-react package from @babel
+
+	 npm install --save-dev @babel/preset-react
+	
+	Add @babel/preset-react to your package.json

@@ -1,0 +1,158 @@
+Exercise 1
+	use document_practice
+
+
+Exercise 2 (actually 3)
+	db.createCollection('people')
+
+
+Exercise 3 (actually 2)
+	db.people.insertOne({
+		"firstName" : "Devin",
+		"surname" : "Patel",
+		"age" : 25,
+		"height" : 178,
+		"hobbies" : [
+			"Cycling", "Gaming", "Guitar"
+		]
+	})
+
+
+Exercise 4
+	db.people.insertMany([
+	{
+        "firstName": "Jordan",
+        "surname": "Harrison",
+        "age": 25,
+        "height": 182,
+        "hobbies":  [
+            "Gaming",
+            "Reading",
+            "Writing course-ware"
+        ]   
+    },
+    {
+        "firstName": "Bill",
+        "surname": "Smith",
+        "age": 28,
+        "height": 167,
+        "hobbies":  [
+            "Philately",
+            "Knitting"
+        ]   
+    },
+    {
+        "firstName": "Ben",
+        "surname": "Smith",
+        "age": 32,
+        "height": 157,
+        "hobbies":  [
+            "Poker",
+            "Blackjack"
+        ]   
+    },
+    {
+        "firstName": "Sally",
+        "surname": "Brown",
+        "age": 34,
+        "height": 189,
+        "hobbies":  [
+            "Football",
+            "Air Guitar",
+            "Climbing"
+        ]   
+    },
+    {
+        "firstName": "Emily",
+        "surname": "Poole",
+        "age": 42,
+        "height": 174,
+        "hobbies":  [
+            "Go-Karting",
+            "Ultimate Frisbee"
+        ]   
+    }
+	])
+	
+
+Exercise 5
+	db.people.updateOne(
+		{
+			"firstName" : "Ben"
+		},
+		{
+			"$push" : {
+				"hobbies" : "Roulette"
+			}
+		}
+	)
+	
+
+Exercise 6
+	db.people.updateOne(
+		{
+			"firstName": "Sally"
+		},
+		{
+			"$pull": {
+				"hobbies": "Air Guitar"
+			}
+		}
+	)
+
+
+Exercise 7 (should be over 30)
+	db.people.find(
+		{
+			"age" : { "$gte" : 30 }
+		}
+	)
+	
+
+Exercise 8
+	db.people.find(
+		{
+			"age" : { "$gte" : 30 }
+		},
+		{
+			"_id" : false,
+			"firstName" : true,
+			"surname" : true
+		}
+	)
+
+
+Exercise 9
+	db.people.updateMany(
+		{ 
+			"age" : { "$gte" : 30 }
+		},
+		{
+			"$set" : { "glasses" : true }
+		}
+	)
+	
+
+Exercise 10
+	db.people.deleteMany(
+		{
+			"glasses" : { "$ne" : true }
+		}
+	)
+
+
+Exercise 11
+	db.people.updateOne(
+		{
+			"firstName" : "Ben"
+		},
+		{
+			"$set" : {
+				"pet" : {
+					"name" : "Doggy",
+					"age" : 3,
+					"species" : "French Bulldog"
+				}
+			}
+		}
+	)

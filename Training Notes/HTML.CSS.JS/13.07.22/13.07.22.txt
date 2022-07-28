@@ -1,0 +1,8 @@
+https://stackoverflow.com/questions/54601233/vscode-emmet-html-boilerplate
+
+BootStrap
+	Flexbox and Grids
+	Bootstrap has a gridtool implemented
+		class="container" turns div into a grid
+			grid takes the page and breaks it up into 12 columns
+https://getbootstrap.com/
